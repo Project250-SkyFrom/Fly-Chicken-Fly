@@ -13,10 +13,10 @@ public class ObstacleGenerator : MonoBehaviour
     private float nextGenerateTime; // Time when the next knife should be generated
     public BackgroundScroll camera;
     //private string[] obstaclesType = {"HandleUpKnife","HandleDownKnife","PolaCan","BabyChicken"};
-    private string[] obstaclesType = {"HandleDownKnife"};
+    public string[] obstaclesType = {"HandleDownKnife"};
     private GameObject thisObstacle;
-    public float handleUpKnifeStartGenerateTime;
-    public float polaCanStartGenerateTime;
+    public float handleUpKnifeGenerateHeight;
+    public float polaCanStartGenerateHeight;
 
     private float cameraWidth = 40.0f;  //should be update after the implementation of shrink and expand of camera
     void Start()
@@ -108,10 +108,10 @@ public class ObstacleGenerator : MonoBehaviour
 
     private string GetRandomObstacleType()
     { 
-        if(Time.time>=polaCanStartGenerateTime){
+        if(transform.position.y>=polaCanStartGenerateHeight){
             obstaclesType = new string[] {"HandleUpKnife","HandleDownKnife","PolaCan"};
         } 
-        else if (Time.time>=handleUpKnifeStartGenerateTime){
+        else if (transform.position.y>=handleUpKnifeGenerateHeight){
             obstaclesType = new string[] {"HandleUpKnife","HandleDownKnife"};
         }
         // Generate a random index within the range of the array length

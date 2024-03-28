@@ -3969,8 +3969,10 @@ MonoBehaviour:
   babyChickenPrefab: {fileID: 12479550}
   generateRate: 4
   camera: {fileID: 519420030}
-  handleUpKnifeStartGenerateTime: 70
-  polaCanStartGenerateTime: 150
+  obstaclesType:
+  - HandleDownKnife
+  handleUpKnifeGenerateHeight: 150
+  polaCanStartGenerateHeight: 400
 --- !u!4 &168354090
 Transform:
   m_ObjectHideFlags: 0
