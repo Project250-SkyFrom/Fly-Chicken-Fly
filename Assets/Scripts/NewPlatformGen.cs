@@ -25,20 +25,24 @@ public class NewPlatformGen : MonoBehaviour
     public float rottenEggPlatformScale = 6.8f;
     public float thunderPlatformScale = 6.8f;
     public float babyChickenPlatformScale = 6.8f;
+    public bool isGenerating;
+    public GameObject player;
+    public float currentY = 5.77f;
+    public int regularPlatformCounter = 0;
+    public float generatingDistance;
 
     private List<GameObject> platforms = new List<GameObject>();
 
     void Start()
     {
-        StartCoroutine(GeneratePlatformsRepeatedly());
+        //StartCoroutine(GeneratePlatformsRepeatedly());
     }
 
-    IEnumerator GeneratePlatformsRepeatedly()
+    void Update()
     {
-        float currentY = startingYPosition;
-        int regularPlatformCounter = 0;
+        
 
-        while (true)
+        if (isGenerating)
         {
             if (regularPlatformCounter == movingPlatformsFrequency)
             {
@@ -74,9 +78,14 @@ public class NewPlatformGen : MonoBehaviour
             }
 
             currentY += verticalDistanceBetweenPlatforms;
-
-            yield return new WaitForSeconds(timeBetweenPlatforms);
+            isGenerating = false;
+            //yield return new WaitForSeconds(0.1f);
+            
         }
+        if (currentY - player.transform.position.y < generatingDistance){        
+            isGenerating = true;
+            //yield return new WaitForSeconds(0.1f);
+        }    
     }
 
     void GenerateRegularPlatform(float yPosition)

@@ -21662,7 +21662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   const_speed: 10
   speed: 0
-  loopBG: {fileID: 1487856424}
+  loopBG: {fileID: 1403303760}
   spriteRenderer: {fileID: 1217592803}
   player: {fileID: 1366631711}
 --- !u!212 &1217592803
@@ -29019,6 +29019,11 @@ MonoBehaviour:
   rottenEggPlatformScale: 9.7
   thunderPlatformScale: 9.7
   babyChickenPlatformScale: 9
+  isGenerating: 1
+  player: {fileID: 1366631708}
+  currentY: 5.77
+  regularPlatformCounter: 0
+  generatingDistance: 1
 --- !u!1 &1688236130
 GameObject:
   m_ObjectHideFlags: 0
