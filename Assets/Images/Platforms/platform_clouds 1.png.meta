@@ -126,13 +126,13 @@ TextureImporter:
       name: night long
       rect:
         serializedVersion: 2
-        x: 99
-        y: 272
-        width: 305
-        height: 104
+        x: 100
+        y: 276
+        width: 304
+        height: 92
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 2}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -147,10 +147,10 @@ TextureImporter:
       name: night short
       rect:
         serializedVersion: 2
-        x: 447
-        y: 276
-        width: 230
-        height: 98
+        x: 452
+        y: 277
+        width: 222
+        height: 91
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: day long
       rect:
         serializedVersion: 2
-        x: 745
-        y: 272
-        width: 318
-        height: 109
+        x: 748
+        y: 277
+        width: 304
+        height: 91
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: day short
       rect:
         serializedVersion: 2
-        x: 1093
-        y: 273
-        width: 233
-        height: 99
+        x: 1099
+        y: 277
+        width: 223
+        height: 91
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: day fluffy
       rect:
         serializedVersion: 2
-        x: 1093
-        y: 101
-        width: 213
-        height: 106
+        x: 1099
+        y: 108
+        width: 202
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: day lon
       rect:
         serializedVersion: 2
-        x: 750
-        y: 103
-        width: 279
-        height: 107
+        x: 755
+        y: 113
+        width: 271
+        height: 92
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: night fluffy
       rect:
         serializedVersion: 2
-        x: 447
-        y: 101
-        width: 212
-        height: 106
+        x: 451
+        y: 109
+        width: 201
+        height: 94
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: night long
       rect:
         serializedVersion: 2
-        x: 102
-        y: 105
-        width: 281
-        height: 112
+        x: 108
+        y: 112
+        width: 270
+        height: 91
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
