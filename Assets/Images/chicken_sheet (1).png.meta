@@ -258,10 +258,10 @@ TextureImporter:
       name: babyChicken
       rect:
         serializedVersion: 2
-        x: 9704
-        y: 9087
-        width: 649
-        height: 693
+        x: 9723
+        y: 9098
+        width: 630
+        height: 670
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
