@@ -44,50 +44,57 @@ public class NewPlatformGen : MonoBehaviour
     {
         if (isGenerating)
         {
-            if (regularPlatformCounter == movingPlatformsFrequency)
+            if (EventController.Instance.hardMode == "night")
             {
-                GenerateMovingPlatform(currentY + movingPlatformScale);
-                regularPlatformCounter++;
-            }
-            else if (regularPlatformCounter == spikePlatformFrequency)
-            {
-                GenerateSpikePlatform(currentY + spikePlatformScale);
-                regularPlatformCounter++;
-            }
-            // Check if it is in night mode and then generate night platforms
-            else if (EventController.Instance.hardMode == "night" && regularPlatformCounter == thunderPlatformFrequency)
-            {
-                Debug.Log("Thunder generated");
-                GenerateThunderPlatform(currentY + thunderPlatformScale);
-                regularPlatformCounter++;
-            }
-            else if (regularPlatformCounter == rottenEggPlatformFrequency)
-            {
-                GenerateRottenEggPlatform(currentY + rottenEggPlatformScale);
-                regularPlatformCounter++;
-            }
-            else if (regularPlatformCounter == babyChickenPlatformFrequency)
-            {
-                GenerateBabyChickenPlatform(currentY + babyChickenPlatformScale);
-                regularPlatformCounter = 0;
+                if (regularPlatformCounter == thunderPlatformFrequency)
+                {
+                    Debug.Log("Thunder generated");
+                    GenerateThunderPlatform(currentY + thunderPlatformScale);
+                    regularPlatformCounter++;
+                }
+                else
+                {
+                    GenerateNightPlatform(currentY);
+                }
             }
             else
             {
-                GenerateRegularPlatform(currentY);
-                regularPlatformCounter++;
+                if (regularPlatformCounter == movingPlatformsFrequency)
+                {
+                    GenerateMovingPlatform(currentY + movingPlatformScale);
+                    regularPlatformCounter++;
+                }
+                else if (regularPlatformCounter == spikePlatformFrequency)
+                {
+                    GenerateSpikePlatform(currentY + spikePlatformScale);
+                    regularPlatformCounter++;
+                }
+                else if (regularPlatformCounter == rottenEggPlatformFrequency)
+                {
+                    GenerateRottenEggPlatform(currentY + rottenEggPlatformScale);
+                    regularPlatformCounter++;
+                }
+                else if (regularPlatformCounter == babyChickenPlatformFrequency)
+                {
+                    GenerateBabyChickenPlatform(currentY + babyChickenPlatformScale);
+                    regularPlatformCounter = 0;
+                }
+                else
+                {
+                    GenerateRegularPlatform(currentY);
+                    regularPlatformCounter++;
+                }
             }
 
             currentY += verticalDistanceBetweenPlatforms;
             isGenerating = false;
-            //yield return new WaitForSeconds(0.1f);
-
         }
         if (currentY - player.transform.position.y < generatingDistance)
         {
             isGenerating = true;
-            //yield return new WaitForSeconds(0.1f);
         }
     }
+
 
     void GenerateRegularPlatform(float yPosition)
     {

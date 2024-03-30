@@ -4493,7 +4493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 10
+  const_speed: 5
   speed: 0
   loopBG: {fileID: 356359686}
   spriteRenderer: {fileID: 187902712}
@@ -7228,7 +7228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 10
+  const_speed: 5
   speed: 0
   loopBG: {fileID: 975841434}
   spriteRenderer: {fileID: 356359687}
@@ -9122,7 +9122,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1796958813}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &495499789
 MonoBehaviour:
@@ -15767,7 +15767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 10
+  const_speed: 5
   speed: 0
   loopBG: {fileID: 1434310872}
   spriteRenderer: {fileID: 975841437}
@@ -22575,7 +22575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 10
+  const_speed: 5
   speed: 0
   loopBG: {fileID: 1403303760}
   spriteRenderer: {fileID: 1217592803}
@@ -25928,7 +25928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 10
+  const_speed: 5
   speed: 0
   loopBG: {fileID: 187902710}
   spriteRenderer: {fileID: 1403303763}
@@ -26363,7 +26363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 10
+  const_speed: 5
   speed: 0
   loopBG: {fileID: 1217592801}
   spriteRenderer: {fileID: 1434310873}
@@ -29889,7 +29889,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677654888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1, y: 21.7, z: -1.0039062}
+  m_LocalPosition: {x: -0.06, y: 19.96, z: -1.0039062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -37105,12 +37105,12 @@ PrefabInstance:
     - target: {fileID: 216289515823444074, guid: fb49a0058f709864f9f47900a7fc4766,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.74
+      value: 35.38
       objectReference: {fileID: 0}
     - target: {fileID: 216289515823444074, guid: fb49a0058f709864f9f47900a7fc4766,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.88
+      value: 27.41
       objectReference: {fileID: 0}
     - target: {fileID: 216289515823444074, guid: fb49a0058f709864f9f47900a7fc4766,
         type: 3}
@@ -37278,7 +37278,7 @@ PrefabInstance:
     - target: {fileID: 4186990691909386265, guid: fb49a0058f709864f9f47900a7fc4766,
         type: 3}
       propertyPath: m_Name
-      value: DayMovingPlatforms
+      value: DayMovingPlatforms(left/right)
       objectReference: {fileID: 0}
     - target: {fileID: 4186990691909386265, guid: fb49a0058f709864f9f47900a7fc4766,
         type: 3}
@@ -37394,25 +37394,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4901047077940880019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edddd5b7e719e45559af069f9fff9643, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacleType: cloud
---- !u!1 &4901047077940880022 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 384633238492072157, guid: fb49a0058f709864f9f47900a7fc4766,
-    type: 3}
-  m_PrefabInstance: {fileID: 4901047077940880017}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4901047077940880023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4901047077940880022}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edddd5b7e719e45559af069f9fff9643, type: 3}
