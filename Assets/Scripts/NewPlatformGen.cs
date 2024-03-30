@@ -50,7 +50,7 @@ public class NewPlatformGen : MonoBehaviour
                 {
                     Debug.Log("Thunder generated");
                     GenerateThunderPlatform(currentY + thunderPlatformScale);
-                    regularPlatformCounter++;
+                    regularPlatformCounter ++;
                 }
                 else
                 {
@@ -82,7 +82,7 @@ public class NewPlatformGen : MonoBehaviour
                 else
                 {
                     GenerateRegularPlatform(currentY);
-                    regularPlatformCounter++;
+                    regularPlatformCounter ++;
                 }
             }
 

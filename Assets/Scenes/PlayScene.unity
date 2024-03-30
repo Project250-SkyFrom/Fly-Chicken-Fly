@@ -4072,7 +4072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &168354089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4493,7 +4493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 5
+  const_speed: 10
   speed: 0
   loopBG: {fileID: 356359686}
   spriteRenderer: {fileID: 187902712}
@@ -4910,7 +4910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &227263536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7228,7 +7228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 5
+  const_speed: 10
   speed: 0
   loopBG: {fileID: 975841434}
   spriteRenderer: {fileID: 356359687}
@@ -15767,7 +15767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 5
+  const_speed: 10
   speed: 0
   loopBG: {fileID: 1434310872}
   spriteRenderer: {fileID: 975841437}
@@ -16830,7 +16830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1042893951
 Transform:
   m_ObjectHideFlags: 0
@@ -22575,7 +22575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 5
+  const_speed: 10
   speed: 0
   loopBG: {fileID: 1403303760}
   spriteRenderer: {fileID: 1217592803}
@@ -25928,7 +25928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 5
+  const_speed: 10
   speed: 0
   loopBG: {fileID: 187902710}
   spriteRenderer: {fileID: 1403303763}
@@ -26363,7 +26363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d4d8594ddc1244eaa5d5d63bb1c55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  const_speed: 5
+  const_speed: 10
   speed: 0
   loopBG: {fileID: 1217592801}
   spriteRenderer: {fileID: 1434310873}
@@ -32866,7 +32866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1887190928
 Transform:
   m_ObjectHideFlags: 0
