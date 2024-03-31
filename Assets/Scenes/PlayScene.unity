@@ -4089,7 +4089,14 @@ MonoBehaviour:
   handleDownKnifePrefab: {fileID: 1648059462}
   polaCanPrefab: {fileID: 344263917}
   babyChickenPrefab: {fileID: 12479550}
-  generateRate: 4
+  generateRate: 0
+  baseGenerationRate: 1
+  dayGenerationRate: 3
+  nightGenerationRate: 0
+  hardMode: day
+  increaseDifficultyDistance: 50
+  difficultyLevel: 0
+  decreaseRate: 0.2
   camera: {fileID: 519420030}
   obstaclesType:
   - HandleDownKnife
@@ -9246,7 +9253,7 @@ GameObject:
   - component: {fileID: 507123404}
   - component: {fileID: 507123403}
   m_Layer: 0
-  m_Name: System_button
+  m_Name: pauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9353,6 +9360,17 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 227263535}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 782966349}
+        m_MethodName: SetUINotActive
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 507123401}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -16288,6 +16306,7 @@ MonoBehaviour:
   duration: 1
   resume1: {fileID: 999272815}
   resume2: {fileID: 2108015668}
+  pauseButton: {fileID: 507123401}
   resume_game: 0
 --- !u!114 &999272818
 MonoBehaviour:
@@ -35078,6 +35097,7 @@ MonoBehaviour:
   duration: 1
   resume1: {fileID: 2056302303}
   resume2: {fileID: 2056302303}
+  pauseButton: {fileID: 507123401}
   resume_game: 1
 --- !u!114 &2056302306
 MonoBehaviour:
@@ -36253,6 +36273,7 @@ MonoBehaviour:
   duration: 1
   resume1: {fileID: 2108015668}
   resume2: {fileID: 2056302303}
+  pauseButton: {fileID: 507123401}
   resume_game: 0
 --- !u!114 &2108015671
 MonoBehaviour:
