@@ -232,10 +232,10 @@ private void StartShrinkingBoundaries()
 
     public void ChangeHardMode(string mode){
         if (mode == "day"){
-            obstacleGenerator.generateRate = 4;
+            obstacleGenerator.hardMode = "day";
         }
         else{   //night
-            obstacleGenerator.generateRate = 1;
+            obstacleGenerator.hardMode = "night";
         }
     }
 }

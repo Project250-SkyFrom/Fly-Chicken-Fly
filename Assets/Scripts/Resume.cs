@@ -8,6 +8,7 @@ public class Resume : MonoBehaviour
     public float duration;
     public GameObject resume1;
     public GameObject resume2;
+    public GameObject pauseButton;
     public bool resume_game;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class Resume : MonoBehaviour
             UIController.Instance.SetUINotActive(resume1);
             if (resume_game){
                 EventController.Instance.ResumeGame();
+                UIController.Instance.SetUIActive(pauseButton);    
             }else{
                 UIController.Instance.SetUIActive(resume2);
             }

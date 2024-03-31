@@ -10,6 +10,13 @@ public class ObstacleGenerator : MonoBehaviour
     public GameObject polaCanPrefab;
     public GameObject babyChickenPrefab;
     public float generateRate; // Rate at which knives will be generated
+    public float baseGenerationRate;
+    public float dayGenerationRate;
+    public float nightGenerationRate;
+    public string hardMode;
+    public float increaseDifficultyDistance;
+    public int difficultyLevel;
+    public float decreaseRate;
     private float nextGenerateTime; // Time when the next knife should be generated
     public BackgroundScroll camera;
     //private string[] obstaclesType = {"HandleUpKnife","HandleDownKnife","PolaCan","BabyChicken"};
@@ -22,14 +29,23 @@ public class ObstacleGenerator : MonoBehaviour
     void Start()
     {
         // Initialize nextGenerateTime to the current time plus the generateRate
+        generateRate = baseGenerationRate+dayGenerationRate;
         nextGenerateTime = Time.time + generateRate;
-        
     }
 
     void Update()
     {   
         string type = GetRandomObstacleType();
         int direction = GetRandomDirection();
+        if (hardMode == "night"){
+            generateRate = baseGenerationRate+nightGenerationRate;
+        }else{
+            generateRate = baseGenerationRate+dayGenerationRate;
+        }
+        if (transform.position.y>=difficultyLevel*increaseDifficultyDistance){
+            difficultyLevel+=1;
+            baseGenerationRate-=decreaseRate;
+        }
         switch(type){   // find that type of obstacle should be genrated
             case "HandleUpKnife":
                 thisObstacle = handleUpKnifePrefab;
