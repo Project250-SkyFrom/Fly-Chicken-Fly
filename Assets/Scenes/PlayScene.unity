@@ -4090,13 +4090,13 @@ MonoBehaviour:
   polaCanPrefab: {fileID: 344263917}
   babyChickenPrefab: {fileID: 12479550}
   generateRate: 0
-  baseGenerationRate: 1
-  dayGenerationRate: 3
-  nightGenerationRate: 0
+  baseGenerationRate: 2
+  dayGenerationRate: 4
+  nightGenerationRate: 1
   hardMode: day
   increaseDifficultyDistance: 50
   difficultyLevel: 0
-  decreaseRate: 0.2
+  decreaseRate: 0.05
   camera: {fileID: 519420030}
   obstaclesType:
   - HandleDownKnife
