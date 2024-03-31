@@ -10,6 +10,8 @@ public class NewPlatformGen : MonoBehaviour
     public List<GameObject> rottenEggPlatformPrefab;
     public List<GameObject> thunderPlatformPrefab;
     public List<GameObject> babyChickenPlatformPrefab;
+    public GameObject nightPlatformPrefab; // Define the night platform prefab
+
     public float minX = -7f;
     public float maxX = 6f;
     public float verticalDistanceBetweenPlatforms = 4.5f;
@@ -40,59 +42,69 @@ public class NewPlatformGen : MonoBehaviour
 
     void Update()
     {
-        
-
         if (isGenerating)
         {
-            if (regularPlatformCounter == movingPlatformsFrequency)
+            if (EventController.Instance.hardMode == "night")
             {
-                GenerateMovingPlatform(currentY + movingPlatformScale);
-                regularPlatformCounter++;
-            }
-            else if (regularPlatformCounter == spikePlatformFrequency)
-            {
-                GenerateSpikePlatform(currentY + spikePlatformScale);
-                regularPlatformCounter++;
-            }
-            // check if it is on night mode and then generate thunder platform
-            else if (EventController.Instance.hardMode == "night" && regularPlatformCounter == thunderPlatformFrequency)
-            {
-                Debug.Log("Thurder generated");
-                GenerateThunderPlatform(currentY + thunderPlatformScale);
-                regularPlatformCounter++;
-            }
-            else if (regularPlatformCounter == rottenEggPlatformFrequency)
-            {
-                GenerateRottenEggPlatform(currentY + rottenEggPlatformScale);
-                regularPlatformCounter++;
-            }
-            else if (regularPlatformCounter == babyChickenPlatformFrequency)
-            {
-                GenerateBabyChickenPlatform(currentY + babyChickenPlatformScale);
-                regularPlatformCounter = 0;
+                if (regularPlatformCounter == thunderPlatformFrequency)
+                {
+                    Debug.Log("Thunder generated");
+                    GenerateThunderPlatform(currentY + thunderPlatformScale);
+                    regularPlatformCounter ++;
+                }
+                else
+                {
+                    GenerateNightPlatform(currentY);
+                }
             }
             else
             {
-                GenerateRegularPlatform(currentY);
-                regularPlatformCounter++;
+                if (regularPlatformCounter == movingPlatformsFrequency)
+                {
+                    GenerateMovingPlatform(currentY + movingPlatformScale);
+                    regularPlatformCounter++;
+                }
+                else if (regularPlatformCounter == spikePlatformFrequency)
+                {
+                    GenerateSpikePlatform(currentY + spikePlatformScale);
+                    regularPlatformCounter++;
+                }
+                else if (regularPlatformCounter == rottenEggPlatformFrequency)
+                {
+                    GenerateRottenEggPlatform(currentY + rottenEggPlatformScale);
+                    regularPlatformCounter++;
+                }
+                else if (regularPlatformCounter == babyChickenPlatformFrequency)
+                {
+                    GenerateBabyChickenPlatform(currentY + babyChickenPlatformScale);
+                    regularPlatformCounter = 0;
+                }
+                else
+                {
+                    GenerateRegularPlatform(currentY);
+                    regularPlatformCounter ++;
+                }
             }
 
             currentY += verticalDistanceBetweenPlatforms;
             isGenerating = false;
-            //yield return new WaitForSeconds(0.1f);
-            
         }
-        if (currentY - player.transform.position.y < generatingDistance){        
+        if (currentY - player.transform.position.y < generatingDistance)
+        {
             isGenerating = true;
-            //yield return new WaitForSeconds(0.1f);
-        }    
+        }
     }
+
 
     void GenerateRegularPlatform(float yPosition)
     {
         float randomX = Random.Range(minX, maxX);
         Vector2 spawnPosition = new Vector2(randomX, yPosition);
-        GameObject platform = Instantiate(regularPlatformPrefab, spawnPosition, Quaternion.identity);
+
+        // Check if it's night mode to decide which platform to generate
+        GameObject platformToGenerate = EventController.Instance.hardMode == "night" ? nightPlatformPrefab : regularPlatformPrefab;
+
+        GameObject platform = Instantiate(platformToGenerate, spawnPosition, Quaternion.identity);
         platforms.Add(platform);
     }
 
@@ -126,8 +138,8 @@ public class NewPlatformGen : MonoBehaviour
     {
         float randomX = Random.Range(minX, maxX);
         Vector2 spawnPosition = new Vector2(randomX, yPosition);
-        GameObject thurdenPlatform = GetRandomPlatform(thunderPlatformPrefab);
-        GameObject platform = Instantiate(thurdenPlatform, spawnPosition, Quaternion.identity);
+        GameObject thunderPlatform = GetRandomPlatform(thunderPlatformPrefab);
+        GameObject platform = Instantiate(thunderPlatform, spawnPosition, Quaternion.identity);
         platforms.Add(platform);
     }
 
@@ -137,6 +149,14 @@ public class NewPlatformGen : MonoBehaviour
         Vector2 spawnPosition = new Vector2(randomX, yPosition);
         GameObject babyChickenPlatform = GetRandomPlatform(babyChickenPlatformPrefab);
         GameObject platform = Instantiate(babyChickenPlatform, spawnPosition, Quaternion.identity);
+        platforms.Add(platform);
+    }
+
+    void GenerateNightPlatform(float yPosition)
+    {
+        float randomX = Random.Range(minX, maxX);
+        Vector2 spawnPosition = new Vector2(randomX, yPosition);
+        GameObject platform = Instantiate(nightPlatformPrefab, spawnPosition, Quaternion.identity);
         platforms.Add(platform);
     }
 
