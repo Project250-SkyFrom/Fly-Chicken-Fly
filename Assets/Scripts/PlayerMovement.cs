@@ -6,10 +6,15 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
     public SpriteRenderer spriteRenderer;
+    public string[] powerUpList;
 
+    public float powerUpSpeed;
+    public float powerUpJump;
     public float speed;
     public float jump;
     public bool isJumping;
+    public bool isInvincible;
+    public float invincibleTime;
     public bool ableToMove;
     public bool withPiggyback;
     public float piggybackJump;
@@ -92,6 +97,9 @@ public class PlayerMovement : MonoBehaviour
                 // Handle right movement
                 move = 1f;
                 isIdle = false;
+            }
+            else if (Input.GetKey(KeyCode.E)){//&&EventController.Instance.isAblePowerUp
+                PowerUp();
             }
             else
             {
@@ -271,6 +279,51 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(thunderHurtDuration);
         isHurt = false;
         isHurtByThunder = false; // Reset the thunder hurt flag after the hurt animation ends
+    }
+
+    string GetRandomPowerUp(){
+        int randomIndex = UnityEngine.Random.Range(0, powerUpList.Length);
+        return powerUpList[randomIndex];
+    }
+
+    void PowerUp(){
+        string powerUp = GetRandomPowerUp();
+        switch(powerUp){
+            case "jump":
+                increaseJump();
+                Debug.Log("Increase Jump");
+                break;
+            case "speed":
+                increaseSpeed();
+                Debug.Log("Increase Speed");
+                break;
+            case "invincible":
+                StartCoroutine(BeInvincible());
+                Debug.Log("Invincible");
+                break;
+            case "shield":
+                Debug.Log("Shield");
+                break;    
+        }
+    }
+
+    void increaseJump(){
+        jumpConstant += powerUpJump;
+    }
+
+    void increaseSpeed(){
+        speed += powerUpSpeed;
+    }
+
+    IEnumerator BeInvincible(){
+        Color color = spriteRenderer.color;
+        isInvincible = true;
+        color.a = 0.5f;
+        spriteRenderer.color = color;
+        yield return new WaitForSeconds(invincibleTime);
+        color.a = 1f;
+        spriteRenderer.color = color;
+        isInvincible = false;
     }
 }
 

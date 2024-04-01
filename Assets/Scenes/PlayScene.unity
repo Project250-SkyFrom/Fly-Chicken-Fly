@@ -24944,9 +24944,13 @@ MonoBehaviour:
   - speed
   - invincible
   - shield
+  powerUpSpeed: 0.5
+  powerUpJump: 2
   speed: 7
   jump: 20
   isJumping: 0
+  isInvincible: 0
+  invincibleTime: 10
   ableToMove: 1
   withPiggyback: 0
   piggybackJump: 15
