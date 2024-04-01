@@ -11915,8 +11915,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 782966349}
-        m_MethodName: UnmuteBG
+      - m_Target: {fileID: 782966347}
+        m_MethodName: playBackgroundMusic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13652,6 +13652,8 @@ MonoBehaviour:
   rightBoundary: {fileID: 1887190932}
   cameraGoDownDistance: 10
   enemyObject: {fileID: 227263535}
+  isAblePowerUp: 0
+  numOfPowerUp: 20
 --- !u!114 &782966349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24937,6 +24939,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1366631709}
+  powerUpList:
+  - jump
+  - speed
+  - invincible
+  - shield
   speed: 7
   jump: 20
   isJumping: 0
@@ -32288,8 +32295,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 782966349}
-        m_MethodName: MuteBG
+      - m_Target: {fileID: 782966347}
+        m_MethodName: stopBackgroundMusic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33794,7 +33801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1940888406
 RectTransform:
   m_ObjectHideFlags: 0

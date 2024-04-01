@@ -45,6 +45,8 @@ public class EventController : MonoBehaviour
     public BoundaryController rightBoundary;
     public float cameraGoDownDistance;
     public GameObject enemyObject;
+    public bool isAblePowerUp;
+    public int numOfPowerUp;
 
     void Awake(){
         _instance = this;
@@ -189,6 +191,9 @@ private void StartShrinkingBoundaries()
         egg+=1;
         eggView.UpdateGoldenEgg(egg);
         altitudeView.goldenEgg=egg;
+        if (egg>=numOfPowerUp){
+            isAblePowerUp = true;
+        }
         //DataManager.Instance.UpdateGoldenEgg(egg);
     }
 
@@ -201,6 +206,9 @@ private void StartShrinkingBoundaries()
         }
         eggView.UpdateGoldenEgg(egg);
         altitudeView.goldenEgg=egg;
+        if (egg<numOfPowerUp){
+            isAblePowerUp = false;
+        }
     }
 
     public void EndGame(){
