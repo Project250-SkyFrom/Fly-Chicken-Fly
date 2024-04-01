@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
     public SpriteRenderer spriteRenderer;
+    public GameObject windSpriteRenderer; // Reference to the wind sprite renderer
 
     public float speed;
     public float jump;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public bool withPiggyback;
     public float piggybackJump;
     public float jumpConstant;
+    
 
     // Animation variables
     public float walkingFrameRate = 0.1f; // Adjust this value to control walking animation speed
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public List<Sprite> thunderHurtFrames; // List to hold thunder hurt animation sprites
     public float thunderHurtFrameRate = 0.1f; // Adjust this value to control thunder hurt animation speed
     public float thunderHurtDuration = 0.5f; // Duration of thunder hurt animation
+    
 
     private int currentFrame = 0;
     private float frameTimer = 0f;
@@ -128,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
 
             AnimatePlayer(walkingFrameRate);
         }
+        windSpriteRenderer.transform.position = new Vector3(windSpriteRenderer.transform.position.x, spriteRenderer.transform.position.y, windSpriteRenderer.transform.position.z);
     }
 
     void AnimatePlayer(float currentFrameRate)
