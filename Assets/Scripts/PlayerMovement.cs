@@ -41,9 +41,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isIdle = false;
     private bool isHurt = false;
     private bool isHurtByThunder = false;
-    private bool canJump = true;
-    private float jumpCooldown = 0.55f;
-    private float jumpTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -64,18 +61,19 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = jumpConstant;
         }
+        if (ableToMove)
+        {
+            float move = 0f;
 
-            if (ableToMove)
+            // Check for W, A, D keys
+            if (Input.GetKey(KeyCode.W))
             {
-                float move = 0f;
-
-                // Check for W, A, D keys
-                if (Input.GetKeyDown(KeyCode.W) && !isJumping && canJump) // Only allow jump if not currently jumping and within cooldown time
+                // Handle jump logic
+                if (!isJumping)
                 {
                     body.velocity = new Vector2(body.velocity.x, jump);
                     isJumping = true;
-                    canJump = false; // Set canJump to false to prevent further jumping
-                    jumpTimer = 0f; // Reset jumpTimer
+
                     AudioController.Instance.PlayChickenJump();
 
                     if (jumpAnimationFrames.Count > 0 && spriteRenderer != null)
@@ -85,18 +83,8 @@ public class PlayerMovement : MonoBehaviour
 
                     AnimatePlayer(jumpingFrameRate);
                 }
-
-                // Update jumpTimer if canJump is false
-                if (!canJump)
-                {
-                    jumpTimer += Time.deltaTime;
-                    if (jumpTimer >= jumpCooldown)
-                    {
-                        canJump = true; // Allow jumping again after cooldown time
-                    }
-                }
-
-                if (Input.GetKey(KeyCode.A))
+            }
+            if (Input.GetKey(KeyCode.A))
             {
                 // Handle left movement
                 move = -1f;
