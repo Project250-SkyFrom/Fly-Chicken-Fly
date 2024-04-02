@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
     public SpriteRenderer spriteRenderer;
+    public GameObject windSpriteRenderer; // Reference to the wind sprite renderer
     public string[] powerUpList;
 
     public float powerUpSpeed;
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public bool withPiggyback;
     public float piggybackJump;
     public float jumpConstant;
+    
 
     // Animation variables
     public float walkingFrameRate = 0.1f; // Adjust this value to control walking animation speed
@@ -37,12 +39,16 @@ public class PlayerMovement : MonoBehaviour
     public List<Sprite> thunderHurtFrames; // List to hold thunder hurt animation sprites
     public float thunderHurtFrameRate = 0.1f; // Adjust this value to control thunder hurt animation speed
     public float thunderHurtDuration = 0.5f; // Duration of thunder hurt animation
+    
 
     private int currentFrame = 0;
     private float frameTimer = 0f;
     private bool isIdle = false;
     private bool isHurt = false;
     private bool isHurtByThunder = false;
+    private bool canJump = true;
+    private float jumpCooldown = 0.55f;
+    private float jumpTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -63,19 +69,18 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = jumpConstant;
         }
-        if (ableToMove)
-        {
-            float move = 0f;
 
-            // Check for W, A, D keys
-            if (Input.GetKey(KeyCode.W))
+            if (ableToMove)
             {
-                // Handle jump logic
-                if (!isJumping)
+                float move = 0f;
+
+                // Check for W, A, D keys
+                if (Input.GetKeyDown(KeyCode.W) && !isJumping && canJump) // Only allow jump if not currently jumping and within cooldown time
                 {
                     body.velocity = new Vector2(body.velocity.x, jump);
                     isJumping = true;
-
+                    canJump = false; // Set canJump to false to prevent further jumping
+                    jumpTimer = 0f; // Reset jumpTimer
                     AudioController.Instance.PlayChickenJump();
 
                     if (jumpAnimationFrames.Count > 0 && spriteRenderer != null)
@@ -85,8 +90,18 @@ public class PlayerMovement : MonoBehaviour
 
                     AnimatePlayer(jumpingFrameRate);
                 }
-            }
-            if (Input.GetKey(KeyCode.A))
+
+                // Update jumpTimer if canJump is false
+                if (!canJump)
+                {
+                    jumpTimer += Time.deltaTime;
+                    if (jumpTimer >= jumpCooldown)
+                    {
+                        canJump = true; // Allow jumping again after cooldown time
+                    }
+                }
+
+                if (Input.GetKey(KeyCode.A))
             {
                 // Handle left movement
                 move = -1f;
@@ -136,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
 
             AnimatePlayer(walkingFrameRate);
         }
+        windSpriteRenderer.transform.position = new Vector3(windSpriteRenderer.transform.position.x, spriteRenderer.transform.position.y, windSpriteRenderer.transform.position.z);
     }
 
     void AnimatePlayer(float currentFrameRate)

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public GameObject bonOn;
-    public GameObject boffOff;
-    public GameObject bonOff;
-    public GameObject boffOn;
+    // public GameObject bonOn;
+    // public GameObject boffOff;
+    // public GameObject bonOff;
+    // public GameObject boffOn;
     public GameObject BGmusic;
     public GameObject tonOn;
     public GameObject toffOff;
@@ -28,22 +28,22 @@ public class UIController : MonoBehaviour
     }
 
     void Start(){
-        if (PlayerPrefs.HasKey("BGMute")){
-            if (PlayerPrefs.GetInt("BGMute")==0){
-                if(BGmusic != null){
-                    SetUINotActive(BGmusic);
-                }
-                UIController.Instance.SetUIActive(bonOff);
-                UIController.Instance.SetUIActive(boffOn);
-            }else{
-                UIController.Instance.SetUIActive(bonOn);
-                UIController.Instance.SetUIActive(boffOff);
-            }
-        }else{
-            PlayerPrefs.SetInt("BGMute",1);
-            UIController.Instance.SetUIActive(bonOn);
-            UIController.Instance.SetUIActive(boffOff);
-        }
+        // if (PlayerPrefs.HasKey("BGMute")){
+        //     if (PlayerPrefs.GetInt("BGMute")==0){
+        //         if(BGmusic != null){
+        //             SetUINotActive(BGmusic);
+        //         }
+        //         UIController.Instance.SetUIActive(bonOff);
+        //         UIController.Instance.SetUIActive(boffOn);
+        //     }else{
+        //         UIController.Instance.SetUIActive(bonOn);
+        //         UIController.Instance.SetUIActive(boffOff);
+        //     }
+        // }else{
+        //     PlayerPrefs.SetInt("BGMute",1);
+        //     UIController.Instance.SetUIActive(bonOn);
+        //     UIController.Instance.SetUIActive(boffOff);
+        // }
 
         //tutorial
         if (PlayerPrefs.HasKey("Tutorial")){
@@ -74,22 +74,22 @@ public class UIController : MonoBehaviour
         ui.SetActive(false);
     }
 
-    public void MuteBG()
-    {
-        PlayerPrefs.SetInt("BGMute",0);
-        if(BGmusic != null){
-            SetUINotActive(BGmusic);
-        }
-    }
+    // public void MuteBG()
+    // {
+    //     PlayerPrefs.SetInt("BGMute",0);
+    //     if(BGmusic != null){
+    //         SetUINotActive(BGmusic);
+    //     }
+    // }
 
-    // Function to explicitly unmute the audio
-    public void UnmuteBG()
-    {
-        PlayerPrefs.SetInt("BGMute",1);
-        if(BGmusic != null){
-            SetUIActive(BGmusic);
-        }
-    }
+    // // Function to explicitly unmute the audio
+    // public void UnmuteBG()
+    // {
+    //     PlayerPrefs.SetInt("BGMute",1);
+    //     if(BGmusic != null){
+    //         SetUIActive(BGmusic);
+    //     }
+    // }
 
     public void DisableTutorial()
     {
