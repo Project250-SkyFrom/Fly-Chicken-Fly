@@ -13890,10 +13890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a073e5e6d4a526840a29dc40046a161f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonOn: {fileID: 482232025}
-  boffOff: {fileID: 1825093489}
-  bonOff: {fileID: 636944256}
-  boffOn: {fileID: 173982198}
   BGmusic: {fileID: 0}
   tonOn: {fileID: 122703576}
   toffOff: {fileID: 935469030}
@@ -14008,10 +14004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2998d4cb20476747ad7609ccd76d019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonOn: {fileID: 365514018}
-  soffOff: {fileID: 14155238}
-  sonOff: {fileID: 1181853080}
-  soffOn: {fileID: 1077782157}
 --- !u!1 &787854259
 GameObject:
   m_ObjectHideFlags: 0
@@ -14039,8 +14031,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787854259}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.36, y: 10.23, z: 0}
-  m_LocalScale: {x: 0.5373263, y: 0.6100145, z: 1}
+  m_LocalPosition: {x: 1.43, y: 10.37, z: 0}
+  m_LocalScale: {x: 0.6429989, y: 0.6100145, z: 1}
   m_Children: []
   m_Father: {fileID: 1714004998}
   m_RootOrder: 12
