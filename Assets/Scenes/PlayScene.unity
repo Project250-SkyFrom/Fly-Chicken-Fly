@@ -30561,7 +30561,7 @@ MonoBehaviour:
   movingPlatformsFrequency: 2
   spikePlatformFrequency: 4
   rottenEggPlatformFrequency: 3
-  thunderPlatformFrequency: 3
+  thunderPlatformFrequency: 2
   babyChickenPlatformFrequency: 5
   movingPlatformScale: 10.7
   spikePlatformScale: 10.7
