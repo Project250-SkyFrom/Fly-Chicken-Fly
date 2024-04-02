@@ -37,24 +37,26 @@ public class NewPlatformGen : MonoBehaviour
 
     void Start()
     {
-        //StartCoroutine(GeneratePlatformsRepeatedly());
+      
     }
 
     void Update()
     {
         if (isGenerating)
         {
+            regularPlatformCounter++;
+
             if (EventController.Instance.hardMode == "night")
             {
-                if (regularPlatformCounter == thunderPlatformFrequency)
+                if (regularPlatformCounter == thunderPlatformFrequency )
                 {
                     Debug.Log("Thunder generated");
                     GenerateThunderPlatform(currentY + thunderPlatformScale);
-                    regularPlatformCounter ++;
                 }
                 else
                 {
                     GenerateNightPlatform(currentY);
+                    regularPlatformCounter = (regularPlatformCounter + 1) % 3;
                 }
             }
             else
@@ -62,33 +64,34 @@ public class NewPlatformGen : MonoBehaviour
                 if (regularPlatformCounter == movingPlatformsFrequency)
                 {
                     GenerateMovingPlatform(currentY + movingPlatformScale);
-                    regularPlatformCounter++;
+                    
                 }
                 else if (regularPlatformCounter == spikePlatformFrequency)
                 {
                     GenerateSpikePlatform(currentY + spikePlatformScale);
-                    regularPlatformCounter++;
+                    
                 }
                 else if (regularPlatformCounter == rottenEggPlatformFrequency)
                 {
                     GenerateRottenEggPlatform(currentY + rottenEggPlatformScale);
-                    regularPlatformCounter++;
+                    
                 }
                 else if (regularPlatformCounter == babyChickenPlatformFrequency)
                 {
                     GenerateBabyChickenPlatform(currentY + babyChickenPlatformScale);
-                    regularPlatformCounter = 0;
+                    regularPlatformCounter = 0; 
                 }
                 else
                 {
                     GenerateRegularPlatform(currentY);
-                    regularPlatformCounter ++;
+                    
                 }
-            }
 
-            currentY += verticalDistanceBetweenPlatforms;
-            isGenerating = false;
+                currentY += verticalDistanceBetweenPlatforms;
+                isGenerating = false;
+            }
         }
+
         if (currentY - player.transform.position.y < generatingDistance)
         {
             isGenerating = true;
