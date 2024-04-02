@@ -52,12 +52,16 @@ public class NewPlatformGen : MonoBehaviour
                 {
                     Debug.Log("Thunder generated");
                     GenerateThunderPlatform(currentY + thunderPlatformScale);
+                    
                 }
                 else
                 {
                     GenerateNightPlatform(currentY);
                     regularPlatformCounter = (regularPlatformCounter + 1) % 3;
                 }
+
+                currentY += verticalDistanceBetweenPlatforms;
+                isGenerating = false;
             }
             else
             {
