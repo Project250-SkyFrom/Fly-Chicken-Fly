@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isHurt = false;
     private bool isHurtByThunder = false;
     private bool canJump = true;
-    private float jumpCooldown = 0.55f;
+    private float jumpCooldown = 0.3f;
     private float jumpTimer = 0f;
 
     // Start is called before the first frame update
