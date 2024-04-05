@@ -9,6 +9,8 @@ public class NewPlatformGen : MonoBehaviour
     public GameObject verticalMovingPlatformPrefab;
     public GameObject nightPlatformPrefab; // Define the night platform prefab
     public GameObject player;
+    public GoldenEggGenerator dayGoldenEggGenerator;
+    public GoldenEggGenerator dayMovingGoldenEggGenerator;
     public List<GameObject> spikePlatformPrefab;
     public List<GameObject> rottenEggPlatformPrefab;
     public List<GameObject> thunderPlatformPrefab;
@@ -40,6 +42,9 @@ public class NewPlatformGen : MonoBehaviour
     public float generatingDistance;
     public int regularPlatformCounter = 0;
 
+    public int dayGroupNum;
+    public int dayMovingNum;
+    public int nightGroupNum;
     
 
     void Start()
@@ -123,16 +128,20 @@ public class NewPlatformGen : MonoBehaviour
         // Check if it's night mode to decide which platform to generate
         GameObject platformToGenerate = EventController.Instance.hardMode == "night" ? nightPlatformPrefab : regularPlatformPrefab;
 
+        int group = GenerateGoldenEgg(dayGroupNum,"day");
         GameObject platform = Instantiate(platformToGenerate, spawnPosition, Quaternion.identity);
         platforms.Add(platform);
+        RestoreGoldenEgg(group,"day");
     }
 
     void GenerateMovingPlatform(float yPosition)
     {
         float randomX = Random.Range(minX, maxX);
         Vector2 spawnPosition = new Vector2(randomX, yPosition);
+        int group = GenerateGoldenEgg(dayMovingNum,"dayMoving");
         GameObject platform = Instantiate(movingPlatformPrefab, spawnPosition, Quaternion.identity);
         platforms.Add(platform);
+        RestoreGoldenEgg(group,"dayMoving");
     }
 
     void GenerateVerticalMovingPlatform(float yPosition)
@@ -194,6 +203,30 @@ public class NewPlatformGen : MonoBehaviour
 
         // Return the platform GameObject at the randomly generated index
         return platformList[randomIndex];
+    }
+
+    private int GenerateGoldenEgg(int num, string type){
+        int group = UnityEngine.Random.Range(1, num+1);
+        switch(type){
+            case "day":
+                dayGoldenEggGenerator.SetGoldenEgg(group,true);
+                break;
+            case "dayMoving":
+                dayMovingGoldenEggGenerator.SetGoldenEgg(group,true);
+                break;
+        }
+        return group;
+    }
+
+    private void RestoreGoldenEgg(int group,string type){
+        switch(type){
+            case "day":
+                dayGoldenEggGenerator.SetGoldenEgg(group,false);
+                break;
+            case "dayMoving":
+                dayMovingGoldenEggGenerator.SetGoldenEgg(group,false);
+                break;
+        }
     }
 }
 
