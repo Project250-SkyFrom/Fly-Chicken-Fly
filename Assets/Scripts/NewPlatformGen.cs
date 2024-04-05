@@ -9,6 +9,7 @@ public class NewPlatformGen : MonoBehaviour
     public GameObject verticalMovingPlatformPrefab;
     public GameObject nightPlatformPrefab; // Define the night platform prefab
     public GameObject player;
+    public GoldenEggGenerator dayGoldenEggGenerator;
     public List<GameObject> spikePlatformPrefab;
     public List<GameObject> rottenEggPlatformPrefab;
     public List<GameObject> thunderPlatformPrefab;
@@ -40,6 +41,7 @@ public class NewPlatformGen : MonoBehaviour
     public float generatingDistance;
     public int regularPlatformCounter = 0;
 
+    public int dayGroupNum;
     
 
     void Start()
@@ -123,8 +125,10 @@ public class NewPlatformGen : MonoBehaviour
         // Check if it's night mode to decide which platform to generate
         GameObject platformToGenerate = EventController.Instance.hardMode == "night" ? nightPlatformPrefab : regularPlatformPrefab;
 
+        int group = GenerateGoldenEgg();
         GameObject platform = Instantiate(platformToGenerate, spawnPosition, Quaternion.identity);
         platforms.Add(platform);
+        RestoreGoldenEgg(group);
     }
 
     void GenerateMovingPlatform(float yPosition)
@@ -194,6 +198,16 @@ public class NewPlatformGen : MonoBehaviour
 
         // Return the platform GameObject at the randomly generated index
         return platformList[randomIndex];
+    }
+
+    private int GenerateGoldenEgg(){
+        int group = UnityEngine.Random.Range(1, dayGroupNum+1);
+        dayGoldenEggGenerator.SetGoldenEgg(group,true);
+        return group;
+    }
+
+    private void RestoreGoldenEgg(int group){
+        dayGoldenEggGenerator.SetGoldenEgg(group,false);
     }
 }
 
