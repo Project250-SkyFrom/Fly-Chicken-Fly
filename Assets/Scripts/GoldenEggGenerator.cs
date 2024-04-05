@@ -71,6 +71,7 @@ public class GoldenEggGenerator : MonoBehaviour
     public GameObject goldenEggGroup5;
     public GameObject goldenEggGroup6;
     public GameObject goldenEggGroup7;
+    public GameObject goldenEggGroup8;
 
     public void SetGoldenEgg(int group, bool status){
         Debug.Log(group);

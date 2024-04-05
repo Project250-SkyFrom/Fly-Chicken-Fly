@@ -11,6 +11,8 @@ public class NewPlatformGen : MonoBehaviour
     public GameObject player;
     public GoldenEggGenerator dayGoldenEggGenerator;
     public GoldenEggGenerator dayMovingGoldenEggGenerator;
+    public GoldenEggGenerator nightGoldenEggGenerator;
+    public GoldenEggGenerator verticleGoldenEggGenerator;
     public List<GameObject> spikePlatformPrefab;
     public List<GameObject> rottenEggPlatformPrefab;
     public List<GameObject> thunderPlatformPrefab;
@@ -45,6 +47,7 @@ public class NewPlatformGen : MonoBehaviour
     public int dayGroupNum;
     public int dayMovingNum;
     public int nightGroupNum;
+    public int verticleGroupNum;
     
 
     void Start()
@@ -148,8 +151,10 @@ public class NewPlatformGen : MonoBehaviour
     {
         float randomX = Random.Range(minX, maxX);
         Vector2 spawnPosition = new Vector2(randomX, yPosition);
+        int group = GenerateGoldenEgg(verticleGroupNum,"verticle");
         GameObject platform = Instantiate(verticalMovingPlatformPrefab, spawnPosition, Quaternion.identity);
         platforms.Add(platform);
+        RestoreGoldenEgg(group,"verticle");
     }
 
     void GenerateSpikePlatform(float yPosition)
@@ -192,8 +197,10 @@ public class NewPlatformGen : MonoBehaviour
     {
         float randomX = Random.Range(minX, maxX);
         Vector2 spawnPosition = new Vector2(randomX, yPosition);
+        int group = GenerateGoldenEgg(nightGroupNum,"night");
         GameObject platform = Instantiate(nightPlatformPrefab, spawnPosition, Quaternion.identity);
         platforms.Add(platform);
+        RestoreGoldenEgg(group,"night");
     }
 
     private GameObject GetRandomPlatform(List<GameObject> platformList)
@@ -214,6 +221,12 @@ public class NewPlatformGen : MonoBehaviour
             case "dayMoving":
                 dayMovingGoldenEggGenerator.SetGoldenEgg(group,true);
                 break;
+            case "night":
+                nightGoldenEggGenerator.SetGoldenEgg(group,true);
+                break;
+            case "verticle":
+                verticleGoldenEggGenerator.SetGoldenEgg(group,true);
+                break;
         }
         return group;
     }
@@ -225,6 +238,12 @@ public class NewPlatformGen : MonoBehaviour
                 break;
             case "dayMoving":
                 dayMovingGoldenEggGenerator.SetGoldenEgg(group,false);
+                break;
+            case "night":
+                nightGoldenEggGenerator.SetGoldenEgg(group,false);
+                break;
+            case "verticle":
+                verticleGoldenEggGenerator.SetGoldenEgg(group,false);
                 break;
         }
     }
