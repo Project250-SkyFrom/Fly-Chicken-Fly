@@ -30,8 +30,8 @@ public class GoldenEgg : MonoBehaviour
             Destroy(gameObject);
             AudioController.Instance.PlayGoldenEggPick();
         }
-        else{   // for any overlapping
-            Destroy(gameObject);
-        }
+        // else{   // for any overlapping
+        //     Destroy(gameObject);
+        // }
     }
 }

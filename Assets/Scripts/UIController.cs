@@ -2,21 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-// using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    // public GameObject bonOn;
-    // public GameObject boffOff;
-    // public GameObject bonOff;
-    // public GameObject boffOn;
-    public GameObject BGmusic;
+
+    public AudioSource BGmusic;
+    public AudioSource SFXmusic;
     public GameObject tonOn;
     public GameObject toffOff;
     public GameObject tonOff;
     public GameObject toffOn;
     public GameObject tutorial;
-
+    public Slider bgSlider;
+    public Slider sfxSlider;
 
     //Singleton pattern
     private static UIController _instance;
@@ -28,22 +26,23 @@ public class UIController : MonoBehaviour
     }
 
     void Start(){
-        // if (PlayerPrefs.HasKey("BGMute")){
-        //     if (PlayerPrefs.GetInt("BGMute")==0){
-        //         if(BGmusic != null){
-        //             SetUINotActive(BGmusic);
-        //         }
-        //         UIController.Instance.SetUIActive(bonOff);
-        //         UIController.Instance.SetUIActive(boffOn);
-        //     }else{
-        //         UIController.Instance.SetUIActive(bonOn);
-        //         UIController.Instance.SetUIActive(boffOff);
-        //     }
-        // }else{
-        //     PlayerPrefs.SetInt("BGMute",1);
-        //     UIController.Instance.SetUIActive(bonOn);
-        //     UIController.Instance.SetUIActive(boffOff);
-        // }
+        if (PlayerPrefs.HasKey("BGVolume")){
+            float savedVolume = PlayerPrefs.GetFloat("BGVolume", 0.5f);
+            BGmusic.volume = savedVolume;
+            bgSlider.value = savedVolume;
+        }else{
+            BGmusic.volume = 0.5f;
+            bgSlider.value = 0.5f;
+        }
+
+        if (PlayerPrefs.HasKey("SFXVolume")){
+            float savedSFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
+            SFXmusic.volume = savedSFXVolume;
+            sfxSlider.value = savedSFXVolume;
+        }else{
+            SFXmusic.volume = 0.5f;
+            sfxSlider.value = 0.5f;
+        }
 
         //tutorial
         if (PlayerPrefs.HasKey("Tutorial")){
@@ -74,22 +73,16 @@ public class UIController : MonoBehaviour
         ui.SetActive(false);
     }
 
-    // public void MuteBG()
-    // {
-    //     PlayerPrefs.SetInt("BGMute",0);
-    //     if(BGmusic != null){
-    //         SetUINotActive(BGmusic);
-    //     }
-    // }
 
-    // // Function to explicitly unmute the audio
-    // public void UnmuteBG()
-    // {
-    //     PlayerPrefs.SetInt("BGMute",1);
-    //     if(BGmusic != null){
-    //         SetUIActive(BGmusic);
-    //     }
-    // }
+    public void SetVolume(float volume)
+    {
+        if(BGmusic != null)
+        {
+            BGmusic.volume = volume;
+        }
+        PlayerPrefs.SetFloat("BGVolume", volume); // Save the volume level to PlayerPrefs
+    }
+
 
     public void DisableTutorial()
     {
