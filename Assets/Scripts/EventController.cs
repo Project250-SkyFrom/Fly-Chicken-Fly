@@ -193,8 +193,8 @@ private void StartShrinkingBoundaries()
     }
 
     public void LoseGoldenEgg(){
-        if (egg>=2){
-            egg -= 2;
+        if (egg>=5){
+            egg -= 5;
         }
         else{
             egg = 0;
