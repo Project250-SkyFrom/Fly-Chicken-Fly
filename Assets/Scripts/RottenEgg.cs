@@ -64,7 +64,7 @@ public class RottenEgg : MonoBehaviour
             Destroy(negativePointsObject, negativePointsDuration);
 
             // Destroy the rotten egg
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }
