@@ -79,3 +79,4 @@ Assets/google-services.json
 /[Aa]ssets/Editor Default Resources.meta
 Assets/ExternalDependencyManager.meta
 Assets/Firebase.meta
+.DS_Store
