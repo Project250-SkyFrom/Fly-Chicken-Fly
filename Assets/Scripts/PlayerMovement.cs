@@ -35,8 +35,6 @@ public class PlayerMovement : MonoBehaviour
     public float thunderHurtFrameRate = 0.1f; // Adjust this value to control thunder hurt animation speed
     public float thunderHurtDuration = 2.5f; // Duration of thunder hurt animation
     public List<Sprite> eggCollisionFrames; // List to hold egg collision animation sprites
-    public float eggCollisionFrameRate = 0.1f; // Adjust this value to control egg collision animation speed
-    public float eggCollisionDuration = 1.5f;
 
 
     private int currentFrame = 0;
@@ -270,7 +268,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Egg"))
         {
             // Define the slide direction
-            Vector2 slideDirection = new Vector2(-3f, -2f);
+            Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
 
             StartCoroutine(PlayEggCollisionAnimation());
         }
@@ -347,7 +345,7 @@ public class PlayerMovement : MonoBehaviour
         ableToMove = false;
 
         // Calculate the duration of the animation in seconds
-        float animationDuration = 3.0f; // Adjust the duration as needed
+        float animationDuration = 2.5f; // Adjust the duration as needed
 
         // Get the total number of frames in the animation
         int totalFrames = eggCollisionFrames.Count;
@@ -365,7 +363,7 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.sprite = eggCollisionFrames[frameIndex];
 
             // Apply movement increment to the player's position
-            Vector2 movementIncrement = new Vector2(-2f, -1f); // Adjust the values as needed
+            Vector2 movementIncrement = new Vector2(-3f, -3f); // Adjust the values as needed
             Vector2 newPosition = (Vector2)transform.position + movementIncrement * Time.fixedDeltaTime;
             body.MovePosition(newPosition);
 
