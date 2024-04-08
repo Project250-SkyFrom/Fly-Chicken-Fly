@@ -64,4 +64,16 @@ public class BoundaryController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision){
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Wall Hit!");
+            if(DataManager.Instance.currentGameMode == "death"){
+                EventController.Instance.AddLump();
+                AudioController.Instance.PlayChickenHit();
+            }
+            
+        }
+    }
+
 }
