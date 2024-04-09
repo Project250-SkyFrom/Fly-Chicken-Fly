@@ -46,25 +46,28 @@ public class RottenEgg : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
-            EventController.Instance.LoseGoldenEgg();
-            AudioController.Instance.PlayRottenEgg();
-            AudioController.Instance.PlayChickenHit();
+        {   
+            if (EventController.Instance.player.isInvincible){
+                //add interaction sound here
+            }else{
+                EventController.Instance.LoseGoldenEgg();
+                AudioController.Instance.PlayRottenEgg();
+                AudioController.Instance.PlayChickenHit();
+                
+                // Get the position of the rotten egg
+                Vector3 eggPosition = transform.position;
 
-            // Get the position of the rotten egg
-            Vector3 eggPosition = transform.position;
+                // Adjust the position slightly above the rotten egg
+                Vector3 pointsPosition = eggPosition + new Vector3(-1f, 1f, 0f); // Adjust the y-coordinate as needed
 
-            // Adjust the position slightly above the rotten egg
-            Vector3 pointsPosition = eggPosition + new Vector3(-1f, 1f, 0f); // Adjust the y-coordinate as needed
+                // Instantiate the "-5" sprite at the adjusted position
+                GameObject negativePointsObject = Instantiate(negativePointsPrefab, pointsPosition, Quaternion.identity);
 
-            // Instantiate the "-5" sprite at the adjusted position
-            GameObject negativePointsObject = Instantiate(negativePointsPrefab, pointsPosition, Quaternion.identity);
-
-            // Destroy the "-5" sprite after the specified duration
-            Destroy(negativePointsObject, negativePointsDuration);
-
+                // Destroy the "-5" sprite after the specified duration
+                Destroy(negativePointsObject, negativePointsDuration);
+            }
             // Destroy the rotten egg
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float powerUpSpeed;
     public float powerUpJump;
+    public float powerUpSpeedTime;
+    public float speedConst;
+    public float jumpOriginal;
     public float speed;
     public float jump;
     public bool isJumping;
@@ -267,29 +270,41 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            isHurt = true;
-            isHurtByThunder = false; // Reset the thunder hurt flag
+            if (isInvincible){
+                //add interaction sound here
+            }else{
+                isHurt = true;
+                isHurtByThunder = false; // Reset the thunder hurt flag
 
-            StartCoroutine(EndHurtAnimation());
+                StartCoroutine(EndHurtAnimation());
+            }
         }
 
         if (other.gameObject.CompareTag("Egg"))
         {
-            // Define the slide direction
-            Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
+            if (isInvincible){
+                //add interaction sound here
+            }else{
+                // Define the slide direction
+                Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
 
-            StartCoroutine(PlayEggCollisionAnimation());
+                StartCoroutine(PlayEggCollisionAnimation());
+            }
         }
 
         else if (other.gameObject.CompareTag("Thunder"))
         {
-            isHurt = true;
-            isHurtByThunder = true; // Set the thunder hurt flag
+            if (isInvincible){
+                //add interaction sound here
+            }else{
+                isHurt = true;
+                isHurtByThunder = true; // Set the thunder hurt flag
 
-            StartCoroutine(EndHurtAnimation());
+                StartCoroutine(EndHurtAnimation());
 
-            // Call the ParalyzePlayer coroutine
-            StartCoroutine(ParalyzePlayer());
+                // Call the ParalyzePlayer coroutine
+                StartCoroutine(ParalyzePlayer());
+            }
         }
     }
 
@@ -394,11 +409,11 @@ public class PlayerMovement : MonoBehaviour
         string powerUp = GetRandomPowerUp();
         switch(powerUp){
             case "jump":
-                increaseJump();
-                Debug.Log("Increase Jump");
+                //increaseJump();
+                //Debug.Log("Increase Jump");
                 break;
             case "speed":
-                increaseSpeed();
+                StartCoroutine(PowerUPSpeed());
                 Debug.Log("Increase Speed");
                 break;
             case "invincible":
@@ -411,12 +426,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void increaseJump(){
-        jumpConstant += powerUpJump;
-    }
-
-    void increaseSpeed(){
-        speed += powerUpSpeed;
+    IEnumerator PowerUPSpeed(){
+        speed = powerUpSpeed;
+        jumpConstant = powerUpJump;
+        yield return new WaitForSeconds(powerUpSpeedTime);
+        speed = speedConst;
+        jumpConstant = jumpOriginal;
     }
 
     IEnumerator BeInvincible(){

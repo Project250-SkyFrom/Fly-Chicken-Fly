@@ -120,15 +120,19 @@ public class Obstacles : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            if (type == "babyChicken"){
-                Debug.Log("Hit bb");
-                EventController.Instance.AddBabyChicken();
-            }
-            else{
-                EventController.Instance.AddLump();
+            if (EventController.Instance.player.isInvincible){
+                //add interaction sound here
+            }else{
+                if (type == "babyChicken"){
+                    Debug.Log("Hit bb");
+                    EventController.Instance.AddBabyChicken();
+                }
+                else{
+                    EventController.Instance.AddLump();
+                }
+                AudioController.Instance.PlayChickenHit();
             }
             Destroy(gameObject);
-            AudioController.Instance.PlayChickenHit();
         }
 
     }
