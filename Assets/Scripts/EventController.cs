@@ -47,6 +47,7 @@ public class EventController : MonoBehaviour
     public GameObject enemyObject;
     public bool isAblePowerUp;
     public int numOfPowerUp;
+    public int powerUpTime;
     public GameObject shield;
 
     void Awake(){
@@ -141,6 +142,7 @@ public class EventController : MonoBehaviour
             player.withPiggyback = true;
             piggyback.SetActive(true);
             piggybackDestroyTime = Time.time + piggybackLiftTime;
+            StartCoroutine(player.BabyChickenDuartion());
         }
     }
 
@@ -200,7 +202,7 @@ private void StartShrinkingBoundaries()
         egg+=1;
         eggView.UpdateGoldenEgg(egg);
         altitudeView.goldenEgg=egg;
-        if (egg>=numOfPowerUp){
+        if (egg>=numOfPowerUp*powerUpTime){
             isAblePowerUp = true;
         }
         //DataManager.Instance.UpdateGoldenEgg(egg);
@@ -215,7 +217,7 @@ private void StartShrinkingBoundaries()
         }
         eggView.UpdateGoldenEgg(egg);
         altitudeView.goldenEgg=egg;
-        if (egg<numOfPowerUp){
+        if (egg<numOfPowerUp*powerUpTime){
             isAblePowerUp = false;
         }
     }
@@ -262,5 +264,9 @@ private void StartShrinkingBoundaries()
     public void GetShield(){
         player.isShielded = true;
         shield.SetActive(true);
+    }
+    public void ChargePowerUp(){
+        isAblePowerUp = false;
+        powerUpTime +=1;
     }
 }
