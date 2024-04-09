@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public bool withPiggyback;
     public float piggybackJump;
     public float jumpConstant;
+    public bool isShielded;
 
 
     // Animation variables
@@ -284,6 +285,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isInvincible){
                 //add interaction sound here
+            }else if (isShielded){
+                EventController.Instance.LoseShield();
             }else{
                 // Define the slide direction
                 Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
@@ -296,7 +299,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isInvincible){
                 //add interaction sound here
+            }else if (isShielded){
+                EventController.Instance.AddLump();
             }else{
+                EventController.Instance.AddLump();
                 isHurt = true;
                 isHurtByThunder = true; // Set the thunder hurt flag
 
@@ -413,14 +419,15 @@ public class PlayerMovement : MonoBehaviour
                 //Debug.Log("Increase Jump");
                 break;
             case "speed":
-                StartCoroutine(PowerUPSpeed());
+                //StartCoroutine(PowerUPSpeed());
                 Debug.Log("Increase Speed");
                 break;
             case "invincible":
-                StartCoroutine(BeInvincible());
+                //StartCoroutine(BeInvincible());
                 Debug.Log("Invincible");
                 break;
             case "shield":
+                EventController.Instance.GetShield();
                 Debug.Log("Shield");
                 break;    
         }

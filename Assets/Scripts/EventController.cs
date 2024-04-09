@@ -47,6 +47,7 @@ public class EventController : MonoBehaviour
     public GameObject enemyObject;
     public bool isAblePowerUp;
     public int numOfPowerUp;
+    public GameObject shield;
 
     void Awake(){
         _instance = this;
@@ -108,31 +109,39 @@ public class EventController : MonoBehaviour
     }
 
     public void AddLump(){
-        lump += 1;
-        if (lump == 1){
-            lump1.SetActive(true);
-            //x1.SetActive(true);
+        if (player.isShielded){
+            LoseShield();
+        }else{
+            lump += 1;
+            if (lump == 1){
+                lump1.SetActive(true);
+                //x1.SetActive(true);
+            }
+            if (lump == 2){
+                lump2.SetActive(true);
+                //x2.SetActive(true);
+            }
+            if (lump == 3){
+                lump3.SetActive(true);
+                //x3.SetActive(true);
+            }
+            lumpView.UpdateLump(lump);
+            if (DataManager.Instance.currentGameMode == "death" && lump >=3){
+            //Debug.Log("End Game");
+                EndGame();
+            }
+            //LumpGenerator.Instance.GenerateImages();
         }
-        if (lump == 2){
-            lump2.SetActive(true);
-            //x2.SetActive(true);
-        }
-        if (lump == 3){
-            lump3.SetActive(true);
-            //x3.SetActive(true);
-        }
-        lumpView.UpdateLump(lump);
-        if (DataManager.Instance.currentGameMode == "death" && lump >=3){
-           //Debug.Log("End Game");
-            EndGame();
-        }
-        //LumpGenerator.Instance.GenerateImages();
     }
 
     public void AddBabyChicken(){
-        player.withPiggyback = true;
-        piggyback.SetActive(true);
-        piggybackDestroyTime = Time.time + piggybackLiftTime;
+        if (player.isShielded){
+            LoseShield();
+        }else{
+            player.withPiggyback = true;
+            piggyback.SetActive(true);
+            piggybackDestroyTime = Time.time + piggybackLiftTime;
+        }
     }
 
     public void DeleteBabyChicken(){
@@ -245,5 +254,13 @@ private void StartShrinkingBoundaries()
         else{   //night
             obstacleGenerator.hardMode = "night";
         }
+    }
+    public void LoseShield(){
+        player.isShielded = false;
+        shield.SetActive(false);
+    }
+    public void GetShield(){
+        player.isShielded = true;
+        shield.SetActive(true);
     }
 }

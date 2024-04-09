@@ -49,7 +49,11 @@ public class RottenEgg : MonoBehaviour
         {   
             if (EventController.Instance.player.isInvincible){
                 //add interaction sound here
-            }else{
+            }else if (EventController.Instance.player.isShielded){
+                AudioController.Instance.PlayRottenEgg();
+                AudioController.Instance.PlayChickenHit();
+            }
+            else{
                 EventController.Instance.LoseGoldenEgg();
                 AudioController.Instance.PlayRottenEgg();
                 AudioController.Instance.PlayChickenHit();

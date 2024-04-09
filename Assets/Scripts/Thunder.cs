@@ -20,8 +20,8 @@ public class Thunder : MonoBehaviour
         if (other.gameObject.CompareTag("Player")){
             if (EventController.Instance.player.isInvincible){
                 //add interaction sound here
-            }else{
-                EventController.Instance.AddLump();
+            }
+            else{
                 AudioController.Instance.PlayElectrocution();
                 AudioController.Instance.PlayChickenHit();
             }
