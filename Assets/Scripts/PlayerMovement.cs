@@ -7,14 +7,26 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     public SpriteRenderer spriteRenderer;
     public GameObject windSpriteRenderer; // Reference to the wind sprite renderer
+    public string[] powerUpList;
 
+    public float powerUpSpeed;
+    public float powerUpJump;
+    public float powerUpSpeedTime;
+    public float speedConst;
+    public float jumpOriginal;
     public float speed;
     public float jump;
     public bool isJumping;
+    public bool isInvincible;
+    public float invincibleTime;
     public bool ableToMove;
     public bool withPiggyback;
     public float piggybackJump;
     public float jumpConstant;
+    public bool isShielded;
+    public bool isMegaFlying;
+    public float megaFlySpeed;
+    public float meGaFlyTime;
 
 
     // Animation variables
@@ -67,7 +79,23 @@ public class PlayerMovement : MonoBehaviour
             jump = jumpConstant;
         }
 
-        if (!isParalyzed && ableToMove)
+        if (isMegaFlying){
+            float move = 0f;
+            if (Input.GetKey(KeyCode.A))
+            {
+                // Handle left movement
+                move = -1f;
+                isIdle = false;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                // Handle right movement
+                move = 1f;
+                isIdle = false;
+            }
+            body.velocity = new Vector2(move*speed, megaFlySpeed);
+        }
+        else if (!isParalyzed && ableToMove)
         {
             float move = 0f;
 
@@ -109,6 +137,9 @@ public class PlayerMovement : MonoBehaviour
                 // Handle right movement
                 move = 1f;
                 isIdle = false;
+            }
+            else if (Input.GetKey(KeyCode.E)){//&&EventController.Instance.isAblePowerUp
+                PowerUp();
             }
             else
             {
@@ -252,36 +283,58 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") || other.gameObject.CompareTag("Spike") || other.gameObject.CompareTag("Egg"))
-        {
-            isJumping = false;
-        }
+        if (isMegaFlying){
 
-        if (other.gameObject.CompareTag("Obstacle"))
-        {
-            isHurt = true;
-            isHurtByThunder = false; // Reset the thunder hurt flag
+        }else{
+            if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") || other.gameObject.CompareTag("Spike") || other.gameObject.CompareTag("Egg"))
+            {
+                isJumping = false;
+            }
 
-            StartCoroutine(EndHurtAnimation());
-        }
+            if (other.gameObject.CompareTag("Obstacle"))
+            {
+                if (isInvincible){
+                    //add interaction sound here
+                }else{
+                    isHurt = true;
+                    isHurtByThunder = false; // Reset the thunder hurt flag
 
-        if (other.gameObject.CompareTag("Egg"))
-        {
-            // Define the slide direction
-            Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
+                    StartCoroutine(EndHurtAnimation());
+                }
+            }
 
-            StartCoroutine(PlayEggCollisionAnimation());
-        }
+            if (other.gameObject.CompareTag("Egg"))
+            {
+                if (isInvincible){
+                    //add interaction sound here
+                }else if (isShielded){
+                    EventController.Instance.LoseShield();
+                }else{
+                    // Define the slide direction
+                    Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
 
-        else if (other.gameObject.CompareTag("Thunder"))
-        {
-            isHurt = true;
-            isHurtByThunder = true; // Set the thunder hurt flag
+                    StartCoroutine(PlayEggCollisionAnimation());
+                }
+            }
 
-            StartCoroutine(EndHurtAnimation());
+            else if (other.gameObject.CompareTag("Thunder"))
+            {
+                if (isInvincible){
+                    //add interaction sound here
+                }else if (isShielded){
+                    EventController.Instance.AddLump();
+                }else{
+                    EventController.Instance.AddLump();
+                    isHurt = true;
+                    isHurtByThunder = true; // Set the thunder hurt flag
 
-            // Call the ParalyzePlayer coroutine
-            StartCoroutine(ParalyzePlayer());
+                    StartCoroutine(EndHurtAnimation());
+
+                    // Call the ParalyzePlayer coroutine
+                    StartCoroutine(ParalyzePlayer());
+                }
+            }
+
         }
     }
 
@@ -376,5 +429,59 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+
+    string GetRandomPowerUp(){
+        int randomIndex = UnityEngine.Random.Range(0, powerUpList.Length);
+        return powerUpList[randomIndex];
+    }
+
+    void PowerUp(){
+        string powerUp = GetRandomPowerUp();
+        switch(powerUp){
+            case "jump":
+                StartCoroutine(MegaFly());
+                Debug.Log("Meta Jump");
+                break;
+            case "speed":
+                //StartCoroutine(PowerUPSpeed());
+                Debug.Log("Increase Speed");
+                break;
+            case "invincible":
+                //StartCoroutine(BeInvincible());
+                Debug.Log("Invincible");
+                break;
+            case "shield":
+                EventController.Instance.GetShield();
+                Debug.Log("Shield");
+                break;    
+        }
+    }
+
+    IEnumerator PowerUPSpeed(){
+        speed = powerUpSpeed;
+        jumpConstant = powerUpJump;
+        yield return new WaitForSeconds(powerUpSpeedTime);
+        speed = speedConst;
+        jumpConstant = jumpOriginal;
+    }
+
+    IEnumerator BeInvincible(){
+        Color color = spriteRenderer.color;
+        isInvincible = true;
+        color.a = 0.5f;
+        spriteRenderer.color = color;
+        yield return new WaitForSeconds(invincibleTime);
+        color.a = 1f;
+        spriteRenderer.color = color;
+        isInvincible = false;
+    }
+
+    IEnumerator MegaFly(){
+        isMegaFlying = true;
+        isInvincible = true;
+        yield return new WaitForSeconds(meGaFlyTime);
+        isMegaFlying = false;
+        isInvincible = false;
+    }
 }
 
