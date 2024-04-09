@@ -8,6 +8,15 @@ public class BoundaryController : MonoBehaviour
     public float maxPosX = 5f;  // Max x position
     public float movingSpeed = 2f; // Speed of movement along x-axis
     private bool isMoving = false;
+    public GameObject sharpEdge;
+    public float oscillationSpeed = 5f; // Speed of the oscillation
+    public float oscillationHeight = 2f; // Height of the oscillation
+
+    public void Start()
+    {
+        // Start oscillation
+        StartCoroutine(OscillateSharpEdge());
+    }
 
     // Call this method to start moving
     public void MoveBoundary(bool toRight, float minPosX, float maxPosX)
@@ -40,4 +49,31 @@ public class BoundaryController : MonoBehaviour
         }
         isMoving = false;
     }
+
+    private IEnumerator OscillateSharpEdge()
+    {
+        float initialRelativeY = sharpEdge.transform.position.y - transform.position.y;
+
+        while (true) // Infinite loop to continuously oscillate and follow the wall
+        {
+            float newY = Mathf.Sin(Time.time * oscillationSpeed) * oscillationHeight + transform.position.y + initialRelativeY;
+            
+            sharpEdge.transform.position = new Vector3(sharpEdge.transform.position.x, newY, sharpEdge.transform.position.z);
+            
+            yield return null; // Wait for the next frame
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Wall Hit!");
+            if(DataManager.Instance.currentGameMode == "death"){
+                EventController.Instance.AddLump();
+                AudioController.Instance.PlayChickenHit();
+            }
+            
+        }
+    }
+
 }

@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public bool withPiggyback;
     public float piggybackJump;
     public float jumpConstant;
-    
+
 
     // Animation variables
     public float walkingFrameRate = 0.1f; // Adjust this value to control walking animation speed
@@ -38,8 +38,9 @@ public class PlayerMovement : MonoBehaviour
     public Sprite hurtSprite; // Sprite for the hurt animation
     public List<Sprite> thunderHurtFrames; // List to hold thunder hurt animation sprites
     public float thunderHurtFrameRate = 0.1f; // Adjust this value to control thunder hurt animation speed
-    public float thunderHurtDuration = 0.5f; // Duration of thunder hurt animation
-    
+    public float thunderHurtDuration = 2.5f; // Duration of thunder hurt animation
+    public List<Sprite> eggCollisionFrames; // List to hold egg collision animation sprites
+
 
     private int currentFrame = 0;
     private float frameTimer = 0f;
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canJump = true;
     private float jumpCooldown = 0.3f;
     private float jumpTimer = 0f;
+    private bool isParalyzed = false; // Indicates whether the player is paralyzed
 
     // Start is called before the first frame update
     void Start()
@@ -70,38 +72,38 @@ public class PlayerMovement : MonoBehaviour
             jump = jumpConstant;
         }
 
-            if (ableToMove)
+        if (!isParalyzed && ableToMove)
+        {
+            float move = 0f;
+
+            // Check for W, A, D keys
+            if (Input.GetKeyDown(KeyCode.W) && !isJumping && canJump) // Only allow jump if not currently jumping and within cooldown time
             {
-                float move = 0f;
+                body.velocity = new Vector2(body.velocity.x, jump);
+                isJumping = true;
+                canJump = false; // Set canJump to false to prevent further jumping
+                jumpTimer = 0f; // Reset jumpTimer
+                AudioController.Instance.PlayChickenJump();
 
-                // Check for W, A, D keys
-                if (Input.GetKeyDown(KeyCode.W) && !isJumping && canJump) // Only allow jump if not currently jumping and within cooldown time
+                if (jumpAnimationFrames.Count > 0 && spriteRenderer != null)
                 {
-                    body.velocity = new Vector2(body.velocity.x, jump);
-                    isJumping = true;
-                    canJump = false; // Set canJump to false to prevent further jumping
-                    jumpTimer = 0f; // Reset jumpTimer
-                    AudioController.Instance.PlayChickenJump();
-
-                    if (jumpAnimationFrames.Count > 0 && spriteRenderer != null)
-                    {
-                        spriteRenderer.sprite = jumpAnimationFrames[0];
-                    }
-
-                    AnimatePlayer(jumpingFrameRate);
+                    spriteRenderer.sprite = jumpAnimationFrames[0];
                 }
 
-                // Update jumpTimer if canJump is false
-                if (!canJump)
-                {
-                    jumpTimer += Time.deltaTime;
-                    if (jumpTimer >= jumpCooldown)
-                    {
-                        canJump = true; // Allow jumping again after cooldown time
-                    }
-                }
+                AnimatePlayer(jumpingFrameRate);
+            }
 
-                if (Input.GetKey(KeyCode.A))
+            // Update jumpTimer if canJump is false
+            if (!canJump)
+            {
+                jumpTimer += Time.deltaTime;
+                if (jumpTimer >= jumpCooldown)
+                {
+                    canJump = true; // Allow jumping again after cooldown time
+                }
+            }
+
+            if (Input.GetKey(KeyCode.A))
             {
                 // Handle left movement
                 move = -1f;
@@ -258,7 +260,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") || other.gameObject.CompareTag("Spike"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") || other.gameObject.CompareTag("Spike") || other.gameObject.CompareTag("Egg"))
         {
             isJumping = false;
         }
@@ -270,15 +272,26 @@ public class PlayerMovement : MonoBehaviour
 
             StartCoroutine(EndHurtAnimation());
         }
+
+        if (other.gameObject.CompareTag("Egg"))
+        {
+            // Define the slide direction
+            Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
+
+            StartCoroutine(PlayEggCollisionAnimation());
+        }
+
         else if (other.gameObject.CompareTag("Thunder"))
         {
             isHurt = true;
             isHurtByThunder = true; // Set the thunder hurt flag
 
             StartCoroutine(EndHurtAnimation());
+
+            // Call the ParalyzePlayer coroutine
+            StartCoroutine(ParalyzePlayer());
         }
     }
-
 
     float GetMinXBoundary()
     {
@@ -296,6 +309,81 @@ public class PlayerMovement : MonoBehaviour
         isHurt = false;
         isHurtByThunder = false; // Reset the thunder hurt flag after the hurt animation ends
     }
+
+    IEnumerator ParalyzePlayer()
+    {
+        isParalyzed = true;
+
+        // Disable movement in the y-direction
+        body.constraints = RigidbodyConstraints2D.FreezePositionY;
+
+        float animationTimer = 0f;
+        int frameIndex = 0;
+
+        // Play the thunder hurt animation
+        while (animationTimer < thunderHurtDuration + 2f)
+        {
+            // Set the sprite to the current frame
+            spriteRenderer.sprite = thunderHurtFrames[frameIndex];
+
+            // Increment frame index for the next iteration
+            frameIndex = (frameIndex + 1) % thunderHurtFrames.Count;
+
+            // Wait for the frame duration
+            yield return new WaitForSeconds(thunderHurtFrameRate);
+
+            // Increment animation timer by the frame duration
+            animationTimer += thunderHurtFrameRate;
+        }
+
+        // Wait for the remaining duration after animation
+        yield return new WaitForSeconds(0.5f); // Adjust the remaining duration as needed
+
+        // Re-enable movement in the y-direction
+        body.constraints = RigidbodyConstraints2D.None;
+        body.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        // Mark paralysis as ended
+        isParalyzed = false;
+    }
+
+    IEnumerator PlayEggCollisionAnimation()
+    {
+        // Disable movement during the animation
+        ableToMove = false;
+
+        // Calculate the duration of the animation in seconds
+        float animationDuration = 2.5f; // Adjust the duration as needed
+
+        // Get the total number of frames in the animation
+        int totalFrames = eggCollisionFrames.Count;
+
+        // Calculate the frame duration
+        float frameDuration = animationDuration / totalFrames;
+
+        // Loop through each frame of the animation
+        for (float timer = 0f; timer < animationDuration; timer += Time.fixedDeltaTime)
+        {
+            // Calculate the current frame index
+            int frameIndex = Mathf.FloorToInt(timer / frameDuration) % totalFrames;
+
+            // Update the sprite renderer with the current frame
+            spriteRenderer.sprite = eggCollisionFrames[frameIndex];
+
+            // Apply movement increment to the player's position
+            Vector2 movementIncrement = new Vector2(-3f, -3f); // Adjust the values as needed
+            Vector2 newPosition = (Vector2)transform.position + movementIncrement * Time.fixedDeltaTime;
+            body.MovePosition(newPosition);
+
+            // Wait for the next fixed frame
+            yield return new WaitForFixedUpdate();
+        }
+
+        // Re-enable movement after the animation
+        ableToMove = true;
+    }
+
+
 
     string GetRandomPowerUp(){
         int randomIndex = UnityEngine.Random.Range(0, powerUpList.Length);
