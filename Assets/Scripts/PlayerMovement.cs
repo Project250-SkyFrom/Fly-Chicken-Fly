@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public List<Sprite> thunderHurtFrames; // List to hold thunder hurt animation sprites
     public float thunderHurtFrameRate = 0.1f; // Adjust this value to control thunder hurt animation speed
     public float thunderHurtDuration = 2.5f; // Duration of thunder hurt animation
+    public List<Sprite> eggCollisionFrames; // List to hold egg collision animation sprites
 
 
     private int currentFrame = 0;
@@ -251,7 +252,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") || other.gameObject.CompareTag("Spike"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") || other.gameObject.CompareTag("Spike") || other.gameObject.CompareTag("Egg"))
         {
             isJumping = false;
         }
@@ -263,6 +264,15 @@ public class PlayerMovement : MonoBehaviour
 
             StartCoroutine(EndHurtAnimation());
         }
+
+        if (other.gameObject.CompareTag("Egg"))
+        {
+            // Define the slide direction
+            Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
+
+            StartCoroutine(PlayEggCollisionAnimation());
+        }
+
         else if (other.gameObject.CompareTag("Thunder"))
         {
             isHurt = true;
@@ -329,4 +339,42 @@ public class PlayerMovement : MonoBehaviour
         isParalyzed = false;
     }
 
+    IEnumerator PlayEggCollisionAnimation()
+    {
+        // Disable movement during the animation
+        ableToMove = false;
+
+        // Calculate the duration of the animation in seconds
+        float animationDuration = 2.5f; // Adjust the duration as needed
+
+        // Get the total number of frames in the animation
+        int totalFrames = eggCollisionFrames.Count;
+
+        // Calculate the frame duration
+        float frameDuration = animationDuration / totalFrames;
+
+        // Loop through each frame of the animation
+        for (float timer = 0f; timer < animationDuration; timer += Time.fixedDeltaTime)
+        {
+            // Calculate the current frame index
+            int frameIndex = Mathf.FloorToInt(timer / frameDuration) % totalFrames;
+
+            // Update the sprite renderer with the current frame
+            spriteRenderer.sprite = eggCollisionFrames[frameIndex];
+
+            // Apply movement increment to the player's position
+            Vector2 movementIncrement = new Vector2(-3f, -3f); // Adjust the values as needed
+            Vector2 newPosition = (Vector2)transform.position + movementIncrement * Time.fixedDeltaTime;
+            body.MovePosition(newPosition);
+
+            // Wait for the next fixed frame
+            yield return new WaitForFixedUpdate();
+        }
+
+        // Re-enable movement after the animation
+        ableToMove = true;
+    }
+
+
 }
+

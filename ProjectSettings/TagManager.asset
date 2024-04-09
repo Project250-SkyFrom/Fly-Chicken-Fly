@@ -15,6 +15,7 @@ TagManager:
   - BabyChicken
   - Platform
   - Thunder
+  - Egg
   layers:
   - Default
   - TransparentFX
