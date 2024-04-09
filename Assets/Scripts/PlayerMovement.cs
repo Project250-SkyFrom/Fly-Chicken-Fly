@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject windSpriteRenderer; // Reference to the wind sprite renderer
     public string[] powerUpList;
 
+    public int powerUpEgg;
     public float powerUpSpeed;
     public float powerUpJump;
     public float powerUpSpeedTime;
@@ -139,7 +140,10 @@ public class PlayerMovement : MonoBehaviour
                 isIdle = false;
             }
             else if (Input.GetKey(KeyCode.E)){//&&EventController.Instance.isAblePowerUp
-                PowerUp();
+                if (EventController.Instance.isAblePowerUp){
+                    PowerUp();  
+                    EventController.Instance.ChargePowerUp();
+                }
             }
             else
             {
@@ -443,11 +447,11 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Meta Jump");
                 break;
             case "speed":
-                //StartCoroutine(PowerUPSpeed());
+                StartCoroutine(PowerUPSpeed());
                 Debug.Log("Increase Speed");
                 break;
             case "invincible":
-                //StartCoroutine(BeInvincible());
+                StartCoroutine(BeInvincible());
                 Debug.Log("Invincible");
                 break;
             case "shield":
