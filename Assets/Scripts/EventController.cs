@@ -142,6 +142,7 @@ public class EventController : MonoBehaviour
             player.withPiggyback = true;
             piggyback.SetActive(true);
             piggybackDestroyTime = Time.time + piggybackLiftTime;
+            StartCoroutine(player.BabyChickenDuartion());
         }
     }
 

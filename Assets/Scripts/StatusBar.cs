@@ -31,4 +31,8 @@ public class StatusBar : MonoBehaviour
         // Set the fill amount of the status bar
         statusBar.fillAmount = fillAmount;
     }
+    public void ResetFill(){
+        currentCharge = maxCharge;
+        statusBar.fillAmount = maxCharge;
+    }
 }

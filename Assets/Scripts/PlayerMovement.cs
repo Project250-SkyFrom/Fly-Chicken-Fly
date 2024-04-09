@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject windSpriteRenderer; // Reference to the wind sprite renderer
     public string[] powerUpList;
+    public GameObject greenStatusBar;
+    public GameObject redStatusBar;
 
     public int powerUpEgg;
     public float powerUpSpeed;
@@ -474,7 +476,11 @@ public class PlayerMovement : MonoBehaviour
         isInvincible = true;
         color.a = 0.5f;
         spriteRenderer.color = color;
+        greenStatusBar.SetActive(true);
         yield return new WaitForSeconds(invincibleTime);
+        StatusBar bar = greenStatusBar.GetComponent<StatusBar>();
+        bar.ResetFill();
+        greenStatusBar.SetActive(false);
         color.a = 1f;
         spriteRenderer.color = color;
         isInvincible = false;
@@ -486,6 +492,14 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(meGaFlyTime);
         isMegaFlying = false;
         isInvincible = false;
+    }
+
+    public IEnumerator BabyChickenDuartion(){
+        redStatusBar.SetActive(true);
+        yield return new WaitForSeconds(EventController.Instance.piggybackLiftTime);
+        StatusBar bar = redStatusBar.GetComponent<StatusBar>();
+        bar.ResetFill();
+        redStatusBar.SetActive(false);
     }
 }
 
