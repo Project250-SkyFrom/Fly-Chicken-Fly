@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     public float piggybackJump;
     public float jumpConstant;
     public bool isShielded;
+    public bool isMegaFlying;
+    public float megaFlySpeed;
+    public float meGaFlyTime;
 
 
     // Animation variables
@@ -76,7 +79,23 @@ public class PlayerMovement : MonoBehaviour
             jump = jumpConstant;
         }
 
-        if (!isParalyzed && ableToMove)
+        if (isMegaFlying){
+            float move = 0f;
+            if (Input.GetKey(KeyCode.A))
+            {
+                // Handle left movement
+                move = -1f;
+                isIdle = false;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                // Handle right movement
+                move = 1f;
+                isIdle = false;
+            }
+            body.velocity = new Vector2(move*speed, megaFlySpeed);
+        }
+        else if (!isParalyzed && ableToMove)
         {
             float move = 0f;
 
@@ -264,53 +283,58 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") || other.gameObject.CompareTag("Spike") || other.gameObject.CompareTag("Egg"))
-        {
-            isJumping = false;
-        }
+        if (isMegaFlying){
 
-        if (other.gameObject.CompareTag("Obstacle"))
-        {
-            if (isInvincible){
-                //add interaction sound here
-            }else{
-                isHurt = true;
-                isHurtByThunder = false; // Reset the thunder hurt flag
-
-                StartCoroutine(EndHurtAnimation());
+        }else{
+            if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") || other.gameObject.CompareTag("Spike") || other.gameObject.CompareTag("Egg"))
+            {
+                isJumping = false;
             }
-        }
 
-        if (other.gameObject.CompareTag("Egg"))
-        {
-            if (isInvincible){
-                //add interaction sound here
-            }else if (isShielded){
-                EventController.Instance.LoseShield();
-            }else{
-                // Define the slide direction
-                Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
+            if (other.gameObject.CompareTag("Obstacle"))
+            {
+                if (isInvincible){
+                    //add interaction sound here
+                }else{
+                    isHurt = true;
+                    isHurtByThunder = false; // Reset the thunder hurt flag
 
-                StartCoroutine(PlayEggCollisionAnimation());
+                    StartCoroutine(EndHurtAnimation());
+                }
             }
-        }
 
-        else if (other.gameObject.CompareTag("Thunder"))
-        {
-            if (isInvincible){
-                //add interaction sound here
-            }else if (isShielded){
-                EventController.Instance.AddLump();
-            }else{
-                EventController.Instance.AddLump();
-                isHurt = true;
-                isHurtByThunder = true; // Set the thunder hurt flag
+            if (other.gameObject.CompareTag("Egg"))
+            {
+                if (isInvincible){
+                    //add interaction sound here
+                }else if (isShielded){
+                    EventController.Instance.LoseShield();
+                }else{
+                    // Define the slide direction
+                    Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
 
-                StartCoroutine(EndHurtAnimation());
-
-                // Call the ParalyzePlayer coroutine
-                StartCoroutine(ParalyzePlayer());
+                    StartCoroutine(PlayEggCollisionAnimation());
+                }
             }
+
+            else if (other.gameObject.CompareTag("Thunder"))
+            {
+                if (isInvincible){
+                    //add interaction sound here
+                }else if (isShielded){
+                    EventController.Instance.AddLump();
+                }else{
+                    EventController.Instance.AddLump();
+                    isHurt = true;
+                    isHurtByThunder = true; // Set the thunder hurt flag
+
+                    StartCoroutine(EndHurtAnimation());
+
+                    // Call the ParalyzePlayer coroutine
+                    StartCoroutine(ParalyzePlayer());
+                }
+            }
+
         }
     }
 
@@ -415,8 +439,8 @@ public class PlayerMovement : MonoBehaviour
         string powerUp = GetRandomPowerUp();
         switch(powerUp){
             case "jump":
-                //increaseJump();
-                //Debug.Log("Increase Jump");
+                StartCoroutine(MegaFly());
+                Debug.Log("Meta Jump");
                 break;
             case "speed":
                 //StartCoroutine(PowerUPSpeed());
@@ -449,6 +473,14 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(invincibleTime);
         color.a = 1f;
         spriteRenderer.color = color;
+        isInvincible = false;
+    }
+
+    IEnumerator MegaFly(){
+        isMegaFlying = true;
+        isInvincible = true;
+        yield return new WaitForSeconds(meGaFlyTime);
+        isMegaFlying = false;
         isInvincible = false;
     }
 }

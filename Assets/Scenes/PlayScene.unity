@@ -33220,6 +33220,9 @@ MonoBehaviour:
   piggybackJump: 15
   jumpConstant: 20
   isShielded: 0
+  isMegaFlying: 0
+  megaFlySpeed: 20
+  meGaFlyTime: 3
   walkingFrameRate: 0.1
   jumpingFrameRate: 0.1
   idleFrameRate: 0.5
