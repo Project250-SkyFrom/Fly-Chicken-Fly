@@ -7,6 +7,7 @@ public class NewPlatformGen : MonoBehaviour
     public GameObject regularPlatformPrefab;
     public GameObject movingPlatformPrefab;
     public GameObject verticalMovingPlatformPrefab;
+    public GameObject nightMovingPlatformPrefab;
     public GameObject nightPlatformPrefab; // Define the night platform prefab
     public GameObject player;
     public GoldenEggGenerator dayGoldenEggGenerator;
@@ -32,12 +33,14 @@ public class NewPlatformGen : MonoBehaviour
     public int rottenEggPlatformFrequency = 15;
     public int thunderPlatformFrequency = 9;
     public int babyChickenPlatformFrequency = 19;
+    public int nightMovingPlatformFrequency = 4;
     public float movingPlatformScale = 6.8f;
     public float spikePlatformScale = 6.8f;
     public float rottenEggPlatformScale = 6.8f;
     public float thunderPlatformScale = 6.8f;
     public float babyChickenPlatformScale = 6.8f;
     public float verticalMovingPlatformScale = 6.8f;
+    public float nightMovingPlatformScale = 10.7f;
 
     public bool isGenerating;
     public float currentY = 5.77f;
@@ -69,10 +72,17 @@ public class NewPlatformGen : MonoBehaviour
                     GenerateThunderPlatform(currentY + thunderPlatformScale);
                     
                 }
+
+                else if (regularPlatformCounter == nightMovingPlatformFrequency)
+
+                {
+                    GenerateNightMovingPlatform(currentY + nightMovingPlatformScale);
+                    regularPlatformCounter = 0;
+                }
                 else
                 {
                     GenerateNightPlatform(currentY);
-                    regularPlatformCounter = (regularPlatformCounter + 1) % 3;
+                    //regularPlatformCounter = (regularPlatformCounter + 1) % 3;
                 }
 
                 currentY += verticalDistanceBetweenPlatforms;
@@ -191,6 +201,16 @@ public class NewPlatformGen : MonoBehaviour
         GameObject babyChickenPlatform = GetRandomPlatform(babyChickenPlatformPrefab);
         GameObject platform = Instantiate(babyChickenPlatform, spawnPosition, Quaternion.identity);
         platforms.Add(platform);
+    }
+
+    void GenerateNightMovingPlatform(float yPosition)
+    {
+        float randomX = Random.Range(minX, maxX);
+        Vector2 spawnPosition = new Vector2(randomX, yPosition);
+        int group = GenerateGoldenEgg(nightGroupNum, "night");
+        GameObject nightMovingPlatform = Instantiate(nightMovingPlatformPrefab, spawnPosition, Quaternion.identity);
+        platforms.Add(nightMovingPlatform);
+        RestoreGoldenEgg(group, "night");
     }
 
     void GenerateNightPlatform(float yPosition)
