@@ -18,9 +18,13 @@ public class Spike : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.CompareTag("Player")){
-            EventController.Instance.AddLump();
-            AudioController.Instance.PlaySpike();
-            AudioController.Instance.PlayChickenHit();
+            if (EventController.Instance.player.isInvincible){
+                //add interaction sound here
+            }else{
+                EventController.Instance.AddLump();
+                AudioController.Instance.PlaySpike();
+                AudioController.Instance.PlayChickenHit();
+            }
             Destroy(gameObject);
         }
     } 

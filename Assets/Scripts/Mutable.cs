@@ -1,53 +1,64 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mutable : MonoBehaviour
 {
-    private bool isMuted = false;
-    public GameObject sonOn;
-    public GameObject soffOff;
-    public GameObject sonOff;
-    public GameObject soffOn;
+    public Slider bgSlider;
+    public Slider sfxSlider;
+    public AudioSource BGmusic;
+    public AudioSource SFXmusic;
 
-    void Awake(){
-        if (PlayerPrefs.HasKey("mute")){
-            AudioListener.volume = PlayerPrefs.GetInt("mute");
-        }else{
-            PlayerPrefs.SetInt("mute",1);
-            AudioListener.volume = 1;
+    void Awake()
+    {
+        float savedVolume = PlayerPrefs.GetFloat("BGVolume", 0.5f);
+        float savedSFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
+        BGmusic.volume = savedVolume;
+        if (bgSlider != null)
+        {
+            bgSlider.value = savedVolume;
+        }
+        if (sfxSlider != null)
+        {
+            sfxSlider.value = savedSFXVolume;
         }
     }
-    void Start(){
-        if (AudioListener.volume == 0){ //muted
-            UIController.Instance.SetUIActive(sonOff);
-            UIController.Instance.SetUIActive(soffOn);
-        }
-        else{
-            UIController.Instance.SetUIActive(sonOn);
-            UIController.Instance.SetUIActive(soffOff);
-        }
-    }
-    // Function to toggle mute state
-    public void ToggleMute()
+
+    void Start()
     {
-        isMuted = !isMuted;
-        AudioListener.volume = isMuted ? 0 : 1; // Mute or unmute all audio
+        if (bgSlider != null)
+        {
+            bgSlider.onValueChanged.AddListener(SetVolume);
+        }
+        if (sfxSlider != null)
+        {
+            sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        }
     }
 
-    // Function to explicitly mute the audio
-    public void Mute()
+
+    public void SetVolume(float volume)
     {
-        isMuted = true;
-        PlayerPrefs.SetInt("mute",0);
-        AudioListener.volume = 0; // Mute all audio
+        BGmusic.volume = volume;
+        PlayerPrefs.SetFloat("BGVolume", volume);
     }
 
-    // Function to explicitly unmute the audio
-    public void Unmute()
+    public void SetSFXVolume(float volume)
     {
-        isMuted = false;
-        PlayerPrefs.SetInt("mute",1);
-        AudioListener.volume = 1; // Unmute all audio
+        SFXmusic.volume = volume;
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+    }
+
+    void OnDestroy()
+    {
+        if (bgSlider != null)
+        {
+            bgSlider.onValueChanged.RemoveListener(SetVolume);
+        }
+        if (sfxSlider != null)
+        {
+            sfxSlider.onValueChanged.RemoveListener(SetSFXVolume);
+        }
     }
 }

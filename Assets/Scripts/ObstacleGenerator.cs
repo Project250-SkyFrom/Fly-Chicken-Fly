@@ -10,26 +10,42 @@ public class ObstacleGenerator : MonoBehaviour
     public GameObject polaCanPrefab;
     public GameObject babyChickenPrefab;
     public float generateRate; // Rate at which knives will be generated
+    public float baseGenerationRate;
+    public float dayGenerationRate;
+    public float nightGenerationRate;
+    public string hardMode;
+    public float increaseDifficultyDistance;
+    public int difficultyLevel;
+    public float decreaseRate;
     private float nextGenerateTime; // Time when the next knife should be generated
     public BackgroundScroll camera;
     //private string[] obstaclesType = {"HandleUpKnife","HandleDownKnife","PolaCan","BabyChicken"};
-    private string[] obstaclesType = {"HandleDownKnife"};
+    public string[] obstaclesType = {"HandleDownKnife"};
     private GameObject thisObstacle;
-    public float handleUpKnifeStartGenerateTime;
-    public float polaCanStartGenerateTime;
+    public float handleUpKnifeGenerateHeight;
+    public float polaCanStartGenerateHeight;
 
     private float cameraWidth = 40.0f;  //should be update after the implementation of shrink and expand of camera
     void Start()
     {
         // Initialize nextGenerateTime to the current time plus the generateRate
+        generateRate = baseGenerationRate+dayGenerationRate;
         nextGenerateTime = Time.time + generateRate;
-        
     }
 
     void Update()
     {   
         string type = GetRandomObstacleType();
         int direction = GetRandomDirection();
+        if (hardMode == "night"){
+            generateRate = baseGenerationRate+nightGenerationRate;
+        }else{
+            generateRate = baseGenerationRate+dayGenerationRate;
+        }
+        if (transform.position.y>=difficultyLevel*increaseDifficultyDistance){
+            difficultyLevel+=1;
+            baseGenerationRate-=decreaseRate;
+        }
         switch(type){   // find that type of obstacle should be genrated
             case "HandleUpKnife":
                 thisObstacle = handleUpKnifePrefab;
@@ -108,10 +124,10 @@ public class ObstacleGenerator : MonoBehaviour
 
     private string GetRandomObstacleType()
     { 
-        if(Time.time>=polaCanStartGenerateTime){
+        if(transform.position.y>=polaCanStartGenerateHeight){
             obstaclesType = new string[] {"HandleUpKnife","HandleDownKnife","PolaCan"};
         } 
-        else if (Time.time>=handleUpKnifeStartGenerateTime){
+        else if (transform.position.y>=handleUpKnifeGenerateHeight){
             obstaclesType = new string[] {"HandleUpKnife","HandleDownKnife"};
         }
         // Generate a random index within the range of the array length

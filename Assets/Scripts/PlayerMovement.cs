@@ -6,14 +6,31 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
     public SpriteRenderer spriteRenderer;
+    public GameObject windSpriteRenderer; // Reference to the wind sprite renderer
+    public string[] powerUpList;
+    public GameObject greenStatusBar;
+    public GameObject redStatusBar;
 
+    public int powerUpEgg;
+    public float powerUpSpeed;
+    public float powerUpJump;
+    public float powerUpSpeedTime;
+    public float speedConst;
+    public float jumpOriginal;
     public float speed;
     public float jump;
     public bool isJumping;
+    public bool isInvincible;
+    public float invincibleTime;
     public bool ableToMove;
     public bool withPiggyback;
     public float piggybackJump;
     public float jumpConstant;
+    public bool isShielded;
+    public bool isMegaFlying;
+    public float megaFlySpeed;
+    public float meGaFlyTime;
+
 
     // Animation variables
     public float walkingFrameRate = 0.1f; // Adjust this value to control walking animation speed
@@ -31,13 +48,19 @@ public class PlayerMovement : MonoBehaviour
     public Sprite hurtSprite; // Sprite for the hurt animation
     public List<Sprite> thunderHurtFrames; // List to hold thunder hurt animation sprites
     public float thunderHurtFrameRate = 0.1f; // Adjust this value to control thunder hurt animation speed
-    public float thunderHurtDuration = 0.5f; // Duration of thunder hurt animation
+    public float thunderHurtDuration = 2.5f; // Duration of thunder hurt animation
+    public List<Sprite> eggCollisionFrames; // List to hold egg collision animation sprites
+
 
     private int currentFrame = 0;
     private float frameTimer = 0f;
     private bool isIdle = false;
     private bool isHurt = false;
     private bool isHurtByThunder = false;
+    private bool canJump = true;
+    private float jumpCooldown = 0.3f;
+    private float jumpTimer = 0f;
+    private bool isParalyzed = false; // Indicates whether the player is paralyzed
 
     // Start is called before the first frame update
     void Start()
@@ -58,29 +81,9 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = jumpConstant;
         }
-        if (ableToMove)
-        {
+
+        if (isMegaFlying){
             float move = 0f;
-
-            // Check for W, A, D keys
-            if (Input.GetKey(KeyCode.W))
-            {
-                // Handle jump logic
-                if (!isJumping)
-                {
-                    body.velocity = new Vector2(body.velocity.x, jump);
-                    isJumping = true;
-
-                    AudioController.Instance.PlayChickenJump();
-
-                    if (jumpAnimationFrames.Count > 0 && spriteRenderer != null)
-                    {
-                        spriteRenderer.sprite = jumpAnimationFrames[0];
-                    }
-
-                    AnimatePlayer(jumpingFrameRate);
-                }
-            }
             if (Input.GetKey(KeyCode.A))
             {
                 // Handle left movement
@@ -92,6 +95,57 @@ public class PlayerMovement : MonoBehaviour
                 // Handle right movement
                 move = 1f;
                 isIdle = false;
+            }
+            body.velocity = new Vector2(move*speed, megaFlySpeed);
+        }
+        else if (!isParalyzed && ableToMove)
+        {
+            float move = 0f;
+
+            // Check for W, A, D keys
+            if (Input.GetKeyDown(KeyCode.W) && !isJumping && canJump) // Only allow jump if not currently jumping and within cooldown time
+            {
+                body.velocity = new Vector2(body.velocity.x, jump);
+                isJumping = true;
+                canJump = false; // Set canJump to false to prevent further jumping
+                jumpTimer = 0f; // Reset jumpTimer
+                AudioController.Instance.PlayChickenJump();
+
+                if (jumpAnimationFrames.Count > 0 && spriteRenderer != null)
+                {
+                    spriteRenderer.sprite = jumpAnimationFrames[0];
+                }
+
+                AnimatePlayer(jumpingFrameRate);
+            }
+
+            // Update jumpTimer if canJump is false
+            if (!canJump)
+            {
+                jumpTimer += Time.deltaTime;
+                if (jumpTimer >= jumpCooldown)
+                {
+                    canJump = true; // Allow jumping again after cooldown time
+                }
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                // Handle left movement
+                move = -1f;
+                isIdle = false;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                // Handle right movement
+                move = 1f;
+                isIdle = false;
+            }
+            else if (Input.GetKey(KeyCode.E)){//&&EventController.Instance.isAblePowerUp
+                if (EventController.Instance.isAblePowerUp){
+                    PowerUp();  
+                    EventController.Instance.ChargePowerUp();
+                }
             }
             else
             {
@@ -128,6 +182,7 @@ public class PlayerMovement : MonoBehaviour
 
             AnimatePlayer(walkingFrameRate);
         }
+        windSpriteRenderer.transform.position = new Vector3(windSpriteRenderer.transform.position.x, spriteRenderer.transform.position.y, windSpriteRenderer.transform.position.z);
     }
 
     void AnimatePlayer(float currentFrameRate)
@@ -234,27 +289,60 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") || other.gameObject.CompareTag("Spike"))
-        {
-            isJumping = false;
-        }
+        if (isMegaFlying){
 
-        if (other.gameObject.CompareTag("Obstacle"))
-        {
-            isHurt = true;
-            isHurtByThunder = false; // Reset the thunder hurt flag
+        }else{
+            if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") || other.gameObject.CompareTag("Spike") || other.gameObject.CompareTag("Egg"))
+            {
+                isJumping = false;
+            }
 
-            StartCoroutine(EndHurtAnimation());
-        }
-        else if (other.gameObject.CompareTag("Thunder"))
-        {
-            isHurt = true;
-            isHurtByThunder = true; // Set the thunder hurt flag
+            if (other.gameObject.CompareTag("Obstacle"))
+            {
+                if (isInvincible){
+                    //add interaction sound here
+                }else{
+                    isHurt = true;
+                    isHurtByThunder = false; // Reset the thunder hurt flag
 
-            StartCoroutine(EndHurtAnimation());
+                    StartCoroutine(EndHurtAnimation());
+                }
+            }
+
+            if (other.gameObject.CompareTag("Egg"))
+            {
+                if (isInvincible){
+                    //add interaction sound here
+                }else if (isShielded){
+                    EventController.Instance.LoseShield();
+                }else{
+                    // Define the slide direction
+                    Vector2 slideDirection = new Vector2(-1.7f, -1.7f);
+
+                    StartCoroutine(PlayEggCollisionAnimation());
+                }
+            }
+
+            else if (other.gameObject.CompareTag("Thunder"))
+            {
+                if (isInvincible){
+                    //add interaction sound here
+                }else if (isShielded){
+                    EventController.Instance.AddLump();
+                }else{
+                    EventController.Instance.AddLump();
+                    isHurt = true;
+                    isHurtByThunder = true; // Set the thunder hurt flag
+
+                    StartCoroutine(EndHurtAnimation());
+
+                    // Call the ParalyzePlayer coroutine
+                    StartCoroutine(ParalyzePlayer());
+                }
+            }
+
         }
     }
-
 
     float GetMinXBoundary()
     {
@@ -271,6 +359,147 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(thunderHurtDuration);
         isHurt = false;
         isHurtByThunder = false; // Reset the thunder hurt flag after the hurt animation ends
+    }
+
+    IEnumerator ParalyzePlayer()
+    {
+        isParalyzed = true;
+
+        // Disable movement in the y-direction
+        body.constraints = RigidbodyConstraints2D.FreezePositionY;
+
+        float animationTimer = 0f;
+        int frameIndex = 0;
+
+        // Play the thunder hurt animation
+        while (animationTimer < thunderHurtDuration + 2f)
+        {
+            // Set the sprite to the current frame
+            spriteRenderer.sprite = thunderHurtFrames[frameIndex];
+
+            // Increment frame index for the next iteration
+            frameIndex = (frameIndex + 1) % thunderHurtFrames.Count;
+
+            // Wait for the frame duration
+            yield return new WaitForSeconds(thunderHurtFrameRate);
+
+            // Increment animation timer by the frame duration
+            animationTimer += thunderHurtFrameRate;
+        }
+
+        // Wait for the remaining duration after animation
+        yield return new WaitForSeconds(0.5f); // Adjust the remaining duration as needed
+
+        // Re-enable movement in the y-direction
+        body.constraints = RigidbodyConstraints2D.None;
+        body.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        // Mark paralysis as ended
+        isParalyzed = false;
+    }
+
+    IEnumerator PlayEggCollisionAnimation()
+    {
+        // Disable movement during the animation
+        ableToMove = false;
+
+        // Calculate the duration of the animation in seconds
+        float animationDuration = 2.5f; // Adjust the duration as needed
+
+        // Get the total number of frames in the animation
+        int totalFrames = eggCollisionFrames.Count;
+
+        // Calculate the frame duration
+        float frameDuration = animationDuration / totalFrames;
+
+        // Loop through each frame of the animation
+        for (float timer = 0f; timer < animationDuration; timer += Time.fixedDeltaTime)
+        {
+            // Calculate the current frame index
+            int frameIndex = Mathf.FloorToInt(timer / frameDuration) % totalFrames;
+
+            // Update the sprite renderer with the current frame
+            spriteRenderer.sprite = eggCollisionFrames[frameIndex];
+
+            // Apply movement increment to the player's position
+            Vector2 movementIncrement = new Vector2(-3f, -3f); // Adjust the values as needed
+            Vector2 newPosition = (Vector2)transform.position + movementIncrement * Time.fixedDeltaTime;
+            body.MovePosition(newPosition);
+
+            // Wait for the next fixed frame
+            yield return new WaitForFixedUpdate();
+        }
+
+        // Re-enable movement after the animation
+        ableToMove = true;
+    }
+
+
+
+    string GetRandomPowerUp(){
+        int randomIndex = UnityEngine.Random.Range(0, powerUpList.Length);
+        return powerUpList[randomIndex];
+    }
+
+    void PowerUp(){
+        string powerUp = GetRandomPowerUp();
+        switch(powerUp){
+            case "jump":
+                StartCoroutine(MegaFly());
+                Debug.Log("Meta Jump");
+                break;
+            case "speed":
+                StartCoroutine(PowerUPSpeed());
+                Debug.Log("Increase Speed");
+                break;
+            case "invincible":
+                StartCoroutine(BeInvincible());
+                Debug.Log("Invincible");
+                break;
+            case "shield":
+                EventController.Instance.GetShield();
+                Debug.Log("Shield");
+                break;    
+        }
+    }
+
+    IEnumerator PowerUPSpeed(){
+        speed = powerUpSpeed;
+        jumpConstant = powerUpJump;
+        yield return new WaitForSeconds(powerUpSpeedTime);
+        speed = speedConst;
+        jumpConstant = jumpOriginal;
+    }
+
+    IEnumerator BeInvincible(){
+        Color color = spriteRenderer.color;
+        isInvincible = true;
+        color.a = 0.5f;
+        spriteRenderer.color = color;
+        greenStatusBar.SetActive(true);
+        yield return new WaitForSeconds(invincibleTime);
+        StatusBar bar = greenStatusBar.GetComponent<StatusBar>();
+        bar.ResetFill();
+        greenStatusBar.SetActive(false);
+        color.a = 1f;
+        spriteRenderer.color = color;
+        isInvincible = false;
+    }
+
+    IEnumerator MegaFly(){
+        isMegaFlying = true;
+        isInvincible = true;
+        yield return new WaitForSeconds(meGaFlyTime);
+        isMegaFlying = false;
+        isInvincible = false;
+    }
+
+    public IEnumerator BabyChickenDuartion(){
+        redStatusBar.SetActive(true);
+        yield return new WaitForSeconds(EventController.Instance.piggybackLiftTime);
+        StatusBar bar = redStatusBar.GetComponent<StatusBar>();
+        bar.ResetFill();
+        redStatusBar.SetActive(false);
     }
 }
 

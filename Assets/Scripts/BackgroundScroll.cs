@@ -28,7 +28,7 @@ public class BackgroundScroll : MonoBehaviour
         if (transform.position.y < player.transform.position.y-120 ){
             SpriteRenderer loopBGRender = loopBG.GetComponent<SpriteRenderer>(); // get the sprite renderer of the background
             Vector3 newPos = loopBGRender.transform.position;
-            newPos.y = loopBGRender.bounds.max.y + spriteRenderer.bounds.size.y/2;;
+            newPos.y = loopBGRender.bounds.max.y + spriteRenderer.bounds.size.y/2-10;
             transform.position = newPos;
         }
     }

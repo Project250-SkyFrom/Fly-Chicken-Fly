@@ -45,6 +45,10 @@ public class EventController : MonoBehaviour
     public BoundaryController rightBoundary;
     public float cameraGoDownDistance;
     public GameObject enemyObject;
+    public bool isAblePowerUp;
+    public int numOfPowerUp;
+    public int powerUpTime;
+    public GameObject shield;
 
     void Awake(){
         _instance = this;
@@ -106,31 +110,40 @@ public class EventController : MonoBehaviour
     }
 
     public void AddLump(){
-        lump += 1;
-        if (lump == 1){
-            lump1.SetActive(true);
-            //x1.SetActive(true);
+        if (player.isShielded){
+            LoseShield();
+        }else{
+            lump += 1;
+            if (lump == 1){
+                lump1.SetActive(true);
+                //x1.SetActive(true);
+            }
+            if (lump == 2){
+                lump2.SetActive(true);
+                //x2.SetActive(true);
+            }
+            if (lump == 3){
+                lump3.SetActive(true);
+                //x3.SetActive(true);
+            }
+            lumpView.UpdateLump(lump);
+            if (DataManager.Instance.currentGameMode == "death" && lump >=3){
+            //Debug.Log("End Game");
+                EndGame();
+            }
+            //LumpGenerator.Instance.GenerateImages();
         }
-        if (lump == 2){
-            lump2.SetActive(true);
-            //x2.SetActive(true);
-        }
-        if (lump == 3){
-            lump3.SetActive(true);
-            //x3.SetActive(true);
-        }
-        lumpView.UpdateLump(lump);
-        if (DataManager.Instance.currentGameMode == "death" && lump >=3){
-           //Debug.Log("End Game");
-            EndGame();
-        }
-        //LumpGenerator.Instance.GenerateImages();
     }
 
     public void AddBabyChicken(){
-        player.withPiggyback = true;
-        piggyback.SetActive(true);
-        piggybackDestroyTime = Time.time + piggybackLiftTime;
+        if (player.isShielded){
+            LoseShield();
+        }else{
+            player.withPiggyback = true;
+            piggyback.SetActive(true);
+            piggybackDestroyTime = Time.time + piggybackLiftTime;
+            StartCoroutine(player.BabyChickenDuartion());
+        }
     }
 
     public void DeleteBabyChicken(){
@@ -189,18 +202,24 @@ private void StartShrinkingBoundaries()
         egg+=1;
         eggView.UpdateGoldenEgg(egg);
         altitudeView.goldenEgg=egg;
+        if (egg>=numOfPowerUp*powerUpTime){
+            isAblePowerUp = true;
+        }
         //DataManager.Instance.UpdateGoldenEgg(egg);
     }
 
     public void LoseGoldenEgg(){
-        if (egg>=2){
-            egg -= 2;
+        if (egg>=5){
+            egg -= 5;
         }
         else{
             egg = 0;
         }
         eggView.UpdateGoldenEgg(egg);
         altitudeView.goldenEgg=egg;
+        if (egg<numOfPowerUp*powerUpTime){
+            isAblePowerUp = false;
+        }
     }
 
     public void EndGame(){
@@ -232,10 +251,22 @@ private void StartShrinkingBoundaries()
 
     public void ChangeHardMode(string mode){
         if (mode == "day"){
-            obstacleGenerator.generateRate = 4;
+            obstacleGenerator.hardMode = "day";
         }
         else{   //night
-            obstacleGenerator.generateRate = 1;
+            obstacleGenerator.hardMode = "night";
         }
+    }
+    public void LoseShield(){
+        player.isShielded = false;
+        shield.SetActive(false);
+    }
+    public void GetShield(){
+        player.isShielded = true;
+        shield.SetActive(true);
+    }
+    public void ChargePowerUp(){
+        isAblePowerUp = false;
+        powerUpTime +=1;
     }
 }
