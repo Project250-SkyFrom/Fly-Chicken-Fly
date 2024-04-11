@@ -1,23 +1,25 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WindEffect : MonoBehaviour
 {
     public GameObject player; // Reference to the player object
     public SpriteRenderer windSpriteRenderer; // Renderer for the wind animation sprite
-    public Sprite windSprite; // Wind animation sprite
+    public List<Sprite> windSprites; // Wind animation sprite
     public float windForce = 0.1f; // Strength of the wind force, adjusted for continuous application
     public float windDuration = 3f; // Duration to apply wind force
     public float minWindInterval = 5f; // Minimum interval between wind forces
     public float maxWindInterval = 10f; // Maximum interval between wind forces
+    public float animationFrameRate = 0.1f;
 
     private Rigidbody2D playerRigidbody;
     private float windDirection; // Track the wind direction globally within the script
+    private float animationTimer;
 
     void Start()
     {
         playerRigidbody = player.GetComponent<Rigidbody2D>();
-        windSpriteRenderer.sprite = windSprite;
         windSpriteRenderer.enabled = false; // Hide the sprite initially
         StartCoroutine(WindRoutine());
     }
@@ -45,6 +47,11 @@ public class WindEffect : MonoBehaviour
             // Start applying wind force
             StartCoroutine(ApplyWindForce());
 
+            windSpriteRenderer.flipX = windDirection < 0;
+
+            // Show and animate wind sprites
+            StartCoroutine(AnimateWind());
+
             // Wait for the wind duration to pass
             yield return new WaitForSeconds(windDuration);
 
@@ -52,6 +59,22 @@ public class WindEffect : MonoBehaviour
             windSpriteRenderer.enabled = false;
         }
     }
+
+    IEnumerator AnimateWind()
+    {
+        windSpriteRenderer.enabled = true;
+        animationTimer = 0; // Reset animation timer
+        int currentSpriteIndex = 0; // Start from the first sprite
+
+        while (animationTimer < windDuration)
+        {
+            windSpriteRenderer.sprite = windSprites[currentSpriteIndex];
+            yield return new WaitForSeconds(animationFrameRate);
+            currentSpriteIndex = (currentSpriteIndex + 1) % windSprites.Count; // Cycle back to the first sprite after reaching the end
+            animationTimer += animationFrameRate;
+        }
+    }
+
 
     IEnumerator ApplyWindForce()
     {
