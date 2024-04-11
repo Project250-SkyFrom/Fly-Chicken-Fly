@@ -25,6 +25,9 @@ public class ObstacleGenerator : MonoBehaviour
     public float handleUpKnifeGenerateHeight;
     public float polaCanStartGenerateHeight;
 
+    public GameObject warningSignPrefab;
+    public GameObject mainCamera;
+
     private float cameraWidth = 40.0f;  //should be update after the implementation of shrink and expand of camera
     void Start()
     {
@@ -35,6 +38,41 @@ public class ObstacleGenerator : MonoBehaviour
 
     void Update()
     {   
+        if (Time.time >= nextGenerateTime - 2) // 2 seconds warning
+        {
+            StartCoroutine(ShowWarningSpriteCoroutine());
+        }
+
+        if (Time.time >= nextGenerateTime)
+            {
+                GenerateObstacle();
+                nextGenerateTime = Time.time + generateRate;
+            }
+        
+    }
+
+    IEnumerator ShowWarningSpriteCoroutine()
+    {
+        Vector3 warningPosition = CalculateWarningPosition();
+        GameObject warningSprite = Instantiate(warningSignPrefab, warningPosition, Quaternion.identity);
+        
+        yield return new WaitForSeconds(1f); // Keep the sprite for 1 second
+
+        Destroy(warningSprite); // Destroy the sprite after 1 second
+    }
+
+    Vector3 CalculateWarningPosition()
+    {
+        Vector3 position = camera.transform.position;
+        Vector3 cameraPosition = mainCamera.transform.position;
+
+        position.y = cameraPosition.y + 10f;
+        position.x = cameraPosition.x - 5f;
+
+        return position;
+    }
+
+    void GenerateObstacle() {
         string type = GetRandomObstacleType();
         int direction = GetRandomDirection();
         if (hardMode == "night"){
