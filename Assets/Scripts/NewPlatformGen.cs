@@ -19,6 +19,7 @@ public class NewPlatformGen : MonoBehaviour
     public List<GameObject> thunderPlatformPrefab;
     public List<GameObject> babyChickenPlatformPrefab;
     private List<GameObject> platforms = new List<GameObject>();
+    public ObstacleGenerator obsGen;
 
 
     public float minX = -7f;
@@ -52,6 +53,9 @@ public class NewPlatformGen : MonoBehaviour
     public int nightGroupNum;
     public int verticleGroupNum;
     
+    public string platformStage;
+    public string nightPlatformStage;
+    private bool allPlatform = false;  
 
     void Start()
     {
@@ -59,71 +63,138 @@ public class NewPlatformGen : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        GetPlatformStage();
         if (isGenerating)
         {
             regularPlatformCounter++;
 
-            if (EventController.Instance.hardMode == "night")
-            {
-                if (regularPlatformCounter == thunderPlatformFrequency )
+            if (allPlatform){
+                if (EventController.Instance.hardMode == "night")
                 {
-                    Debug.Log("Thunder generated");
-                    GenerateThunderPlatform(currentY + thunderPlatformScale);
-                    
-                }
+                    if (regularPlatformCounter == thunderPlatformFrequency )
+                    {
+                        Debug.Log("Thunder generated");
+                        GenerateThunderPlatform(currentY + thunderPlatformScale);
+                        
+                    }
 
-                else if (regularPlatformCounter == nightMovingPlatformFrequency)
+                    else if (regularPlatformCounter == nightMovingPlatformFrequency)
 
-                {
-                    GenerateNightMovingPlatform(currentY + nightMovingPlatformScale);
-                    regularPlatformCounter = 0;
-                }
-                else
-                {
-                    GenerateNightPlatform(currentY);
-                    //regularPlatformCounter = (regularPlatformCounter + 1) % 3;
-                }
+                    {
+                        GenerateNightMovingPlatform(currentY + nightMovingPlatformScale);
+                        regularPlatformCounter = 0;
+                    }
+                    else
+                    {
+                        GenerateNightPlatform(currentY);
+                        //regularPlatformCounter = (regularPlatformCounter + 1) % 3;
+                    }
 
-                currentY += verticalDistanceBetweenPlatforms;
-                isGenerating = false;
-            }
-            else
-            {
-                if (regularPlatformCounter == movingPlatformsFrequency)
-                {
-                    GenerateMovingPlatform(currentY + movingPlatformScale);
-
-                }
-                else if (regularPlatformCounter == spikePlatformFrequency)
-                {
-                    GenerateSpikePlatform(currentY + spikePlatformScale);
-
-                }
-                else if (regularPlatformCounter == rottenEggPlatformFrequency)
-                {
-                    GenerateRottenEggPlatform(currentY + rottenEggPlatformScale);
-
-                }
-                else if (regularPlatformCounter == verticalMovingPlatformFrequency)
-                {
-                    GenerateVerticalMovingPlatform(currentY + verticalMovingPlatformScale);
-
-                }
-                else if (regularPlatformCounter == babyChickenPlatformFrequency)
-                {
-                    GenerateBabyChickenPlatform(currentY + babyChickenPlatformScale);
-                    regularPlatformCounter = 0;
+                    currentY += verticalDistanceBetweenPlatforms;
+                    isGenerating = false;
                 }
                 else
                 {
-                    GenerateRegularPlatform(currentY);
+                    if (regularPlatformCounter == movingPlatformsFrequency)
+                    {
+                        GenerateMovingPlatform(currentY + movingPlatformScale);
 
+                    }
+                    else if (regularPlatformCounter == spikePlatformFrequency)
+                    {
+                        GenerateSpikePlatform(currentY + spikePlatformScale);
+
+                    }
+                    else if (regularPlatformCounter == rottenEggPlatformFrequency)
+                    {
+                        GenerateRottenEggPlatform(currentY + rottenEggPlatformScale);
+
+                    }
+                    else if (regularPlatformCounter == verticalMovingPlatformFrequency)
+                    {
+                        GenerateVerticalMovingPlatform(currentY + verticalMovingPlatformScale);
+
+                    }
+                    else if (regularPlatformCounter == babyChickenPlatformFrequency)
+                    {
+                        GenerateBabyChickenPlatform(currentY + babyChickenPlatformScale);
+                        regularPlatformCounter = 0;
+                    }
+                    else
+                    {
+                        GenerateRegularPlatform(currentY);
+
+                    }
+
+                    currentY += verticalDistanceBetweenPlatforms;
+                    isGenerating = false;
                 }
 
-                currentY += verticalDistanceBetweenPlatforms;
-                isGenerating = false;
             }
+            else{
+                if (EventController.Instance.hardMode == "night"&& regularPlatformCounter%3==0)
+                {
+                    if (nightPlatformStage == "thunder" )
+                    {
+                        Debug.Log("Thunder generated");
+                        GenerateThunderPlatform(currentY + thunderPlatformScale);
+                        
+                    }
+
+                    else if (nightPlatformStage == "moving"&& regularPlatformCounter%3==0)
+
+                    {
+                        GenerateNightMovingPlatform(currentY + nightMovingPlatformScale);
+                        regularPlatformCounter = 0;
+                    }
+                    else
+                    {
+                        GenerateNightPlatform(currentY);
+                        //regularPlatformCounter = (regularPlatformCounter + 1) % 3;
+                    }
+
+                    currentY += verticalDistanceBetweenPlatforms;
+                    isGenerating = false;
+                }
+                else
+                {
+                    if (platformStage == "moving"&& regularPlatformCounter%3==0)
+                    {
+                        GenerateMovingPlatform(currentY + movingPlatformScale);
+
+                    }
+                    else if (platformStage == "spike" && regularPlatformCounter%3==0 )
+                    {
+                        GenerateSpikePlatform(currentY + spikePlatformScale);
+
+                    }
+                    else if (platformStage == "rotten"&& regularPlatformCounter%3==0)
+                    {
+                        GenerateRottenEggPlatform(currentY + rottenEggPlatformScale);
+
+                    }
+                    else if (platformStage == "verticle"&& regularPlatformCounter%3==0)
+                    {
+                        GenerateVerticalMovingPlatform(currentY + verticalMovingPlatformScale);
+
+                    }
+                    else if (platformStage == "baby" && regularPlatformCounter%3==0)
+                    {
+                        GenerateBabyChickenPlatform(currentY + babyChickenPlatformScale);
+                    }
+                    else
+                    {
+                        GenerateRegularPlatform(currentY);
+
+                    }
+
+                    currentY += verticalDistanceBetweenPlatforms;
+                    isGenerating = false;
+                }
+
+            }
+
         }
 
         if (currentY - player.transform.position.y < generatingDistance)
@@ -265,6 +336,25 @@ public class NewPlatformGen : MonoBehaviour
             case "verticle":
                 verticleGoldenEggGenerator.SetGoldenEgg(group,false);
                 break;
+        }
+    }
+
+    private void GetPlatformStage(){
+        if (obsGen.difficultyLevel >= 5*3){
+            allPlatform = true;
+        }
+        else if(obsGen.difficultyLevel >= 4*3){
+            platformStage = "baby";
+        }else if (obsGen.difficultyLevel >= 3*3){
+            platformStage = "rotten";
+        }else if (obsGen.difficultyLevel >= 2*3){
+            nightPlatformStage = "moving";
+            platformStage = "verticle";
+        }else if (obsGen.difficultyLevel >= 1*3){
+            platformStage = "moving";
+        }else{
+            platformStage = "spike";
+            nightPlatformStage = "thunder";
         }
     }
 }

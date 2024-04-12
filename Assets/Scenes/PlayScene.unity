@@ -4648,8 +4648,9 @@ MonoBehaviour:
   camera: {fileID: 519420030}
   obstaclesType:
   - HandleDownKnife
-  handleUpKnifeGenerateHeight: 150
-  polaCanStartGenerateHeight: 400
+  - HandleUpKnife
+  allObstacleHeight: 400
+  polaCanStartGenerateHeight: 200
   warningSignPrefab: {fileID: 436560519}
   mainCamera: {fileID: 519420028}
 --- !u!4 &168354090
@@ -9475,7 +9476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &364099583
 Transform:
   m_ObjectHideFlags: 0
@@ -37788,7 +37789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1497043040
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40741,6 +40742,7 @@ MonoBehaviour:
   - {fileID: 458435536}
   - {fileID: 2128213828}
   - {fileID: 1114912625}
+  obsGen: {fileID: 168354089}
   minX: -6
   maxX: 6
   verticalDistanceBetweenPlatforms: 4.2
@@ -40768,6 +40770,7 @@ MonoBehaviour:
   dayMovingNum: 4
   nightGroupNum: 8
   verticleGroupNum: 0
+  platformStage: 
 --- !u!1 &1688236130
 GameObject:
   m_ObjectHideFlags: 0
