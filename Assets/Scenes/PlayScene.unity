@@ -9468,6 +9468,7 @@ GameObject:
   - component: {fileID: 364099583}
   - component: {fileID: 364099585}
   - component: {fileID: 364099584}
+  - component: {fileID: 364099586}
   m_Layer: 11
   m_Name: WindEffect
   m_TagString: Player
@@ -9568,6 +9569,102 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &364099586
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364099582}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &369826739
 GameObject:
   m_ObjectHideFlags: 0
@@ -17671,6 +17768,7 @@ MonoBehaviour:
   platformSounds: {fileID: 2060914277}
   miscSounds: {fileID: 206731597}
   machineSounds: {fileID: 1497043040}
+  windSounds: {fileID: 364099586}
   chickenJump: {fileID: 8300000, guid: 26cd8e914a386416fb6f8a23119dc8b3, type: 3}
   chickenGrassLand: {fileID: 8300000, guid: f74264d13903f47c5af003c46163e4cf, type: 3}
   chickenCloudLand: {fileID: 8300000, guid: e436e55d8796642759b77648b909f1fc, type: 3}
@@ -17682,6 +17780,8 @@ MonoBehaviour:
   spike: {fileID: 8300000, guid: 952ed90ea95494db09062fac532a4d62, type: 3}
   machine: {fileID: 8300000, guid: 4755c21eefc3f44898254614370fb6e2, type: 3}
   siren: {fileID: 8300000, guid: 2869af3bfef5e49e7b59f22322003e9a, type: 3}
+  exclamation: {fileID: 8300000, guid: 2306060855a084f62a8899535aff8415, type: 3}
+  wind: {fileID: 8300000, guid: 9c347b32abfe74a028b6db50fd0f5c1e, type: 3}
   jumpVolume: 0.05
   obstacleFallVolume: 0.003
   barkVolume: 0.015
@@ -17695,6 +17795,8 @@ MonoBehaviour:
   starsLandVolume: 0.8
   machineVolume: 0.5
   sirenVolume: 0.6
+  exclamationVolume: 0.05
+  windVolume: 0.3
   chickenHits:
   - {fileID: 8300000, guid: 2af9a56e0257e4376be38015a9e51071, type: 3}
   - {fileID: 8300000, guid: db6732df5a8b4dc45938dc5db9d46970, type: 3}

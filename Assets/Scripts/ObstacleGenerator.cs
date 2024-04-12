@@ -73,6 +73,7 @@ public class ObstacleGenerator : MonoBehaviour
     }
 
     void GenerateObstacle() {
+        AudioController.Instance.PlayExclamation();
         string type = GetRandomObstacleType();
         int direction = GetRandomDirection();
         if (hardMode == "night"){
