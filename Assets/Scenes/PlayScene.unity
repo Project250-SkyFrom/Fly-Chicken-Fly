@@ -17345,6 +17345,7 @@ MonoBehaviour:
   spike: {fileID: 8300000, guid: 952ed90ea95494db09062fac532a4d62, type: 3}
   machine: {fileID: 8300000, guid: 4755c21eefc3f44898254614370fb6e2, type: 3}
   siren: {fileID: 8300000, guid: 2869af3bfef5e49e7b59f22322003e9a, type: 3}
+  exclamation: {fileID: 8300000, guid: 2306060855a084f62a8899535aff8415, type: 3}
   jumpVolume: 0.05
   obstacleFallVolume: 0.003
   barkVolume: 0.015
@@ -17358,6 +17359,7 @@ MonoBehaviour:
   starsLandVolume: 0.8
   machineVolume: 0.5
   sirenVolume: 0.6
+  exclamationVolume: 0.05
   chickenHits:
   - {fileID: 8300000, guid: 2af9a56e0257e4376be38015a9e51071, type: 3}
   - {fileID: 8300000, guid: db6732df5a8b4dc45938dc5db9d46970, type: 3}
