@@ -9,9 +9,9 @@ public class AudioController : MonoBehaviour
     public static AudioController Instance {get {return _instance;}}
     
     // Initialize audio source and audio clips
-    public AudioSource chicken, backgroundMusicSource, obstacleSounds, platformSounds, miscSounds, machineSounds;
-    public AudioClip chickenJump, chickenGrassLand, chickenCloudLand, chickenStarsLand, obstacleFall, pickEgg, rottenEgg, electrocution, spike, machine, siren, exclamation;
-    public float jumpVolume, obstacleFallVolume, barkVolume, backgroundMusicVolume, goldenEggVolume, rottenEggVolume, electrocutionVolume, spikeVolume, grassLandVolume, cloudLandVolume, starsLandVolume, machineVolume, sirenVolume, exclamationVolume;
+    public AudioSource chicken, backgroundMusicSource, obstacleSounds, platformSounds, miscSounds, machineSounds, windSounds;
+    public AudioClip chickenJump, chickenGrassLand, chickenCloudLand, chickenStarsLand, obstacleFall, pickEgg, rottenEgg, electrocution, spike, machine, siren, exclamation, wind;
+    public float jumpVolume, obstacleFallVolume, barkVolume, backgroundMusicVolume, goldenEggVolume, rottenEggVolume, electrocutionVolume, spikeVolume, grassLandVolume, cloudLandVolume, starsLandVolume, machineVolume, sirenVolume, exclamationVolume, windVolume;
     public AudioClip[] chickenHits, ambientSounds, backgroundMusicTracks, gameOverSounds;
     public float[] gameOverVolumes, chickenHitVolumes;
 
@@ -142,5 +142,17 @@ public class AudioController : MonoBehaviour
     public void PlayMachineRumble(){
         machineSounds.volume = machineVolume;
         machineSounds.PlayOneShot(machine);
+    }
+
+    public void StartWindSound(){
+        windSounds.volume = windVolume;
+        windSounds.clip = wind;
+        windSounds.Play();
+    }
+
+    public void StopWindSound(){
+        if (windSounds.isPlaying){
+            windSounds.Stop();
+        }
     }
 }

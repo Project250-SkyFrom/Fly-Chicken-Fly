@@ -47,6 +47,8 @@ public class WindEffect : MonoBehaviour
             // Start applying wind force
             StartCoroutine(ApplyWindForce());
 
+            AudioController.Instance.StartWindSound();
+
             windSpriteRenderer.flipX = windDirection < 0;
 
             // Show and animate wind sprites
@@ -57,6 +59,8 @@ public class WindEffect : MonoBehaviour
 
             // Hide wind animation sprite
             windSpriteRenderer.enabled = false;
+
+            AudioController.Instance.StopWindSound();
         }
     }
 
