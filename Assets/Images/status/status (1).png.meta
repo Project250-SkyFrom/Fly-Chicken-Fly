@@ -4,7 +4,34 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -4735097286001103575
-    second: status (1)_0
+    second: invs
+  - first:
+      213: -6509456176180485048
+    second: shield
+  - first:
+      213: 693892149490265575
+    second: greenlingh
+  - first:
+      213: 1187754568851961943
+    second: redthun
+  - first:
+      213: -7042556103129095395
+    second: redwind
+  - first:
+      213: -7766490002874904348
+    second: jump[Up
+  - first:
+      213: -4514211954682598301
+    second: shi
+  - first:
+      213: 977754009599703961
+    second: wind
+  - first:
+      213: -6801969479424992715
+    second: jumpdown
+  - first:
+      213: -9213906368570191874
+    second: inv
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: status (1)_0
+      name: invs
       rect:
         serializedVersion: 2
         x: 581
@@ -110,7 +137,7 @@ TextureImporter:
         width: 164
         height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -118,6 +145,195 @@ TextureImporter:
       bones: []
       spriteID: 92decf22b1e894eb0800000000000000
       internalID: -4735097286001103575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 40
+        width: 169
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8442ac9a814c9a5a0800000000000000
+      internalID: -6509456176180485048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greenlingh
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 49
+        width: 172
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7edaccacb3331a900800000000000000
+      internalID: 693892149490265575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redthun
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 291
+        width: 174
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758b4c4cc70cb7010800000000000000
+      internalID: 1187754568851961943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redwind
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 294
+        width: 177
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d132b3a8980d34e90800000000000000
+      internalID: -7042556103129095395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump[Up
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 523
+        width: 464
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e0d403bd72e73490800000000000000
+      internalID: -7766490002874904348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shi
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 779
+        width: 547
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c6250052c4a51c0800000000000000
+      internalID: -4514211954682598301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wind
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 754
+        width: 457
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b77e3671ea19d00800000000000000
+      internalID: 977754009599703961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jumpdown
+      rect:
+        serializedVersion: 2
+        x: 1927
+        y: 519
+        width: 473
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a13ddfbcc8a91a0800000000000000
+      internalID: -6801969479424992715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inv
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 1029
+        width: 595
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff0aa3a9f0a12080800000000000000
+      internalID: -9213906368570191874
       vertices: []
       indices: 
       edges: []

@@ -10,6 +10,14 @@ public class PlayerMovement : MonoBehaviour
     public string[] powerUpList;
     public GameObject greenStatusBar;
     public GameObject redStatusBar;
+    public StatusBar greenStatusBarCharger;
+    public StatusBar redStatusBarCharger;
+    public GameObject shieldCanvas;
+    public GameObject windCanvas;
+    public GameObject invincibleCanvas;
+    public GameObject babyChickenCanvas;
+    public GameObject speedUpCanvas;
+    
 
     public int powerUpEgg;
     public float powerUpSpeed;
@@ -466,9 +474,14 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator PowerUPSpeed(){
         speed = powerUpSpeed;
         jumpConstant = powerUpJump;
+        greenStatusBar.SetActive(true);
+        speedUpCanvas.SetActive(true);
         yield return new WaitForSeconds(powerUpSpeedTime);
+        greenStatusBarCharger.ResetFill();
+        greenStatusBar.SetActive(false);
         speed = speedConst;
         jumpConstant = jumpOriginal;
+        speedUpCanvas.SetActive(false);
     }
 
     IEnumerator BeInvincible(){
@@ -477,29 +490,36 @@ public class PlayerMovement : MonoBehaviour
         color.a = 0.5f;
         spriteRenderer.color = color;
         greenStatusBar.SetActive(true);
+        invincibleCanvas.SetActive(true);
         yield return new WaitForSeconds(invincibleTime);
-        StatusBar bar = greenStatusBar.GetComponent<StatusBar>();
-        bar.ResetFill();
+        greenStatusBarCharger.ResetFill();
         greenStatusBar.SetActive(false);
         color.a = 1f;
         spriteRenderer.color = color;
         isInvincible = false;
+        invincibleCanvas.SetActive(false);
     }
 
     IEnumerator MegaFly(){
         isMegaFlying = true;
         isInvincible = true;
+        greenStatusBar.SetActive(true);
+        invincibleCanvas.SetActive(true);
         yield return new WaitForSeconds(meGaFlyTime);
+        greenStatusBarCharger.ResetFill();
+        greenStatusBar.SetActive(false);
         isMegaFlying = false;
         isInvincible = false;
+        invincibleCanvas.SetActive(false);
     }
 
     public IEnumerator BabyChickenDuartion(){
         redStatusBar.SetActive(true);
+        babyChickenCanvas.SetActive(true);
         yield return new WaitForSeconds(EventController.Instance.piggybackLiftTime);
-        StatusBar bar = redStatusBar.GetComponent<StatusBar>();
-        bar.ResetFill();
+        redStatusBarCharger.ResetFill();
         redStatusBar.SetActive(false);
+        babyChickenCanvas.SetActive(false);
     }
 }
 
