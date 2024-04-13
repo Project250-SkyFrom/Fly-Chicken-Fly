@@ -20,9 +20,9 @@ public class ObstacleGenerator : MonoBehaviour
     private float nextGenerateTime; // Time when the next knife should be generated
     public BackgroundScroll camera;
     //private string[] obstaclesType = {"HandleUpKnife","HandleDownKnife","PolaCan","BabyChicken"};
-    public string[] obstaclesType = {"HandleDownKnife"};
+    public string[] obstaclesType = {"HandleUpKnife","HandleDownKnife"};
     private GameObject thisObstacle;
-    public float handleUpKnifeGenerateHeight;
+    public float allObstacleHeight;
     public float polaCanStartGenerateHeight;
 
     public GameObject warningSignPrefab;
@@ -163,11 +163,11 @@ public class ObstacleGenerator : MonoBehaviour
 
     private string GetRandomObstacleType()
     { 
-        if(transform.position.y>=polaCanStartGenerateHeight){
+        if(transform.position.y>=allObstacleHeight){
             obstaclesType = new string[] {"HandleUpKnife","HandleDownKnife","PolaCan"};
         } 
-        else if (transform.position.y>=handleUpKnifeGenerateHeight){
-            obstaclesType = new string[] {"HandleUpKnife","HandleDownKnife"};
+        else if (transform.position.y>=polaCanStartGenerateHeight){
+            obstaclesType = new string[] {"PolaCan"};
         }
         // Generate a random index within the range of the array length
         int randomIndex = UnityEngine.Random.Range(0, obstaclesType.Length);
