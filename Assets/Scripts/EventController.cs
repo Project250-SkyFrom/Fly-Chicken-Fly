@@ -180,7 +180,7 @@ public class EventController : MonoBehaviour
 private void StartShrinkingBoundaries()
 {   
     float newMaxPosX = Random.Range(10f, 15f); 
-    float newMinPosX = Random.Range(14f, 22f);
+    float newMinPosX = Random.Range(14f, 20f);
 
     float control = Random.Range(0, 1);
     if (control > 0.5){
