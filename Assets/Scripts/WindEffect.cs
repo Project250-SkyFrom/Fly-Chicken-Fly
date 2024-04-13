@@ -12,6 +12,8 @@ public class WindEffect : MonoBehaviour
     public float minWindInterval = 5f; // Minimum interval between wind forces
     public float maxWindInterval = 10f; // Maximum interval between wind forces
     public float animationFrameRate = 0.1f;
+    public GameObject statusBar;
+    public StatusBar charger;
 
     private Rigidbody2D playerRigidbody;
     private float windDirection; // Track the wind direction globally within the script
@@ -29,7 +31,7 @@ public class WindEffect : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(minWindInterval, maxWindInterval));
-
+            
             // Determine wind direction
             windDirection = Random.value > 0.5f ? 1f : -1f; // Randomly choose wind direction
             if (windDirection < 0)
@@ -54,8 +56,13 @@ public class WindEffect : MonoBehaviour
             // Show and animate wind sprites
             StartCoroutine(AnimateWind());
 
+            statusBar.SetActive(true);
+
             // Wait for the wind duration to pass
             yield return new WaitForSeconds(windDuration);
+
+            charger.ResetFill();
+            statusBar.SetActive(false);
 
             // Hide wind animation sprite
             windSpriteRenderer.enabled = false;

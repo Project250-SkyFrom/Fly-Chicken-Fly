@@ -189,7 +189,7 @@ public class DataManager : MonoBehaviour
             }
         }
         // Update PlayerPrefs with the new high score
-        if (index>=0){
+        if (index==0){
             loadedData.SetHighestScore(index,current_height,playerName,goldenEgg,meter);
             getNewHighestScore = true;
             // if (index == 0){

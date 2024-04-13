@@ -55,7 +55,7 @@ public class NewPlatformGen : MonoBehaviour
     
     public string platformStage;
     public string nightPlatformStage;
-    private bool allPlatform = false;  
+    public bool allPlatform = false;  
 
     void Start()
     {

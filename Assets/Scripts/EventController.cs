@@ -49,6 +49,7 @@ public class EventController : MonoBehaviour
     public int numOfPowerUp;
     public int powerUpTime;
     public GameObject shield;
+    public List<GameObject> goldenEggCharger;
 
     void Awake(){
         _instance = this;
@@ -199,6 +200,7 @@ private void StartShrinkingBoundaries()
 
 
     public void AddGoldenEgg(){
+        goldenEggCharger[egg%numOfPowerUp].SetActive(true);
         egg+=1;
         eggView.UpdateGoldenEgg(egg);
         altitudeView.goldenEgg=egg;
@@ -268,5 +270,8 @@ private void StartShrinkingBoundaries()
     public void ChargePowerUp(){
         isAblePowerUp = false;
         powerUpTime +=1;
+        for (int i=0;i<numOfPowerUp;i++){
+            goldenEggCharger[i].SetActive(false);
+        }
     }
 }
