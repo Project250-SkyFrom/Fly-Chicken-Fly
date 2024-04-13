@@ -27,6 +27,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     public GameObject warningSignPrefab;
     public GameObject mainCamera;
+    public bool audioWarningPlayed = false;
 
     private float cameraWidth = 40.0f;  //should be update after the implementation of shrink and expand of camera
     void Start()
@@ -38,7 +39,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     void Update()
     {   
-        if (Time.time >= nextGenerateTime - 2) // 2 seconds warning
+        if (Time.time >= nextGenerateTime - 1) // 2 seconds warning
         {
             StartCoroutine(ShowWarningSpriteCoroutine());
         }
@@ -55,7 +56,11 @@ public class ObstacleGenerator : MonoBehaviour
     {
         Vector3 warningPosition = CalculateWarningPosition();
         GameObject warningSprite = Instantiate(warningSignPrefab, warningPosition, Quaternion.identity);
-        
+        if (!audioWarningPlayed)
+        {
+            AudioController.Instance.PlayExclamation();
+            audioWarningPlayed = true;
+        }
         yield return new WaitForSeconds(1f); // Keep the sprite for 1 second
 
         Destroy(warningSprite); // Destroy the sprite after 1 second
@@ -66,14 +71,13 @@ public class ObstacleGenerator : MonoBehaviour
         Vector3 position = camera.transform.position;
         Vector3 cameraPosition = mainCamera.transform.position;
 
-        position.y = cameraPosition.y + 10f;
-        position.x = cameraPosition.x - 5f;
+        position.y = cameraPosition.y;
+        position.x = position.x ;
 
         return position;
     }
 
     void GenerateObstacle() {
-        AudioController.Instance.PlayExclamation();
         string type = GetRandomObstacleType();
         int direction = GetRandomDirection();
         if (hardMode == "night"){
@@ -158,6 +162,7 @@ public class ObstacleGenerator : MonoBehaviour
             newObstacle.eternal = false;
             // Update nextGenerateTime for the next knife
             nextGenerateTime = Time.time + generateRate;
+            audioWarningPlayed = false;
         }
     }
 
