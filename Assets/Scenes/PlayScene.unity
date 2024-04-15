@@ -9961,7 +9961,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b8d4e02692b854fc0998167f65ee8ae6, type: 3}
   - {fileID: 21300000, guid: f8c414932ab6c4a699c0417210e6465a, type: 3}
   - {fileID: 21300000, guid: 89408e947f42b4f74aa52c028953dcd0, type: 3}
-  windForce: 200
+  windForce: 100
   windDuration: 3
   minWindInterval: 5
   maxWindInterval: 10
