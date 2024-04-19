@@ -105,6 +105,11 @@ public class PlayerMovement : MonoBehaviour
                 isIdle = false;
             }
             body.velocity = new Vector2(move*speed, megaFlySpeed);
+            if (jumpAnimationFrames.Count > 0 && spriteRenderer != null)
+                {
+                    spriteRenderer.sprite = jumpAnimationFrames[0];
+                }
+            AnimatePlayer(jumpingFrameRate);
         }
         else if (!isParalyzed && ableToMove)
         {
@@ -239,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
                         currentFrame = (currentFrame + 1) % tiredJumpingFrames.Count;
                         spriteRenderer.sprite = tiredJumpingFrames[currentFrame];
                     }
-                }
+                }    
                 else // Idle animation when not moving
                 {
                     // Use idle frame rate when player is idle
@@ -251,6 +256,16 @@ public class PlayerMovement : MonoBehaviour
                         spriteRenderer.sprite = idleAnimationFrames[currentFrame];
                     }
                 }
+            }
+            else if (isMegaFlying){
+                frameTimer += Time.deltaTime;
+
+                    if (frameTimer >= jumpingFrameRate)
+                    {
+                        frameTimer = 0f;
+                        currentFrame = (currentFrame + 1) % jumpAnimationFrames.Count;
+                        spriteRenderer.sprite = jumpAnimationFrames[currentFrame];
+                    }
             }
             else // Regular walking and jumping animations
             {
