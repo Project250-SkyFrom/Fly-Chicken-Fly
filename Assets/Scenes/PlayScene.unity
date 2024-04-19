@@ -56427,6 +56427,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: VerticalMovingPlatforms
       objectReference: {fileID: 0}
+    - target: {fileID: 7970086318529741357, guid: ecaa0ef9d896b144a94440b09931c4b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7970086318529741357, guid: ecaa0ef9d896b144a94440b09931c4b6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8006899484727703078, guid: ecaa0ef9d896b144a94440b09931c4b6,
         type: 3}
       propertyPath: m_LocalScale.x
