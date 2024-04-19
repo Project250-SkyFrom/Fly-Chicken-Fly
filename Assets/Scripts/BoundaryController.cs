@@ -74,6 +74,7 @@ public class BoundaryController : MonoBehaviour
                 if(DataManager.Instance.currentGameMode == "death"){
                     EventController.Instance.AddLump();
                     AudioController.Instance.PlayChickenHit();
+                    AudioController.Instance.PlayMachineRumble();
                 }
             }
         }

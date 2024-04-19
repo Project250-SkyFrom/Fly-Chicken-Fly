@@ -9,11 +9,12 @@ public class AudioController : MonoBehaviour
     public static AudioController Instance {get {return _instance;}}
     
     // Initialize audio source and audio clips
-    public AudioSource chicken, backgroundMusicSource, obstacleSounds, platformSounds, miscSounds, machineSounds, windSounds;
-    public AudioClip chickenJump, chickenGrassLand, chickenCloudLand, chickenStarsLand, obstacleFall, pickEgg, rottenEgg, electrocution, spike, machine, siren, exclamation, wind;
-    public float jumpVolume, obstacleFallVolume, barkVolume, backgroundMusicVolume, goldenEggVolume, rottenEggVolume, electrocutionVolume, spikeVolume, grassLandVolume, cloudLandVolume, starsLandVolume, machineVolume, sirenVolume, exclamationVolume, windVolume;
+    public AudioSource chicken, backgroundMusicSource, backgroundMusicLoop, obstacleSounds, platformSounds, miscSounds, machineSounds, windSounds, powerUpSounds;
+    public AudioClip chickenJump, chickenGrassLand, chickenCloudLand, chickenStarsLand, obstacleFall, pickEgg, rottenEgg, electrocution, spike, machine, siren, exclamation, wind, powerUp;
+    public float jumpVolume, obstacleFallVolume, barkVolume, backgroundMusicVolume, goldenEggVolume, rottenEggVolume, electrocutionVolume, spikeVolume, grassLandVolume, cloudLandVolume, starsLandVolume, machineVolume, sirenVolume, exclamationVolume, windVolume, powerUpVolume;
     public AudioClip[] chickenHits, ambientSounds, backgroundMusicTracks, gameOverSounds;
     public float[] gameOverVolumes, chickenHitVolumes;
+    public float machineHitDuration;
 
     void Awake(){
         _instance = this;
@@ -99,19 +100,14 @@ public class AudioController : MonoBehaviour
             backgroundMusicSource.Play();
         }
 
-    // Start looping another track after the first one finishes
-    StartCoroutine(LoopBackgroundMusic());
+        Invoke("LoopBackgroundMusic", backgroundMusicTracks[0].length);
     }
 
-    IEnumerator LoopBackgroundMusic()
+    public void LoopBackgroundMusic()
     {
         if (PlayerPrefs.GetInt("BGMute")==1){
-            // Wait until the first track finishes playing
-            yield return new WaitForSeconds(backgroundMusicTracks[0].length);
-            backgroundMusicSource.clip = backgroundMusicTracks[1]; 
-            backgroundMusicSource.loop = true;
-            backgroundMusicSource.volume = backgroundMusicVolume;
-            backgroundMusicSource.Play();
+            backgroundMusicLoop.volume = backgroundMusicVolume;
+            backgroundMusicLoop.Play();
         }
     }
 
@@ -141,7 +137,15 @@ public class AudioController : MonoBehaviour
 
     public void PlayMachineRumble(){
         machineSounds.volume = machineVolume;
-        machineSounds.PlayOneShot(machine);
+        machineSounds.clip = machine;
+        machineSounds.loop = false;
+        machineSounds.Play();
+
+        Invoke("StopMachineRumble", machineHitDuration);
+    }
+
+    public void StopMachineRumble(){
+        machineSounds.Stop();
     }
 
     public void StartWindSound(){
@@ -154,5 +158,10 @@ public class AudioController : MonoBehaviour
         if (windSounds.isPlaying){
             windSounds.Stop();
         }
+    }
+
+    public void PlayPowerUp(){
+        powerUpSounds.volume = powerUpVolume;
+        powerUpSounds.PlayOneShot(powerUp);
     }
 }
