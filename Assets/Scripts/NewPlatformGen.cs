@@ -67,7 +67,7 @@ public class NewPlatformGen : MonoBehaviour
         GetPlatformStage();
         if (isGenerating)
         {
-            regularPlatformCounter++;
+            regularPlatformCounter = (regularPlatformCounter+1)%10;
 
             if (allPlatform){
                 if (EventController.Instance.hardMode == "night")
