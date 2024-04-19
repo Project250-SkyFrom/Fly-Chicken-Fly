@@ -14,7 +14,6 @@ public class BoundaryController : MonoBehaviour
 
     public void Start()
     {
-        // Start oscillation
         StartCoroutine(OscillateSharpEdge());
     }
 
@@ -23,9 +22,12 @@ public class BoundaryController : MonoBehaviour
     {
         this.minPosX = minPosX;
         this.maxPosX = maxPosX;
-        if (!isMoving)
+        if (EventController.Instance.hardMode == "night" && !isMoving)
         {
             StartCoroutine(MoveBoundaryPosition(toRight));
+        } else if (EventController.Instance.hardMode == "day" && isMoving)
+        {
+            StopCoroutine(MoveBoundaryPosition(toRight));
         }
     }
 
@@ -74,6 +76,7 @@ public class BoundaryController : MonoBehaviour
                 if(DataManager.Instance.currentGameMode == "death"){
                     EventController.Instance.AddLump();
                     AudioController.Instance.PlayChickenHit();
+                    AudioController.Instance.PlayMachineRumble();
                 }
             }
         }

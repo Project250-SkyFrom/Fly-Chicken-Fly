@@ -10,6 +10,14 @@ public class PlayerMovement : MonoBehaviour
     public string[] powerUpList;
     public GameObject greenStatusBar;
     public GameObject redStatusBar;
+    public StatusBar greenStatusBarCharger;
+    public StatusBar redStatusBarCharger;
+    public GameObject shieldCanvas;
+    public GameObject windCanvas;
+    public GameObject invincibleCanvas;
+    public GameObject babyChickenCanvas;
+    public GameObject speedUpCanvas;
+    
 
     public int powerUpEgg;
     public float powerUpSpeed;
@@ -97,6 +105,11 @@ public class PlayerMovement : MonoBehaviour
                 isIdle = false;
             }
             body.velocity = new Vector2(move*speed, megaFlySpeed);
+            if (jumpAnimationFrames.Count > 0 && spriteRenderer != null)
+                {
+                    spriteRenderer.sprite = jumpAnimationFrames[0];
+                }
+            AnimatePlayer(jumpingFrameRate);
         }
         else if (!isParalyzed && ableToMove)
         {
@@ -134,16 +147,38 @@ public class PlayerMovement : MonoBehaviour
                 // Handle left movement
                 move = -1f;
                 isIdle = false;
+                SpriteRenderer jumpRender = speedUpCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer shieldRender = shieldCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer windRender = windCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer invincibleRender = invincibleCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer babyRender = babyChickenCanvas.GetComponent<SpriteRenderer>();
+    
+                jumpRender.flipX = false;
+                shieldRender.flipX = false;
+                windRender.flipX = false;
+                invincibleRender.flipX = false;
+                babyRender.flipX = false;
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 // Handle right movement
                 move = 1f;
                 isIdle = false;
+                SpriteRenderer jumpRender = speedUpCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer shieldRender = shieldCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer windRender = windCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer invincibleRender = invincibleCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer babyRender = babyChickenCanvas.GetComponent<SpriteRenderer>();
+                jumpRender.flipX = true;
+                shieldRender.flipX = true;
+                windRender.flipX = true;
+                invincibleRender.flipX = true;
+                babyRender.flipX = true;
             }
             else if (Input.GetKey(KeyCode.E)){//&&EventController.Instance.isAblePowerUp
                 if (EventController.Instance.isAblePowerUp){
                     PowerUp();  
+                    AudioController.Instance.PlayPowerUp();
                     EventController.Instance.ChargePowerUp();
                 }
             }
@@ -231,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
                         currentFrame = (currentFrame + 1) % tiredJumpingFrames.Count;
                         spriteRenderer.sprite = tiredJumpingFrames[currentFrame];
                     }
-                }
+                }    
                 else // Idle animation when not moving
                 {
                     // Use idle frame rate when player is idle
@@ -243,6 +278,16 @@ public class PlayerMovement : MonoBehaviour
                         spriteRenderer.sprite = idleAnimationFrames[currentFrame];
                     }
                 }
+            }
+            else if (isMegaFlying){
+                frameTimer += Time.deltaTime;
+
+                    if (frameTimer >= jumpingFrameRate)
+                    {
+                        frameTimer = 0f;
+                        currentFrame = (currentFrame + 1) % jumpAnimationFrames.Count;
+                        spriteRenderer.sprite = jumpAnimationFrames[currentFrame];
+                    }
             }
             else // Regular walking and jumping animations
             {
@@ -364,6 +409,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ParalyzePlayer()
     {
         isParalyzed = true;
+        isInvincible = true;
 
         // Disable movement in the y-direction
         body.constraints = RigidbodyConstraints2D.FreezePositionY;
@@ -396,6 +442,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Mark paralysis as ended
         isParalyzed = false;
+        isInvincible = false;
     }
 
     IEnumerator PlayEggCollisionAnimation()
@@ -426,12 +473,14 @@ public class PlayerMovement : MonoBehaviour
             Vector2 newPosition = (Vector2)transform.position + movementIncrement * Time.fixedDeltaTime;
             body.MovePosition(newPosition);
 
+            isInvincible = true;
             // Wait for the next fixed frame
             yield return new WaitForFixedUpdate();
         }
 
         // Re-enable movement after the animation
         ableToMove = true;
+        isInvincible = false;
     }
 
 
@@ -466,9 +515,14 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator PowerUPSpeed(){
         speed = powerUpSpeed;
         jumpConstant = powerUpJump;
+        greenStatusBar.SetActive(true);
+        speedUpCanvas.SetActive(true);
         yield return new WaitForSeconds(powerUpSpeedTime);
+        greenStatusBarCharger.ResetFill();
+        greenStatusBar.SetActive(false);
         speed = speedConst;
         jumpConstant = jumpOriginal;
+        speedUpCanvas.SetActive(false);
     }
 
     IEnumerator BeInvincible(){
@@ -477,29 +531,36 @@ public class PlayerMovement : MonoBehaviour
         color.a = 0.5f;
         spriteRenderer.color = color;
         greenStatusBar.SetActive(true);
+        invincibleCanvas.SetActive(true);
         yield return new WaitForSeconds(invincibleTime);
-        StatusBar bar = greenStatusBar.GetComponent<StatusBar>();
-        bar.ResetFill();
+        greenStatusBarCharger.ResetFill();
         greenStatusBar.SetActive(false);
         color.a = 1f;
         spriteRenderer.color = color;
         isInvincible = false;
+        invincibleCanvas.SetActive(false);
     }
 
     IEnumerator MegaFly(){
         isMegaFlying = true;
         isInvincible = true;
+        greenStatusBar.SetActive(true);
+        invincibleCanvas.SetActive(true);
         yield return new WaitForSeconds(meGaFlyTime);
+        greenStatusBarCharger.ResetFill();
+        greenStatusBar.SetActive(false);
         isMegaFlying = false;
         isInvincible = false;
+        invincibleCanvas.SetActive(false);
     }
 
     public IEnumerator BabyChickenDuartion(){
         redStatusBar.SetActive(true);
+        babyChickenCanvas.SetActive(true);
         yield return new WaitForSeconds(EventController.Instance.piggybackLiftTime);
-        StatusBar bar = redStatusBar.GetComponent<StatusBar>();
-        bar.ResetFill();
+        redStatusBarCharger.ResetFill();
         redStatusBar.SetActive(false);
+        babyChickenCanvas.SetActive(false);
     }
 }
 

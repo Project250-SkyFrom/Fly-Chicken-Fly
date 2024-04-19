@@ -55,7 +55,7 @@ public class NewPlatformGen : MonoBehaviour
     
     public string platformStage;
     public string nightPlatformStage;
-    private bool allPlatform = false;  
+    public bool allPlatform = false;  
 
     void Start()
     {
@@ -67,7 +67,7 @@ public class NewPlatformGen : MonoBehaviour
         GetPlatformStage();
         if (isGenerating)
         {
-            regularPlatformCounter++;
+            regularPlatformCounter = (regularPlatformCounter+1)%10;
 
             if (allPlatform){
                 if (EventController.Instance.hardMode == "night")
