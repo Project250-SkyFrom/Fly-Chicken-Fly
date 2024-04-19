@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: 27edce5d64471654db4b427ef0787d6c
+guid: c4eee77d24bacdf4e8b112c5cc7a9ee8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7260220749061262866
-    second: chickenanimationmm-ezgif.com-gif-to-sprite-converter_0
+      213: -3920656706475163450
+    second: farmeranimationmm-ezgif.com-gif-to-sprite-converter_0
   - first:
-      213: 5897361875568544924
-    second: chickenanimationmm-ezgif.com-gif-to-sprite-converter_1
+      213: -3282560656348242141
+    second: farmeranimationmm-ezgif.com-gif-to-sprite-converter_1
   - first:
-      213: 5136548281415851155
-    second: chickenanimationmm-ezgif.com-gif-to-sprite-converter_2
+      213: 5264850256004931179
+    second: farmeranimationmm-ezgif.com-gif-to-sprite-converter_2
   - first:
-      213: -6460927804198177839
-    second: chickenanimationmm-ezgif.com-gif-to-sprite-converter_3
+      213: 1324108371933659021
+    second: farmeranimationmm-ezgif.com-gif-to-sprite-converter_3
   - first:
-      213: 8194691835673533650
-    second: chickenanimationmm-ezgif.com-gif-to-sprite-converter_4
+      213: 1422576282789014666
+    second: farmeranimationmm-ezgif.com-gif-to-sprite-converter_4
   - first:
-      213: 97366718400629009
-    second: chickenanimationmm-ezgif.com-gif-to-sprite-converter_5
-  - first:
-      213: 7558269567622583747
-    second: chickenanimationmm-ezgif.com-gif-to-sprite-converter_6
-  - first:
-      213: -4592753024894129352
-    second: chickenanimationmm-ezgif.com-gif-to-sprite-converter_7
-  - first:
-      213: -1200471207499822229
-    second: chickenanimationmm-ezgif.com-gif-to-sprite-converter_8
+      213: -3704031052759280720
+    second: farmeranimationmm-ezgif.com-gif-to-sprite-converter_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -126,106 +117,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chickenanimationmm-ezgif.com-gif-to-sprite-converter_0
+      name: farmeranimationmm-ezgif.com-gif-to-sprite-converter_0
       rect:
         serializedVersion: 2
-        x: 166
-        y: 27
-        width: 259
-        height: 337
+        x: 284
+        y: 478
+        width: 285
+        height: 482
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21e87b21e4c71c460800000000000000
-      internalID: 7260220749061262866
+      spriteID: 6c08b4c7f770799c0800000000000000
+      internalID: -3920656706475163450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chickenanimationmm-ezgif.com-gif-to-sprite-converter_2
+      name: farmeranimationmm-ezgif.com-gif-to-sprite-converter_1
       rect:
         serializedVersion: 2
-        x: 1011
-        y: 28
-        width: 267
-        height: 338
+        x: 1115
+        y: 478
+        width: 306
+        height: 481
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39c5f65827fa84740800000000000000
-      internalID: 5136548281415851155
+      spriteID: 32f90bc89700272d0800000000000000
+      internalID: -3282560656348242141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chickenanimationmm-ezgif.com-gif-to-sprite-converter_4
+      name: farmeranimationmm-ezgif.com-gif-to-sprite-converter_2
       rect:
         serializedVersion: 2
-        x: 1885
-        y: 60
-        width: 244
-        height: 302
+        x: 1990
+        y: 478
+        width: 285
+        height: 477
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dc5d15aec469b170800000000000000
-      internalID: 8194691835673533650
+      spriteID: b6e5cc8d961801940800000000000000
+      internalID: 5264850256004931179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chickenanimationmm-ezgif.com-gif-to-sprite-converter_5
+      name: farmeranimationmm-ezgif.com-gif-to-sprite-converter_3
       rect:
         serializedVersion: 2
-        x: 2732
-        y: 60
-        width: 254
-        height: 302
+        x: 2821
+        y: 478
+        width: 306
+        height: 481
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1190737b38ae95100800000000000000
-      internalID: 97366718400629009
+      spriteID: d8ff9318c8d206210800000000000000
+      internalID: 1324108371933659021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chickenanimationmm-ezgif.com-gif-to-sprite-converter_6
+      name: farmeranimationmm-ezgif.com-gif-to-sprite-converter_4
       rect:
         serializedVersion: 2
-        x: 3623
-        y: 99
-        width: 264
-        height: 321
+        x: 3695
+        y: 478
+        width: 286
+        height: 477
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c51ac6502e54e860800000000000000
-      internalID: 7558269567622583747
+      spriteID: a8ce88197910eb310800000000000000
+      internalID: 1422576282789014666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farmeranimationmm-ezgif.com-gif-to-sprite-converter_5
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 0
+        width: 308
+        height: 478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3544fd163a89cc0800000000000000
+      internalID: -3704031052759280720
       vertices: []
       indices: 
       edges: []
