@@ -14,6 +14,7 @@ public class WindEffect : MonoBehaviour
     public float animationFrameRate = 0.1f;
     public GameObject statusBar;
     public StatusBar charger;
+    public GameObject windCanvas;
 
     private Rigidbody2D playerRigidbody;
     private float windDirection; // Track the wind direction globally within the script
@@ -57,12 +58,14 @@ public class WindEffect : MonoBehaviour
             StartCoroutine(AnimateWind());
 
             statusBar.SetActive(true);
+            windCanvas.SetActive(true);
 
             // Wait for the wind duration to pass
             yield return new WaitForSeconds(windDuration);
 
             charger.ResetFill();
             statusBar.SetActive(false);
+            windCanvas.SetActive(false);
 
             // Hide wind animation sprite
             windSpriteRenderer.enabled = false;
