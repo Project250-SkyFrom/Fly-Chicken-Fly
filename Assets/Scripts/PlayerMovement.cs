@@ -178,6 +178,7 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKey(KeyCode.E)){//&&EventController.Instance.isAblePowerUp
                 if (EventController.Instance.isAblePowerUp){
                     PowerUp();  
+                    AudioController.Instance.PlayPowerUp();
                     EventController.Instance.ChargePowerUp();
                 }
             }
