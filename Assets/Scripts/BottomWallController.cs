@@ -6,17 +6,15 @@ public class BottomWallController : MonoBehaviour
 {
     public Transform player; // Reference to the player's transform
     public GameObject spikeEdge; // Reference to the spike wall
-    private Rigidbody2D body;
-    public float moveSpeed = 3f; // Speed at which the spike wall moves
-    public float maxDistance = 10f; // Maximum distance below the player
-    public float catchUpDelay = 1f; // Time before spike wall starts moving when player is idle
+    public float moveSpeed = 2f; // Speed at which the spike wall moves
+    public float maxDistance = 15f; // Maximum distance below the player
+    public float catchUpDelay = 2f; // Time before spike wall starts moving when player is idle
     private float catchUpTimer;
     public float oscillationMagnitude = 2f; // How far the spike wall oscillates along the X axis
     public float oscillationSpeed = 5f; // How fast the spike wall oscillates
     
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
         catchUpTimer = catchUpDelay;
         StartCoroutine(OscillateSpikeEdge());
     }
@@ -30,7 +28,7 @@ public class BottomWallController : MonoBehaviour
         if (playerYPos - spikeWallYPos > maxDistance)
         {
             // Move the spike wall upwards at moveSpeed
-            body.velocity = new Vector2(0, moveSpeed);
+            transform.position = new Vector2(transform.position.x, playerYPos - maxDistance);
             catchUpTimer = catchUpDelay; // Reset the catch-up timer
         }
         else
@@ -40,13 +38,14 @@ public class BottomWallController : MonoBehaviour
             
             if (catchUpTimer <= 0)
             {
-                // If the countdown has finished, move the spike wall upwards
-                body.velocity = new Vector2(0, moveSpeed * 0.5f); // Move slower than the normal moveSpeed
+                // If the countdown is over, move the spike wall upwards
+                Vector2 velocity = new Vector2(0, moveSpeed);
+                transform.Translate(velocity * Time.deltaTime);
             }
             else
             {
                 // If the countdown is still going, stop moving
-                body.velocity = new Vector2(0, 0);
+                Vector2 velocity = new Vector2(0, 0);
             }
         }
     }
