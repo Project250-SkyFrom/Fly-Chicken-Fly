@@ -7326,7 +7326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &227263536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22734,6 +22734,8 @@ MonoBehaviour:
   tutorial: {fileID: 965603923}
   bgSlider: {fileID: 1145358787}
   sfxSlider: {fileID: 1236822299}
+  blurLayer: {fileID: 0}
+  blurCanvas: {fileID: 0}
 --- !u!82 &782966350
 AudioSource:
   m_ObjectHideFlags: 0
