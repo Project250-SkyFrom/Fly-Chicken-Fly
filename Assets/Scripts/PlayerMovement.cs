@@ -147,12 +147,33 @@ public class PlayerMovement : MonoBehaviour
                 // Handle left movement
                 move = -1f;
                 isIdle = false;
+                SpriteRenderer jumpRender = speedUpCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer shieldRender = shieldCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer windRender = windCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer invincibleRender = invincibleCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer babyRender = babyChickenCanvas.GetComponent<SpriteRenderer>();
+    
+                jumpRender.flipX = false;
+                shieldRender.flipX = false;
+                windRender.flipX = false;
+                invincibleRender.flipX = false;
+                babyRender.flipX = false;
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 // Handle right movement
                 move = 1f;
                 isIdle = false;
+                SpriteRenderer jumpRender = speedUpCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer shieldRender = shieldCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer windRender = windCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer invincibleRender = invincibleCanvas.GetComponent<SpriteRenderer>();
+                SpriteRenderer babyRender = babyChickenCanvas.GetComponent<SpriteRenderer>();
+                jumpRender.flipX = true;
+                shieldRender.flipX = true;
+                windRender.flipX = true;
+                invincibleRender.flipX = true;
+                babyRender.flipX = true;
             }
             else if (Input.GetKey(KeyCode.E)){//&&EventController.Instance.isAblePowerUp
                 if (EventController.Instance.isAblePowerUp){
@@ -387,6 +408,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ParalyzePlayer()
     {
         isParalyzed = true;
+        isInvincible = true;
 
         // Disable movement in the y-direction
         body.constraints = RigidbodyConstraints2D.FreezePositionY;
@@ -419,6 +441,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Mark paralysis as ended
         isParalyzed = false;
+        isInvincible = false;
     }
 
     IEnumerator PlayEggCollisionAnimation()
@@ -449,12 +472,14 @@ public class PlayerMovement : MonoBehaviour
             Vector2 newPosition = (Vector2)transform.position + movementIncrement * Time.fixedDeltaTime;
             body.MovePosition(newPosition);
 
+            isInvincible = true;
             // Wait for the next fixed frame
             yield return new WaitForFixedUpdate();
         }
 
         // Re-enable movement after the animation
         ableToMove = true;
+        isInvincible = false;
     }
 
 
