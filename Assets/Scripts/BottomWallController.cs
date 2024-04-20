@@ -13,11 +13,13 @@ public class BottomWallController : MonoBehaviour
     public float oscillationMagnitude = 2f; // How far the spike wall oscillates along the X axis
     public float oscillationSpeed = 5f; // How fast the spike wall oscillates
     private bool startMoving;
-    
+    private bool farmerFaceShown;
+    public GameObject famerFace;
     void Start()
     {
         catchUpTimer = catchUpDelay;
         startMoving = false;
+        farmerFaceShown = false;
         StartCoroutine(OscillateSpikeEdge());
     }
 
@@ -52,12 +54,22 @@ public class BottomWallController : MonoBehaviour
         if (playerYPos >= spikeWallYPos+20){
             startMoving = true;
         }
+        if (farmerFaceShown == false && playerYPos <= spikeWallYPos+15 && startMoving){
+            StartCoroutine(ShowFarmerFace());
+        }
         if (startMoving){
             transform.Translate(0, moveSpeed * Time.deltaTime, 0);
         }
-        //}
     }
     
+    IEnumerator ShowFarmerFace(){
+        famerFace.SetActive(true);
+        farmerFaceShown = true;
+        yield return new WaitForSeconds(1);
+        famerFace.SetActive(false);
+        farmerFaceShown = false;
+    }
+
     private IEnumerator OscillateSpikeEdge()
     {
         while (true) // Infinite loop to keep the oscillation going

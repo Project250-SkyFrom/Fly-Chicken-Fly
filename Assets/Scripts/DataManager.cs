@@ -144,6 +144,8 @@ public class DataManager : MonoBehaviour
         savedJson = PlayerPrefs.GetString("playerData");
         if (PlayerPrefs.HasKey("needTutorial")){
             needTutorial = PlayerPrefs.GetInt("needTutorial");
+        }else{
+            PlayerPrefs.SetInt("needTutorial",1);
         }
         loadedData = JsonUtility.FromJson<PlayerData>(savedJson) ?? new PlayerData();
         string updatedJson = JsonUtility.ToJson(loadedData);
@@ -193,7 +195,7 @@ public class DataManager : MonoBehaviour
             }
         }
         // Update PlayerPrefs with the new high score
-        if (index==0){
+        if (index>=0){
             loadedData.SetHighestScore(index,current_height,playerName,goldenEgg,meter);
             getNewHighestScore = true;
             // if (index == 0){
