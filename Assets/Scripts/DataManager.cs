@@ -197,9 +197,7 @@ public class DataManager : MonoBehaviour
         // Update PlayerPrefs with the new high score
         if (index>=0){
             loadedData.SetHighestScore(index,current_height,playerName,goldenEgg,meter);
-            if (index==0){
-                getNewHighestScore = true;
-            }
+            getNewHighestScore = true;
             // if (index == 0){
             //     RankingView.Instance.setScores(current_height);
             // }
