@@ -131,6 +131,7 @@ public class DataManager : MonoBehaviour
     public string currentGameMode;
     public string playerName=null;
     public bool playCutScene;
+    public int needTutorial = 1;
     public bool getNewHighestScore=false;
     private int maxLocalScore=5;
      public List<LeaderboardEntry> TopScores = new List<LeaderboardEntry>();
@@ -141,6 +142,9 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); // Keep the EventController object persistent across scenes
         // Load the JSON string from PlayerPrefs
         savedJson = PlayerPrefs.GetString("playerData");
+        if (PlayerPrefs.HasKey("needTutorial")){
+            needTutorial = PlayerPrefs.GetInt("needTutorial");
+        }
         loadedData = JsonUtility.FromJson<PlayerData>(savedJson) ?? new PlayerData();
         string updatedJson = JsonUtility.ToJson(loadedData);
         playCutScene = loadedData.GetPlayCutScene();
@@ -238,6 +242,11 @@ public class DataManager : MonoBehaviour
 
     public string GetPlayerName(int index){
         return loadedData.GetPlayerName(index);
+    }
+
+    public void SetNeedTutorial(int zero_one){
+        PlayerPrefs.SetInt("needTutorial",zero_one);
+        needTutorial = zero_one;
     }
 
     // public void SubmitScoreToFirebase(int score, string playerName){
