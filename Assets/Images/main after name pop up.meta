@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Images/main after name pop up.meta
 guid: 8120e114276ec114aa1dfb2f81d7ee99
+=======
+<<<<<<<< HEAD:Assets/Fonts/Changa,Changa_One,Crimson_Text (2).meta
+guid: 0354038fdc218cb4bac0b1895f1cb89b
+========
+guid: f2931d9b985b2e24c99e7c2a67971d7b
+>>>>>>>> minseo-change:Assets/Fonts/Changa,Changa_One,Crimson_Text (1).meta
+>>>>>>> Stashed changes:Assets/Fonts/Changa,Changa_One,Crimson_Text (2).meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
