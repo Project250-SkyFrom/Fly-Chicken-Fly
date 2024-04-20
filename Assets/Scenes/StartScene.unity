@@ -1084,15 +1084,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: -526.41003}
-=======
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 0, y: -468.6}
-=======
-  m_AnchoredPosition: {x: 0, y: -459.69}
->>>>>>> minseo-change
->>>>>>> Stashed changes
   m_SizeDelta: {x: 124, y: 141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &138082159
@@ -2358,15 +2350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: -320.41}
-=======
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 0, y: -267.3}
-=======
-  m_AnchoredPosition: {x: 0, y: -264.91003}
->>>>>>> minseo-change
->>>>>>> Stashed changes
   m_SizeDelta: {x: 481, y: 179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278593838
@@ -8707,15 +8691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 150, y: -526.41003}
-=======
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 150, y: -468.4}
-=======
-  m_AnchoredPosition: {x: 150, y: -459.69}
->>>>>>> minseo-change
->>>>>>> Stashed changes
   m_SizeDelta: {x: 124, y: 141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1056319261
@@ -10476,15 +10452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
   m_AnchoredPosition: {x: -150, y: -526.41003}
-=======
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: -150, y: -467}
-=======
-  m_AnchoredPosition: {x: -150, y: -459.69}
->>>>>>> minseo-change
->>>>>>> Stashed changes
   m_SizeDelta: {x: 124, y: 141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1313175250
@@ -15449,7 +15417,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 748859cfa2d84a0458f9e81f7c2a5a8d, type: 3}
+  m_Sprite: {fileID: 7260220749061262866, guid: 27edce5d64471654db4b427ef0787d6c,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

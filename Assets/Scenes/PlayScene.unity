@@ -1858,6 +1858,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -297.7, y: -324}
 =======
 <<<<<<< Updated upstream
@@ -1872,6 +1873,10 @@ RectTransform:
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
   m_SizeDelta: {x: 555, y: 179}
 >>>>>>> Stashed changes
+=======
+  m_AnchoredPosition: {x: -357, y: -324}
+  m_SizeDelta: {x: 526, y: 162}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &38192067
 MonoBehaviour:
@@ -1980,6 +1985,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 6e98f20aeb199864fb2f48416d3493a5, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -1992,6 +1998,9 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: 1c1e7c9ff57b7ce4aa6905c68df45aa7, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3713,6 +3722,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 1269.4, y: 405}
   m_SizeDelta: {x: 1243.4102, y: 164.5365}
 =======
@@ -3729,6 +3739,10 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_AnchoredPosition: {x: 1252, y: 405}
+  m_SizeDelta: {x: 1126, y: 149}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79661275
 MonoBehaviour:
@@ -4797,12 +4811,16 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 408b987a7e4868641ae667470d33a682, type: 3}
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
@@ -4820,6 +4838,8 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6433,6 +6453,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Font: {fileID: 12800000, guid: a88e89eeb872201489a778be75a58c39, type: 3}
     m_FontSize: 150
 =======
@@ -6449,6 +6470,10 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+    m_Font: {fileID: 12800000, guid: 7a38e132a561c42478191cc70de4a429, type: 3}
+    m_FontSize: 65
+>>>>>>> parent of 1eb69ac (minseo merge)
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9572,21 +9597,23 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 903, y: 351.1}
   m_SizeDelta: {x: 260, y: 90}
 =======
 <<<<<<< Updated upstream
-  m_AnchoredPosition: {x: 922.4, y: 353}
 =======
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 903, y: 351.1}
->>>>>>> Stashed changes
+>>>>>>> parent of 1eb69ac (minseo merge)
+  m_AnchoredPosition: {x: 922.4, y: 353}
   m_SizeDelta: {x: 260, y: 90}
+<<<<<<< HEAD
 =======
   m_AnchoredPosition: {x: 890, y: 348.4}
   m_SizeDelta: {x: 356.17792, y: 116.60524}
 >>>>>>> minseo-change
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &246960077
 MonoBehaviour:
@@ -9608,21 +9635,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 1e58f4d2af3497e46953d22cc09fb6c8, type: 3}
   m_Type: 0
 =======
 <<<<<<< Updated upstream
-  m_Sprite: {fileID: 21300000, guid: 865bd2ed765b75f459d932e5ebb4f3ce, type: 3}
 =======
-<<<<<<< HEAD
-  m_Sprite: {fileID: 21300000, guid: 1e58f4d2af3497e46953d22cc09fb6c8, type: 3}
->>>>>>> Stashed changes
+>>>>>>> parent of 1eb69ac (minseo merge)
+  m_Sprite: {fileID: 21300000, guid: 865bd2ed765b75f459d932e5ebb4f3ce, type: 3}
   m_Type: 0
+<<<<<<< HEAD
 =======
   m_Sprite: {fileID: 21300000, guid: 110df24239d27d94494aaf116767118e, type: 3}
   m_Type: 1
 >>>>>>> minseo-change
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11853,6 +11882,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Font: {fileID: 12800000, guid: a88e89eeb872201489a778be75a58c39, type: 3}
     m_FontSize: 150
 =======
@@ -11869,6 +11899,10 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+    m_Font: {fileID: 12800000, guid: 7a38e132a561c42478191cc70de4a429, type: 3}
+    m_FontSize: 65
+>>>>>>> parent of 1eb69ac (minseo merge)
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -14210,6 +14244,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -70, y: -88.9}
 =======
 <<<<<<< Updated upstream
@@ -14222,6 +14257,9 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_AnchoredPosition: {x: -74.5, y: -117}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_SizeDelta: {x: 78, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394203157
@@ -15243,8 +15281,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-<<<<<<< HEAD
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: ab822615f7dfd2341a7d21a74b937dc3, type: 3}
 =======
 <<<<<<< HEAD
@@ -15259,6 +15297,9 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: f12b66ce4d6ae864289365b4dbe9f8be, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -15276,6 +15317,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434762589}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -3.22, y: -2.43, z: -7.362146}
@@ -15297,6 +15339,11 @@ Transform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.32, y: -1.08, z: -7.362146}
+  m_LocalScale: {x: 1.5942013, y: 1.326086, z: 1}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children:
   - {fileID: 942041142}
   m_Father: {fileID: 965603924}
@@ -17056,6 +17103,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -1805.2, y: 99.79999}
   m_SizeDelta: {x: 154.86331, y: 153.45547}
 =======
@@ -17072,6 +17120,10 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_AnchoredPosition: {x: -1742, y: 63}
+  m_SizeDelta: {x: 110, y: 109}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &507123403
 MonoBehaviour:
@@ -18033,8 +18085,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543952997}
   m_LocalRotation: {x: -0.003265701, y: 0.054511473, z: 0.0001782842, w: 0.9985078}
-<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 0, z: -176.1}
+<<<<<<< HEAD
   m_LocalScale: {x: 0.44, y: 0.44, z: 1}
 =======
 <<<<<<< HEAD
@@ -18049,12 +18101,16 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children: []
   m_Father: {fileID: 100013879}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -0.37500003, y: 6.2500005, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_AnchoredPosition: {x: 820.69, y: 439.59}
   m_SizeDelta: {x: 535.68695, y: 175.12231}
@@ -18072,6 +18128,10 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_AnchoredPosition: {x: 822.2, y: 426.7}
+  m_SizeDelta: {x: 180.87915, y: 53.0223}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543952999
 MonoBehaviour:
@@ -18094,6 +18154,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Font: {fileID: 12800000, guid: 889202f2b82543a4aaeaf8d3638feec2, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -18108,6 +18169,10 @@ MonoBehaviour:
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
     m_FontSize: 150
 >>>>>>> Stashed changes
+=======
+    m_Font: {fileID: 12800000, guid: 7a38e132a561c42478191cc70de4a429, type: 3}
+    m_FontSize: 45
+>>>>>>> parent of 1eb69ac (minseo merge)
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -18118,6 +18183,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Text: 123
 =======
@@ -18131,6 +18197,9 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Text: 'Scores:'
+>>>>>>> parent of 1eb69ac (minseo merge)
 --- !u!222 &543953000
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18154,6 +18223,7 @@ MonoBehaviour:
   player: {fileID: 1366631711}
   goldenEgg: 0
   score: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 --- !u!114 &543953002
@@ -18180,6 +18250,8 @@ MonoBehaviour:
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
   m_UseGraphicAlpha: 1
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
 --- !u!1 &546960983
 GameObject:
   m_ObjectHideFlags: 0
@@ -19820,6 +19892,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -637.2, y: 93.741}
 =======
 <<<<<<< Updated upstream
@@ -19832,6 +19905,9 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_AnchoredPosition: {x: -883, y: -466}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_SizeDelta: {x: 124, y: 141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &590495820
@@ -19919,6 +19995,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: fea4ed09bd813944b85560de529e5f6a, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -19931,6 +20008,9 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: 6e80a83715312444b97a198929f9c4ed, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19982,8 +20062,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
   m_AnchoredPosition: {x: -105, y: 117}
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
   m_AnchoredPosition: {x: -105, y: 117}
@@ -19996,6 +20076,9 @@ RectTransform:
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
   m_SizeDelta: {x: 311, y: 79}
 >>>>>>> Stashed changes
+=======
+  m_SizeDelta: {x: 224, y: 54}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &604504242
 MonoBehaviour:
@@ -20017,6 +20100,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: ac87b6f1b90ae02449bc4946ce1c3186, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -20029,6 +20113,9 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: a8c1abca26753664490550767f9af97d, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21748,6 +21835,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -114.40001, y: 68.8}
 =======
 <<<<<<< Updated upstream
@@ -21762,6 +21850,10 @@ RectTransform:
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
   m_SizeDelta: {x: 294, y: 59}
 >>>>>>> Stashed changes
+=======
+  m_AnchoredPosition: {x: -156, y: -1}
+  m_SizeDelta: {x: 317, y: 56}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &632478351
 MonoBehaviour:
@@ -21783,6 +21875,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 6cf35192b4f4e16418dfd0bdf6e06962, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -21795,6 +21888,9 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: 58167e3adcb83bb44a4a246e93546845, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22370,6 +22466,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 299.3, y: -323.99994}
 =======
 <<<<<<< Updated upstream
@@ -22384,6 +22481,10 @@ RectTransform:
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
   m_SizeDelta: {x: 481, y: 179}
 >>>>>>> Stashed changes
+=======
+  m_AnchoredPosition: {x: 340, y: -323.99994}
+  m_SizeDelta: {x: 526, y: 162}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &667816232
 MonoBehaviour:
@@ -22481,6 +22582,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 16c66096d9e45a841a08fdcc2eabc514, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -22493,6 +22595,9 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: 1c1e7c9ff57b7ce4aa6905c68df45aa7, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23314,6 +23419,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -797, y: 446}
   m_SizeDelta: {x: 280.0737, y: 101.07007}
 =======
@@ -23330,6 +23436,10 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_AnchoredPosition: {x: -822, y: 455}
+  m_SizeDelta: {x: 230, y: 83}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &680121850
 MonoBehaviour:
@@ -29255,6 +29365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942041141}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -1.26, y: 0.04, z: 0}
   m_LocalScale: {x: 1.2964746, y: 1.259339, z: 1.1133279}
@@ -29275,6 +29386,11 @@ Transform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.12, y: -0.02, z: 0}
+  m_LocalScale: {x: 0.94091, y: 1.1311483, z: 1}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children: []
   m_Father: {fileID: 434762591}
   m_RootOrder: 0
@@ -29317,8 +29433,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-<<<<<<< HEAD
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 47b4ca86946150e48aef5bf70f552c45, type: 3}
 =======
 <<<<<<< HEAD
@@ -29333,6 +29449,9 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: 25a1bb8e810f2904c970329e695a5ff7, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -32290,6 +32409,7 @@ Transform:
   m_GameObject: {fileID: 1042893950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: -18.41, y: 6.04, z: -3}
   m_LocalScale: {x: 1.5, y: 1.473818, z: 6.6}
 =======
@@ -32306,6 +32426,10 @@ Transform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalPosition: {x: -20, y: 6, z: -3}
+  m_LocalScale: {x: 1.5, y: 1.4, z: 6.6}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children:
   - {fileID: 1614800204}
   m_Father: {fileID: 0}
@@ -32329,6 +32453,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
     oldSize: {x: 13.49, y: 10.81}
 =======
 <<<<<<< Updated upstream
@@ -32341,6 +32466,9 @@ BoxCollider2D:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+    oldSize: {x: 10.29, y: 18.18}
+>>>>>>> parent of 1eb69ac (minseo merge)
     newSize: {x: 4.41, y: 10.97}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -32387,9 +32515,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-<<<<<<< Updated upstream
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: ac19c46879e5d52458864626bc783151, type: 3}
+<<<<<<< HEAD
 =======
   m_SortingOrder: 5
 <<<<<<< HEAD
@@ -32402,6 +32530,8 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -35948,6 +36078,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 27.200005, y: -88.9}
 =======
 <<<<<<< Updated upstream
@@ -35962,6 +36093,10 @@ RectTransform:
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
   m_SizeDelta: {x: 11, y: 42}
 >>>>>>> Stashed changes
+=======
+  m_AnchoredPosition: {x: -7.8, y: -117}
+  m_SizeDelta: {x: 19, y: 42}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1126302063
 MonoBehaviour:
@@ -35983,6 +36118,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 8a8c5b8a3bed96c41ba5e841108244ce, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -35995,6 +36131,9 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: ab1a52c73fc2eb84aaee0d39a07e4b76, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -36043,8 +36182,8 @@ PrefabInstance:
     - target: {fileID: 493685811554577527, guid: 5afd9a6600cc2ac40809aa17f3bcf818,
         type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: 49.3
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
       value: 49.3
@@ -36052,12 +36191,14 @@ PrefabInstance:
       value: -6.7
 >>>>>>> minseo-change
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
       objectReference: {fileID: 0}
     - target: {fileID: 493685811554577527, guid: 5afd9a6600cc2ac40809aa17f3bcf818,
         type: 3}
       propertyPath: m_LocalPosition.y
-<<<<<<< HEAD
       value: -4
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
       value: -4
@@ -36065,6 +36206,8 @@ PrefabInstance:
       value: -3.3
 >>>>>>> minseo-change
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
       objectReference: {fileID: 0}
     - target: {fileID: 493685811554577527, guid: 5afd9a6600cc2ac40809aa17f3bcf818,
         type: 3}
@@ -36890,6 +37033,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -637.2, y: -99.49997}
 =======
 <<<<<<< Updated upstream
@@ -36902,6 +37046,9 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_AnchoredPosition: {x: 887.99994, y: -466}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_SizeDelta: {x: 124, y: 141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1128523896
@@ -36989,6 +37136,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: ef8d7bd8b01a8644484e1a5bd33d1ba0, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -37001,6 +37149,9 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: 9ef1ee5084c931a4687096ac1ebcdccc, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -37893,6 +38044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165784600}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -1.21, y: -0.03, z: 0}
   m_LocalScale: {x: 1.0934057, y: 1.3144765, z: 1.1620725}
@@ -37913,6 +38065,11 @@ Transform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01, y: -1.23, z: 0}
+  m_LocalScale: {x: 0.94091, y: 1.1311483, z: 1}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children: []
   m_Father: {fileID: 1217417219}
   m_RootOrder: 0
@@ -37955,8 +38112,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-<<<<<<< HEAD
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 6d472f2e37653e14dbdc7d79dec5c920, type: 3}
 =======
 <<<<<<< HEAD
@@ -37971,6 +38128,9 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: 9e65b401e24c5d941a2b61165c8bd158, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -39562,8 +39722,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193341400}
   m_LocalRotation: {x: -0.003265701, y: 0.054511473, z: 0.0001782842, w: 0.9985078}
-<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 0, z: -52.2}
+<<<<<<< HEAD
   m_LocalScale: {x: 0.4, y: 0.41, z: 1.0122523}
 =======
 <<<<<<< HEAD
@@ -39578,12 +39738,16 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalScale: {x: 1.5218042, y: 0.9999565, z: 1.0122523}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children: []
   m_Father: {fileID: 680121849}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.37500003, y: 6.2500005, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_AnchoredPosition: {x: -27.3, y: 19.11}
   m_SizeDelta: {x: 290.64606, y: 93.21936}
@@ -39601,6 +39765,10 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_AnchoredPosition: {x: -28.000061, y: -1.7999573}
+  m_SizeDelta: {x: 84.628525, y: 63.81832}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1193341402
 MonoBehaviour:
@@ -39635,9 +39803,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Font: {fileID: 12800000, guid: 889202f2b82543a4aaeaf8d3638feec2, type: 3}
 =======
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
     m_Font: {fileID: 12800000, guid: 7a38e132a561c42478191cc70de4a429, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
@@ -39645,6 +39816,7 @@ MonoBehaviour:
     m_MinSize: 0
     m_MaxSize: 100
     m_Alignment: 4
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
     m_Font: {fileID: 12800000, guid: 889202f2b82543a4aaeaf8d3638feec2, type: 3}
@@ -39667,6 +39839,8 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -40272,6 +40446,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Font: {fileID: 12800000, guid: 28304ab019fde3747b309ffb6ca0a4a2, type: 3}
     m_FontSize: 150
 =======
@@ -40288,6 +40463,10 @@ MonoBehaviour:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+    m_Font: {fileID: 12800000, guid: 7a38e132a561c42478191cc70de4a429, type: 3}
+    m_FontSize: 65
+>>>>>>> parent of 1eb69ac (minseo merge)
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -40814,8 +40993,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-<<<<<<< HEAD
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: ab822615f7dfd2341a7d21a74b937dc3, type: 3}
 =======
 <<<<<<< HEAD
@@ -40830,6 +41009,9 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: 0530250d4d9426548b4c4d142be91b80, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -40847,6 +41029,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217417217}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.32000017, y: 0.31999993, z: -7.362146}
@@ -40868,6 +41051,11 @@ Transform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.86, y: 2.12, z: -7.362146}
+  m_LocalScale: {x: 1.5942013, y: 1.326086, z: 1}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children:
   - {fileID: 1165784601}
   m_Father: {fileID: 965603924}
@@ -44824,6 +45012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355520317}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 5.82, y: -0.5, z: 0}
   m_LocalScale: {x: 1.06, y: 1.22, z: 6.6}
@@ -44833,6 +45022,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 =======
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 0.14, z: 0}
   m_LocalScale: {x: 0.5, y: 1, z: 6.6}
@@ -44840,6 +45031,7 @@ Transform:
   m_Father: {fileID: 1887190928}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
@@ -44860,6 +45052,8 @@ Transform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
 --- !u!65 &1355520319
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44913,6 +45107,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: bc5b632a407820a419f896b78e192c2b, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -44925,6 +45120,9 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: d6ced4c5198756749a97b57068d9e92a, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -50053,6 +50251,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Font: {fileID: 12800000, guid: 889202f2b82543a4aaeaf8d3638feec2, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -50067,6 +50266,10 @@ MonoBehaviour:
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
     m_FontSize: 150
 >>>>>>> Stashed changes
+=======
+    m_Font: {fileID: 12800000, guid: 7a38e132a561c42478191cc70de4a429, type: 3}
+    m_FontSize: 60
+>>>>>>> parent of 1eb69ac (minseo merge)
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -50096,16 +50299,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469884028}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: -0.0032159025, y: 0.054514434, z: -0.0007338689, w: 0.99850756}
   m_LocalPosition: {x: 0, y: 0, z: -50.65}
   m_LocalScale: {x: 0.45, y: 0.41, z: 1.0122523}
 =======
 <<<<<<< Updated upstream
-  m_LocalRotation: {x: -0.003265701, y: 0.054511473, z: 0.0001782842, w: 0.9985078}
 =======
-<<<<<<< HEAD
-  m_LocalRotation: {x: -0.0032159025, y: 0.054514434, z: -0.0007338689, w: 0.99850756}
->>>>>>> Stashed changes
+>>>>>>> parent of 1eb69ac (minseo merge)
+  m_LocalRotation: {x: -0.003265701, y: 0.054511473, z: 0.0001782842, w: 0.9985078}
   m_LocalPosition: {x: 0, y: 0, z: -50.65}
   m_LocalScale: {x: 1.5218042, y: 0.9999565, z: 1.0122523}
   m_Children: []
@@ -50114,9 +50316,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -0.37500003, y: 6.2500005, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
   m_AnchoredPosition: {x: -27.700012, y: -0.86990356}
   m_SizeDelta: {x: 80.44925, y: 67.4194}
+<<<<<<< HEAD
 =======
   m_AnchoredPosition: {x: -26.000061, y: 8.9}
   m_SizeDelta: {x: 623.52673, y: 533.5325}
@@ -50140,6 +50342,8 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1471083183
 GameObject:
@@ -52139,6 +52343,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -797, y: 320.5}
   m_SizeDelta: {x: 280.0737, y: 101.07007}
 =======
@@ -52155,6 +52360,10 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_AnchoredPosition: {x: -822, y: 352}
+  m_SizeDelta: {x: 230, y: 83}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545877633
 MonoBehaviour:
@@ -53025,6 +53234,7 @@ Transform:
   m_GameObject: {fileID: 1614800203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 5.8, y: -0.3, z: -0}
   m_LocalScale: {x: 1.06, y: 1.22, z: 6.6}
 =======
@@ -53041,6 +53251,10 @@ Transform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalPosition: {x: 5, y: 0.1, z: -0}
+  m_LocalScale: {x: 0.5, y: 1, z: 6.6}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children: []
   m_Father: {fileID: 1042893951}
   m_RootOrder: 0
@@ -53098,6 +53312,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 840b085d0035808418189aab7a1f8825, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -53110,6 +53325,9 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: d6ced4c5198756749a97b57068d9e92a, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -57686,6 +57904,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
 =======
 <<<<<<< Updated upstream
@@ -57698,12 +57917,16 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children: []
   m_Father: {fileID: 100013879}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_AnchoredPosition: {x: 673, y: 371.1}
   m_SizeDelta: {x: 607.7371, y: 221.47238}
@@ -57721,6 +57944,10 @@ RectTransform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_AnchoredPosition: {x: 737.38, y: 371.9}
+  m_SizeDelta: {x: 90.1501, y: 65.7081}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1771481543
 MonoBehaviour:
@@ -57755,6 +57982,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Font: {fileID: 12800000, guid: 889202f2b82543a4aaeaf8d3638feec2, type: 3}
 =======
 <<<<<<< Updated upstream
@@ -57769,6 +57997,10 @@ MonoBehaviour:
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
     m_FontSize: 150
 >>>>>>> Stashed changes
+=======
+    m_Font: {fileID: 12800000, guid: 7a38e132a561c42478191cc70de4a429, type: 3}
+    m_FontSize: 60
+>>>>>>> parent of 1eb69ac (minseo merge)
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -57788,6 +58020,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771481541}
   m_CullTransparentMesh: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 --- !u!114 &1771481546
@@ -57814,6 +58047,8 @@ MonoBehaviour:
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
   m_UseGraphicAlpha: 1
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
 --- !u!1 &1772347375
 GameObject:
   m_ObjectHideFlags: 0
@@ -58444,21 +58679,23 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 874, y: 82}
   m_SizeDelta: {x: 119, y: 401}
 =======
 <<<<<<< Updated upstream
-  m_AnchoredPosition: {x: 870, y: 118}
 =======
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 874, y: 82}
->>>>>>> Stashed changes
+>>>>>>> parent of 1eb69ac (minseo merge)
+  m_AnchoredPosition: {x: 870, y: 118}
   m_SizeDelta: {x: 119, y: 401}
+<<<<<<< HEAD
 =======
   m_AnchoredPosition: {x: 864.50006, y: 114.99999}
   m_SizeDelta: {x: 119, y: 412}
 >>>>>>> minseo-change
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783644747
 MonoBehaviour:
@@ -61945,6 +62182,7 @@ Transform:
   m_GameObject: {fileID: 1887190927}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 18.8, y: 6.04, z: -3}
   m_LocalScale: {x: 1.5, y: 1.473818, z: 6.6}
 =======
@@ -61961,6 +62199,10 @@ Transform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalPosition: {x: 20, y: 6, z: -3}
+  m_LocalScale: {x: 1.5, y: 1.4, z: 6.6}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children:
   - {fileID: 1355520318}
   m_Father: {fileID: 0}
@@ -61984,6 +62226,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
     oldSize: {x: 13.49, y: 10.81}
 =======
 <<<<<<< Updated upstream
@@ -61996,6 +62239,9 @@ BoxCollider2D:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+    oldSize: {x: 10.29, y: 18.18}
+>>>>>>> parent of 1eb69ac (minseo merge)
     newSize: {x: 4.41, y: 10.97}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -62042,9 +62288,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-<<<<<<< Updated upstream
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: ac19c46879e5d52458864626bc783151, type: 3}
+<<<<<<< HEAD
 =======
   m_SortingOrder: 5
 <<<<<<< HEAD
@@ -62057,6 +62303,8 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -65632,6 +65880,7 @@ Transform:
   m_GameObject: {fileID: 2006638975}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 0.99, y: -0.01, z: 0}
   m_LocalScale: {x: 0.823437, y: 0.86262095, z: 1}
 =======
@@ -65648,6 +65897,10 @@ Transform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalPosition: {x: 1.13, y: -0.09, z: 0}
+  m_LocalScale: {x: 1.0628009, y: 0.8840574, z: 1}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children: []
   m_Father: {fileID: 2058028747}
   m_RootOrder: 0
@@ -65690,8 +65943,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-<<<<<<< HEAD
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: ab822615f7dfd2341a7d21a74b937dc3, type: 3}
 =======
 <<<<<<< HEAD
@@ -65706,6 +65959,9 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: 26702c2caa179ce4f8138f55e69b6dae, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -67329,8 +67585,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-<<<<<<< HEAD
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: a97b8dd74f4b4b847bcbf9cae87faa40, type: 3}
 =======
 <<<<<<< HEAD
@@ -67345,6 +67601,9 @@ SpriteRenderer:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_Sprite: {fileID: 21300000, guid: 0b8fc5ee6da32a84d9eeb8f6ad85c209, type: 3}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -67364,6 +67623,7 @@ Transform:
   m_GameObject: {fileID: 2058028745}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalPosition: {x: 0.95999956, y: -2.45, z: -7.362146}
   m_LocalScale: {x: 1.6175658, y: 1.6175658, z: 1.0783771}
 =======
@@ -67380,6 +67640,10 @@ Transform:
 >>>>>>> minseo-change
 >>>>>>> Stashed changes
 >>>>>>> parent of c3ba8bd (Merge branch 'minseo-change' into visual-change)
+=======
+  m_LocalPosition: {x: 12.7, y: -1.09, z: -7.362146}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+>>>>>>> parent of 1eb69ac (minseo merge)
   m_Children:
   - {fileID: 2006638976}
   m_Father: {fileID: 965603924}
