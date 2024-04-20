@@ -15,6 +15,8 @@ public class UIController : MonoBehaviour
     public GameObject tutorial;
     public Slider bgSlider;
     public Slider sfxSlider;
+    public GameObject blurLayer;
+    public GameObject blurCanvas;
 
     //Singleton pattern
     private static UIController _instance;
@@ -61,6 +63,16 @@ public class UIController : MonoBehaviour
             UIController.Instance.SetUIActive(tonOn);
             UIController.Instance.SetUIActive(toffOff);
         }
+
+
+        if (DataManager.Instance.needTutorial==1){
+                if(blurCanvas != null && blurLayer!=null){
+                    SetUIActive(blurCanvas);
+                    SetUIActive(blurLayer);
+                    //DataManager.Instance.SetNeedTutorial(1); 
+                }
+        }
+        
     }
 
     public void SetUIActive(GameObject ui)
