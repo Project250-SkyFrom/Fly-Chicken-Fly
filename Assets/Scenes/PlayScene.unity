@@ -8984,9 +8984,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1366631710}
   spikeEdge: {fileID: 2087060146}
-  moveSpeed: 3.8
+  moveSpeed: 2
   maxDistance: 10
-  catchUpDelay: 1
+  catchUpDelay: 2
   oscillationMagnitude: 2
   oscillationSpeed: 5
   famerFace: {fileID: 333586599}
@@ -16800,7 +16800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -1805.2, y: 99.8}
+  m_AnchoredPosition: {x: -1805.2, y: 99.79999}
   m_SizeDelta: {x: 154.86331, y: 153.45547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &507123403
